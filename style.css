@@ -1,4 +1,4 @@
-/*
+
 
 :root {
     --color-white: #f3f3f3;
@@ -36,13 +36,15 @@ body {
     font-size: 2rem;
 }
 
+/*
+
 .list-item {
     width: 50%;
     overflow-y: scroll;
 }
 
 
-.list-item__box{
+.item__box{
     color: white;
     width: 90%;
     background: rgb(0, 139, 86);
@@ -53,26 +55,26 @@ body {
     border-radius: .2rem;
 }
 
-.list-item__box:hover {
+.item__box:hover {
     transform: translateY(-4px)!important;
     box-shadow: 0 10px 15px rgba(0,0,0,.13)!important;
     cursor: pointer;
 }
 
-.item-box__info {
+.item__box--info {
     width: 90%;
     margin: 1.7rem;
 }
 
-.item-box__info p{
+.item__box--info p{
     margin-top: 1rem;
 }
 
-.item-icon {
+.item__box--icon {
     width: 10%;
 }
 
-.item-icon i{
+.item__box--icon i{
     display: block;
    cursor: pointer;
    font-size: 2.7rem;
