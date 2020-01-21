@@ -4,11 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student List</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/efd33a6a78.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+    <div class="container">
+        <div class="list-item">
+            <div class="list-item__box">
+                <div class="item-box__info">
+                    <p>Name: name</p>
+                    <p>Address : sjf 4, 2453, helsinki</p>
+                    <p>Phone : 0205252</p>
+                    <p>Email: segfsds@gmail.com</p>
+                    <p>Age: 12</p>
+                    <p>Job : ninne</p>
+                </div>
+                <div class="item-icon">
+                    <i id="delete" class="fas fa-trash-alt"></i>
+                    <i id="edit" class="fas fa-edit"></i>
+                </div>
+            </div>
+
+            
+        </div>
+<!--
+    <div class="form-container">
+        
+        <form action="#" id="main-form">
+
+            <div class="form-box-input">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Enter your name" id="name" required/>
+            </div>
+
+            <div class="form-box-input">
+                <label for="name">Address</label>
+                <input type="text" name="address" placeholder="Enter your address" id="address" required/>
+            </div>
+
+            
+            <div class="form-box-input">
+                <label for="">Phone</label>
+                <input type="number" placeholder="Enter your Phone" id="phone" required>
+            </div>
+
+            <div class="form-box-input">
+                <label for="">Email</label>
+                <input type="email" placeholder="Enter your Email" id="email" required>
+            </div>
+
+            <div class="form-box-input">
+                <label for="">Age</label>
+                <input type="number" min="18" max="90" placeholder="Enter your age" id="age" required>
+            </div>
+
+            <div class="form-box-input">
+                <label for="">Which option is your current job?</label>
+                <select id="selectOption" name="" class="select-menu" required>
+                    <option value="" disabled selected>Select current job</option>
+                    <option value="1">Student</option>
+                    <option value="2">Software developer</option>
+                    <option value="3">Web-fullstack developer</option>
+                    <option value="4">Software engineer</option>
+                </select>
+            </div>
+
+            
+                <button type="submit" id="submit" class="submit-button">
+                  Submit
+                </button>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    'use strict';
     
+    const KEY_NAME = "thiskey";
+
+    function getInputValue(elementti){
+        let inputValue = document.getElementById(elementti).value;
+        return inputValue;
+    }
+
+    var listStudents = {
+        dataList : [],
+        add: function(student){
+            this.dataList.push(student)
+        },
+        save: function(){
+            const jsonData = JSON.stringify(this.dataList);
+            localStorage.setItem(KEY_NAME, jsonData);
+        }
+
+    };
+
+    const formAuto = document.getElementById('main-form');
+    formAuto.addEventListener('submit', function(film3) {
+    film3.preventDefault();
+});
+
+    let buttonClicked = document.getElementById("submit");
+    buttonClicked.addEventListener("click", function(film){
+        film.preventDefault();
+        let name = getInputValue("name");
+        let address = getInputValue("address");
+        let phone = getInputValue("phone");
+        let email = getInputValue("email");
+        let age = getInputValue("age");
+        let selected = changeSelectedValue(getInputValue("selectOption"));
+      
+        listStudents.add(
+            {
+                name: name,
+                address: address,
+                phone: phone,
+                email: email,
+                age: age,
+                job: selected
+            }
+        );
+
+        
+        
+        listStudents.save();
+    });
+    
+
+    function changeSelectedValue(getValue) {
+        switch(getValue){
+            case "1":
+            return "Students";
+            break;
+
+            case "2":
+            return "Software Developer";
+            break;
+
+            case "3":
+            return "Web -fullstack developer";
+            break;
+
+            case "4":
+            return "Sofware engineer";
+            break;
+
+            
+        }
+    }
+
+</script>
+-->
+
 </body>
 </html>
