@@ -70,12 +70,13 @@
     'use strict';
     
     
-
+    let listItem = document.getElementById("list-item");
     const Student = {
         storeKey: 'STUDENT_DATA',
 
         data : [],
 
+        
         load: function() {
             const jsonData = localStorage.getItem(this.storeKey);
             try {
@@ -102,40 +103,71 @@
             localStorage.setItem(this.storeKey, jsonData);
         },
 
+
         get list(){
             return this.data;
         }
 
-    };
+    }
 
-    Student.load();
+      Student.load();
+      renderStudents();
 
+    const formAuto = document.getElementById('main-form');
+        formAuto.addEventListener('submit', function(e) {
+            e.preventDefault();
+        });
 
     function submitClickHandle() {
+        
         var name = getInputValue("#name");
         var address = getInputValue("#address");
         var phone = getInputValue("#phone");
         var email = getInputValue("#email");
         var age = getInputValue("#age");
         var selected = changeSelectedValue(getInputValue("#selectOption"));
-        alert(selected);
-        Student.add(
-            {
-                name: name,
-                address: address,
-                phone: phone,
-                email: email,
-                age: age,
-                job: selected
+
+        Student.add({
+            name: name,
+            address: address,
+            phone: phone,
+            email: email,
+            age: age,
+            job: selected
             });
 
         Student.save();
+        
+        renderStudents();
     }
-
 
     function getInputValue(selector){
         var inputValue = document.querySelector(selector);
         return inputValue.value;
+    }
+
+    function renderStudents() {
+        const Students = Student.list;
+
+        for(let i = 0; i < Students.length; i++){
+
+            console.log(Students.length);
+            var opiskelija = Students[i];
+            var itembox = document.createElement("div");
+            itembox.setAttribute("class", "item__box");
+            let divItem = document.createElement("div");
+            let divIcon = document.createElement("div");
+            divItem.setAttribute("class", "item__box--info");
+            divIcon.setAttribute("class", "item__box--icon");
+            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt"></i><i id="edit" class="fas fa-edit"></i>';
+            divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
+            itembox.appendChild(divItem);
+            itembox.appendChild(divIcon);
+            console.log(opiskelija.job);
+
+        }
+
+        listItem.appendChild(itembox);
     }
 
 
@@ -162,63 +194,7 @@
             break;
         }
     }
-/*
-    Student.load();
-    console.log(Student.listData);
-    const formAuto = document.getElementById('main-form');
-        formAuto.addEventListener('submit', function(e) {
-            e.preventDefault();
-        });
 
-    let buttonClicked = document.getElementById("submit");
-    buttonClicked.addEventListener("click", renderItem);
-  
-
-    function renderItem(e){
-        e.preventDefault();
-        let name = getInputValue("name");
-        let address = getInputValue("address");
-        let phone = getInputValue("phone");
-        let email = getInputValue("email");
-        let age = getInputValue("age");
-        let selected = changeSelectedValue(getInputValue("selectOption"));
-      
-        
-        
-        
-        let outputJson = localStorage.getItem(KEY_NAME);
-        let dataOutput = JSON.parse(outputJson);
-        
-        let listItem = document.getElementById("list-item");
-        
-        for(let i = 0; i < dataOutput.length; i++){
-
-
-            var itembox = document.createElement("div");
-            itembox.setAttribute("class", "item__box");
-            let divItem = document.createElement("div");
-            let divIcon = document.createElement("div");
-            divItem.setAttribute("class", "item__box--info");
-            divIcon.setAttribute("class", "item__box--icon");
-            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt"></i><i id="edit" class="fas fa-edit"></i>';
-            divItem.innerHTML = '<p>Name: '+ dataOutput[i].name +'</p><p>Address : '+ dataOutput[i].address +'</p><p>Phone : '+ dataOutput[i].phone +'</p><p>Email: '+ dataOutput[i].email +'</p><p>Age: '+ dataOutput[i].age +'</p><p>Job : '+ dataOutput[i].job +'</p>';
-            itembox.appendChild(divItem);
-            itembox.appendChild(divIcon);
-
-        }
-
-        listItem.appendChild(itembox);
-
-        
-
-    }
-
-    
-    
-    
-    
-
-    */
 </script>
 </body>
 </html>
