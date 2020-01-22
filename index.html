@@ -56,7 +56,7 @@
             </div>
 
             
-                <button type="submit" id="submit" class="submit-button">
+                <button type="submit" id="submit" class="submit-button" onclick="submitClickHandle()">
                   Submit
                 </button>
         </form>
@@ -69,22 +69,102 @@
 <script>
     'use strict';
     
-    const KEY_NAME = "STUDENTS";
+    
 
     const Student = {
-        ListStudent : [],
+        storeKey: 'STUDENT_DATA',
+
+        data : [],
+
+        load: function() {
+            const jsonData = localStorage.getItem(this.storeKey);
+            try {
+                this.data = JSON.parse(jsonData);
+            } catch (e) {
+                alert("chua co thong tin");
+            }
+        },
 
         add: function(student){
-            this.ListStudent.push(student)
+            this.data.push(student)
+        },
+
+        edit:function(index, student){
+            this.data[index] = student;
+        },
+
+        delete: function(index){
+            this.data.splice(index,1);
         },
 
         save: function(){
-            const jsonData = JSON.stringify(this.ListStudent);
-            localStorage.setItem(KEY_NAME, jsonData);
+            const jsonData = JSON.stringify(this.data);
+            localStorage.setItem(this.storeKey, jsonData);
+        },
+
+        get list(){
+            return this.data;
         }
 
     };
 
+    Student.load();
+
+
+    function submitClickHandle() {
+        var name = getInputValue("#name");
+        var address = getInputValue("#address");
+        var phone = getInputValue("#phone");
+        var email = getInputValue("#email");
+        var age = getInputValue("#age");
+        var selected = changeSelectedValue(getInputValue("#selectOption"));
+        alert(selected);
+        Student.add(
+            {
+                name: name,
+                address: address,
+                phone: phone,
+                email: email,
+                age: age,
+                job: selected
+            });
+
+        Student.save();
+    }
+
+
+    function getInputValue(selector){
+        var inputValue = document.querySelector(selector);
+        return inputValue.value;
+    }
+
+
+    function changeSelectedValue(getValue) {
+        switch(getValue){
+            case "1":
+            return "Students";
+            break;
+
+            case "2":
+            return "Software Developer";
+            break;
+
+            case "3":
+            return "Web -fullstack developer";
+            break;
+
+            case "4":
+            return "Sofware engineer";
+            break;
+
+            default:
+            return "Not selected";
+            break;
+        }
+    }
+/*
+    Student.load();
+    console.log(Student.listData);
     const formAuto = document.getElementById('main-form');
         formAuto.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -103,23 +183,11 @@
         let age = getInputValue("age");
         let selected = changeSelectedValue(getInputValue("selectOption"));
       
-        Student.add(
-            {
-                name: name,
-                address: address,
-                phone: phone,
-                email: email,
-                age: age,
-                job: selected
-            }
-        );
-
-        Student.save();
-
+        
+        
+        
         let outputJson = localStorage.getItem(KEY_NAME);
         let dataOutput = JSON.parse(outputJson);
-
-        
         
         let listItem = document.getElementById("list-item");
         
@@ -146,30 +214,11 @@
     }
 
     
-    function getInputValue(elementti){
-        let inputValue = document.getElementById(elementti).value;
-        return inputValue;
-    }
     
-    function changeSelectedValue(getValue) {
-        switch(getValue){
-            case "1":
-            return "Students";
-            break;
+    
+    
 
-            case "2":
-            return "Software Developer";
-            break;
-
-            case "3":
-            return "Web -fullstack developer";
-            break;
-
-            case "4":
-            return "Sofware engineer";
-            break;
-        }
-    }
+    */
 </script>
 </body>
 </html>
