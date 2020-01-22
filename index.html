@@ -80,7 +80,7 @@
         load: function() {
             const jsonData = localStorage.getItem(this.storeKey);
             try {
-                this.data = JSON.parse(jsonData);
+                    this.data = JSON.parse(jsonData);
             } catch (e) {
                 alert("chua co thong tin");
             }
@@ -98,9 +98,10 @@
             this.data.splice(index,1);
         },
 
+        
         save: function(){
-            const jsonData = JSON.stringify(this.data);
-            localStorage.setItem(this.storeKey, jsonData);
+                const jsonData = JSON.stringify(this.data);
+                localStorage.setItem(this.storeKey, jsonData);
         },
 
 
@@ -110,13 +111,10 @@
 
     }
 
-      Student.load();
+      
       renderStudents();
 
-    const formAuto = document.getElementById('main-form');
-        formAuto.addEventListener('submit', function(e) {
-            e.preventDefault();
-        });
+    
 
     function submitClickHandle() {
         
@@ -137,8 +135,8 @@
             });
 
         Student.save();
-        
-        renderStudents();
+        Student.load();
+       renderStudents();
     }
 
     function getInputValue(selector){
@@ -147,6 +145,7 @@
     }
 
     function renderStudents() {
+
         const Students = Student.list;
 
         for(let i = 0; i < Students.length; i++){
@@ -164,10 +163,11 @@
             itembox.appendChild(divItem);
             itembox.appendChild(divIcon);
             console.log(opiskelija.job);
+            listItem.appendChild(itembox);
 
         }
 
-        listItem.appendChild(itembox);
+        
     }
 
 
