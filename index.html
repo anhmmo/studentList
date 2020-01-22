@@ -17,7 +17,7 @@
         </div>
 
     <div class="right-container">
-        <form action="#" id="main-form">
+        <form action="#" id="main-form" >
             <div class="main-form__input">
                 <label for="name">Name</label>
                 <input type="text" name="name" placeholder="Enter your name" id="name" required/>
@@ -56,7 +56,7 @@
             </div>
 
             
-                <button type="submit" id="submit" class="submit-button" onclick="submitClickHandle()">
+                <button type="submit" id="submit" class="submit-button">
                   Submit
                 </button>
         </form>
@@ -111,11 +111,11 @@
 
     }
 
-      
+      Student.load();
       renderStudents();
-
     
-
+    
+    document.getElementById("submit").addEventListener("click",submitClickHandle);
     function submitClickHandle() {
         
         var name = getInputValue("#name");
@@ -135,8 +135,9 @@
             });
 
         Student.save();
-        Student.load();
+        
        renderStudents();
+       window.location.reload();
     }
 
     function getInputValue(selector){
@@ -164,7 +165,7 @@
             itembox.appendChild(divIcon);
             console.log(opiskelija.job);
             listItem.appendChild(itembox);
-
+            
         }
 
         
