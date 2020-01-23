@@ -13,7 +13,7 @@
     <div class="container">
 
         <div id="list-item" class="list-item">
-            
+            <di ></di>
         </div>
 
     <div class="right-container">
@@ -68,17 +68,16 @@
 
 <script>
     'use strict';
-    
-    
+    var storeKey = "STUDENT_DATA";
     let listItem = document.getElementById("list-item");
     const Student = {
-        storeKey: 'STUDENT_DATA',
+        
 
         data : [],
 
         
         load: function() {
-            const jsonData = localStorage.getItem(this.storeKey);
+            const jsonData = localStorage.getItem(storeKey);
             try {
                     this.data = JSON.parse(jsonData);
             } catch (e) {
@@ -101,7 +100,7 @@
         
         save: function(){
                 const jsonData = JSON.stringify(this.data);
-                localStorage.setItem(this.storeKey, jsonData);
+                localStorage.setItem(storeKey, jsonData);
         },
 
 
@@ -114,6 +113,8 @@
       Student.load();
       renderStudents();
     
+
+      //[{"name":"nguyen","address":"kirstintie 3","phone":"04890563","email":"heidi@gmail.com","age":"20","job":"Web -fullstack developer"}]
     
     document.getElementById("submit").addEventListener("click",submitClickHandle);
     function submitClickHandle() {
@@ -135,8 +136,6 @@
             });
 
         Student.save();
-        
-       renderStudents();
        window.location.reload();
     }
 
@@ -159,7 +158,7 @@
             let divIcon = document.createElement("div");
             divItem.setAttribute("class", "item__box--info");
             divIcon.setAttribute("class", "item__box--icon");
-            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt"></i><i id="edit" class="fas fa-edit"></i>';
+            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit" class="fas fa-edit onclick="onEditStudent(' + i + ')""></i>';
             divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
             itembox.appendChild(divItem);
             itembox.appendChild(divIcon);
@@ -171,6 +170,17 @@
         
     }
 
+    function onDeleteStudent(index) {
+
+        var CheckAnswer = confirm("Delete this student ?");
+        if(CheckAnswer){
+            Student.delete(index);
+        Student.save();
+       window.location.reload();
+        }
+        
+        
+    }
 
     function changeSelectedValue(getValue) {
         switch(getValue){
@@ -195,6 +205,8 @@
             break;
         }
     }
+
+
 
 </script>
 </body>
