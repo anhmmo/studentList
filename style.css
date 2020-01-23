@@ -147,8 +147,8 @@ body {
 }
 
 
-
-.edit__popup{
+.edit__popup--open{
+    display: block;
     position: relative;
     background-color: darkgoldenrod;
     font-size: 2rem;
@@ -159,6 +159,12 @@ body {
     transform: translate(-50%,-50%);
     margin-top: -23.5%;
     overflow: hidden;
+}
+
+
+
+.edit__popup{
+    display: none;
 }
 
 #popup__form {
@@ -186,6 +192,7 @@ body {
 #editBtn {
     margin-left: 1rem;
 }
+
 
 
 

@@ -64,33 +64,33 @@
 
 </div>
 
-<div class="edit__popup">
+<div id="popup-section" class="edit__popup">
     
     <form action="#" id="popup__form" >
         <div class="popup__form--input">
             <label for="name">Name</label>
-            <input type="text" name="name" placeholder="Enter your name" id="name" required/>
+            <input type="text" name="name" placeholder="Enter your name" id="name2" required/>
         </div>
 
         <div class="popup__form--input">
             <label for="name">Address</label>
-            <input type="text" name="address" placeholder="Enter your address" id="address" required/>
+            <input type="text" name="address" placeholder="Enter your address" id="address2" required/>
         </div>
 
         
         <div class="popup__form--input">
             <label for="">Phone</label>
-            <input type="number" placeholder="Enter your Phone" id="phone" required>
+            <input type="number" placeholder="Enter your Phone" id="phone2" required>
         </div>
 
         <div class="popup__form--input">
             <label for="">Email</label>
-            <input type="email" placeholder="Enter your Email" id="email" required>
+            <input type="email" placeholder="Enter your Email" id="email2" required>
         </div>
 
         <div class="popup__form--input">
             <label for="">Age</label>
-            <input type="number" min="18" max="90" placeholder="Enter your age" id="age" required>
+            <input type="number" min="18" max="90" placeholder="Enter your age" id="age2" required>
         </div>
 
         <div class="popup__form--input">
@@ -111,6 +111,9 @@
     </div>
 </div>
 
+
+
+<!--Javascript part*********************************************-->
 <script>
     'use strict';
     var storeKey = "STUDENT_DATA";
@@ -203,7 +206,7 @@
             let divIcon = document.createElement("div");
             divItem.setAttribute("class", "item__box--info");
             divIcon.setAttribute("class", "item__box--icon");
-            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit" class="fas fa-edit onclick="onEditStudent(' + i + ')""></i>';
+            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit" class="fas fa-edit" onclick="onEditStudent(' + i + ')"></i>';
             divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
             itembox.appendChild(divItem);
             itembox.appendChild(divIcon);
@@ -217,14 +220,26 @@
 
     function onDeleteStudent(index) {
 
-        var CheckAnswer = confirm("Delete this student ?");
+        let CheckAnswer = confirm("Delete this student ?");
         if(CheckAnswer){
             Student.delete(index);
-        Student.save();
-       window.location.reload();
+            Student.save();
+            window.location.reload();
         }
-        
-        
+    }
+
+    function onEditStudent(index) {
+            document.getElementById("popup-section").removeAttribute("class");
+            document.getElementById("popup-section").setAttribute("class", "edit__popup--open");
+            document.getElementById("saveBtn").addEventListener("click", submitForm);
+            document.getElementById("exitBtn").addEventListener("click", alert("ready to exit"));
+            
+            function submitForm(){
+                let editedStudent = {"name":"nguyen","address":"kirstintie 3","phone":"04890563","email":"heidi@gmail.com","age":"20","job":"Web -fullstack developer"};
+                Student.edit(index, editedStudent);
+                Student.save();
+                window.location.reload();
+            }
     }
 
     function changeSelectedValue(getValue) {
