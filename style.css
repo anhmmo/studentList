@@ -16,7 +16,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}::-ms-fill-upper
+}
 
 html {
     font-size: 10px;
@@ -24,6 +24,7 @@ html {
 
 body {
     font-size: 1.6rem;
+    max-height: 100vh;
 }
 
 .container {
@@ -89,7 +90,7 @@ body {
     overflow: hidden;
 }
 
-#main-form, #popup__form {
+#main-form{
     width: 60%;
     margin: 4rem 0 4rem 20%;
 }
@@ -151,11 +152,39 @@ body {
     position: relative;
     background-color: darkgoldenrod;
     font-size: 2rem;
-    max-width: 800px;
+    max-width: 400px;
+    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    margin-top: -25%;
+    margin-top: -23.5%;
+    overflow: hidden;
+}
+
+#popup__form {
+    width: 80%;
+    margin: 2rem 0 2rem 10%;
+}
+
+.edit__popup--icon {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.button {
+    text-decoration: none;
+    color: white;
+    padding: 1rem 3rem;
+    background-color: tomato;
+    border-radius: 5px;
+}
+
+#saveBtn {
+    margin-right: 1rem;
+}
+
+#editBtn {
+    margin-left: 1rem;
 }
 
 
