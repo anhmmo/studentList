@@ -69,18 +69,18 @@
     <form action="#" id="popup__form" >
         <div class="popup__form--input">
             <label for="name">Name</label>
-            <input type="text" name="name" placeholder="Enter your name" id="name2" required/>
+            <input type="text" name="name2" placeholder="Enter your name" id="name2" required/>
         </div>
 
         <div class="popup__form--input">
             <label for="name">Address</label>
-            <input type="text" name="address" placeholder="Enter your address" id="address2" required/>
+            <input type="text" name="address2" placeholder="Enter your address" id="address2" required/>
         </div>
 
         
         <div class="popup__form--input">
             <label for="">Phone</label>
-            <input type="number" placeholder="Enter your Phone" id="phone2" required>
+            <input type="number2" placeholder="Enter your Phone" id="phone2" required>
         </div>
 
         <div class="popup__form--input">
@@ -173,7 +173,7 @@
         var email = getInputValue("#email");
         var age = getInputValue("#age");
         var selected = changeSelectedValue(getInputValue("#selectOption"));
-
+        
         Student.add({
             name: name,
             address: address,
@@ -187,10 +187,7 @@
        window.location.reload();
     }
 
-    function getInputValue(selector){
-        var inputValue = document.querySelector(selector);
-        return inputValue.value;
-    }
+   
 
     function renderStudents() {
 
@@ -198,7 +195,7 @@
 
         for(let i = 0; i < Students.length; i++){
 
-            console.log(Students.length);
+            //console.log(Students.length);
             var opiskelija = Students[i];
             var itembox = document.createElement("div");
             itembox.setAttribute("class", "item__box");
@@ -210,7 +207,7 @@
             divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
             itembox.appendChild(divItem);
             itembox.appendChild(divIcon);
-            console.log(opiskelija.job);
+           // console.log(opiskelija.job);
             listItem.appendChild(itembox);
             
         }
@@ -228,28 +225,35 @@
         }
     }
 
-    function onEditStudent(index) {
-            document.getElementById("popup-section").removeAttribute("class");
-            document.getElementById("popup-section").setAttribute("class", "edit__popup--open");
-            document.getElementById("saveBtn").addEventListener("click", submitForm);
-            document.getElementById("exitBtn").addEventListener("click", alert("ready to exit"));
-            
-            function submitForm(){
-
-                let name2 = getInputValue("#name2");
-                let address2 = getInputValue("#address2");
+                var name2 = getInputValue("#name");
+                var address2 = getInputValue("#address2");
                 let phone2 = getInputValue("#phone2");
                 let email2 = getInputValue("#email2");
                 let age2 = getInputValue("#age2");
                 let selected2 = changeSelectedValue(getInputValue("#selectOption2"));
+                alert(name2);
 
+    function onEditStudent(index) {
+            document.getElementById("popup-section").removeAttribute("class");
+            document.getElementById("popup-section").setAttribute("class", "edit__popup--open");
+            document.getElementById("saveBtn").addEventListener("click", submitForm);
+           // document.getElementById("exitBtn").addEventListener("click", alert("ready to exit"));
+            
+            function submitForm(){
+
+            
                 let editedStudent = '{"name":"'+ name2 +'","address":"kirstintie 3","phone":"04890563","email":"heidi@gmail.com","age":"20","job":"Web -fullstack developer"}';
                 Student.edit(index, editedStudent);
                 Student.save();
                 window.location.reload();
+                
             }
+
+            
     }
 
+    
+    
     function changeSelectedValue(getValue) {
         switch(getValue){
             case "1":
@@ -274,7 +278,10 @@
         }
     }
 
-
+    function getInputValue(selector){
+        var inputValue = document.querySelector(selector);
+        return inputValue.value;
+    }
 
 </script>
 </body>
