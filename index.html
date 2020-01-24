@@ -226,27 +226,27 @@
         }
     }
 
-                var name2 = getInputValue("#name");
-                var address2 = getInputValue("#address2");
-                let phone2 = getInputValue("#phone2");
-                let email2 = getInputValue("#email2");
-                let age2 = getInputValue("#age2");
-                let selected2 = changeSelectedValue(getInputValue("#selectOption2"));
+                
             
 
     function onEditStudent(index) {
             document.getElementById("popup-section").removeAttribute("class");
             document.getElementById("popup-section").setAttribute("class", "edit__popup--open");
             document.getElementById("submit2").addEventListener("click", submitForm);
-           // document.getElementById("exitBtn").addEventListener("click", alert("ready to exit"));
+           
             
             function submitForm(){
-
-                let editedStudent = '{"name":"'+ name2 +'","address":"kirstintie 3","phone":"04890563","email":"heidi@gmail.com","age":"20","job":"Web -fullstack developer"}';
+               /* var name2 = getInputValue("#name2");
+                var address2 = getInputValue("#address2");
+                let phone2 = getInputValue("#phone2");
+                let email2 = getInputValue("#email2");
+                let age2 = getInputValue("#age2");
+                let selected2 = changeSelectedValue(getInputValue("#selectOption2")); */
+                let aa = "dd";
+                let editedStudent = {"name":"nguyen","address":"kirstintie 3","phone":"04890563","email":"heidi@gmail.com","age":"20","job":"Web -fullstack developer"};
                 Student.edit(index, editedStudent);
                 Student.save();
                 window.location.reload();
-                
             }
 
             
