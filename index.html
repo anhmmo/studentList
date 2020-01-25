@@ -234,6 +234,7 @@
             document.getElementById("popup-section").setAttribute("class", "edit__popup--open");
             document.getElementById("submit2").addEventListener("click", submitForm);
            
+            document.getElementById("name2").value = Student[index].name;
             
             function submitForm(){
 
@@ -243,12 +244,10 @@
                 var email2 = getInputValue("#email2");
                 var age2 = getInputValue("#age2");
                 var selected2 = changeSelectedValue(getInputValue("#selectOption2"));
-                
-                let editedStudent = {"name":"","address":"","phone":"","email":"","age":"","job":""};
-                var bb = JSON.stringify(editedStudent);
-                bb = '{"name":"'+name2+'","address":"kirstintie 3","phone":"04890563","email":"heidi@gmail.com","age":"20","job":"Web -fullstack developer"}';
-                var cc = JSON.parse(bb);
-                Student.edit(index, cc);
+            
+                var convertStudentToString = '{"name":"'+name2+'","address":"'+address2+'","phone":"'+phone2+'","email":"'+email2+'","age":"'+age2+'","job":"'+selected2+'"}';
+                var editedStudent = JSON.parse(convertStudentToString); //convert String to JSON
+                Student.edit(index, editedStudent);  
                 Student.save();
                 window.location.reload();
             }
