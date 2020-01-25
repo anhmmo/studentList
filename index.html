@@ -234,7 +234,12 @@
             document.getElementById("popup-section").setAttribute("class", "edit__popup--open");
             document.getElementById("submit2").addEventListener("click", submitForm);
            
-            document.getElementById("name2").value = Student[index].name;
+            document.getElementById("name2").value = Student.data[index].name;
+            document.getElementById("address2").value = Student.data[index].address;
+            document.getElementById("phone2").value = Student.data[index].phone;
+            document.getElementById("email2").value = Student.data[index].email;
+            document.getElementById("age2").value = Student.data[index].age;
+            document.getElementById("selectOption2").value = "1";//******************************************DANG LAM TOI DAY
             
             function submitForm(){
 
