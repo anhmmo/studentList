@@ -163,7 +163,7 @@
       renderStudents();
     
 
-      //[{"name":"nguyen","address":"kirstintie 3","phone":"04890563","email":"heidi@gmail.com","age":"20","job":"Web -fullstack developer"}]
+      //[{"name":"","address":"","phone":"","email":"","age":"","job":""}]
     
     document.getElementById("submit").addEventListener("click",submitClickHandle);
     function submitClickHandle() {
@@ -244,7 +244,7 @@
                 var age2 = getInputValue("#age2");
                 var selected2 = changeSelectedValue(getInputValue("#selectOption2"));
                 
-                let editedStudent = {"name":"nguyen","address":"kirstintie 3","phone":"04890563","email":"heidi@gmail.com","age":"20","job":"Web -fullstack developer"};
+                let editedStudent = {"name":"","address":"","phone":"","email":"","age":"","job":""};
                 var bb = JSON.stringify(editedStudent);
                 bb = '{"name":"'+name2+'","address":"kirstintie 3","phone":"04890563","email":"heidi@gmail.com","age":"20","job":"Web -fullstack developer"}';
                 var cc = JSON.parse(bb);
