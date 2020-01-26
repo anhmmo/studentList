@@ -239,7 +239,23 @@
             document.getElementById("phone2").value = Student.data[index].phone;
             document.getElementById("email2").value = Student.data[index].email;
             document.getElementById("age2").value = Student.data[index].age;
-            document.getElementById("selectOption2").value = "1";//******************************************DANG LAM TOI DAY
+            console.log(Student.data[index].job);
+            let selectedValue = Student.data[index].job;
+            switch(selectedValue){
+                case "Student":
+                document.getElementById("selectOption2").value = "1";
+                break;
+                case "Software developer":
+                document.getElementById("selectOption2").value = "2";
+                break;
+                case "Web-fullstack developer":
+                document.getElementById("selectOption2").value = "3";
+                break;
+                case "Software engineer":
+                document.getElementById("selectOption2").value = "4";
+                break;
+            }
+            //******************************************DANG LAM TOI DAY
             
             function submitForm(){
 
