@@ -243,14 +243,19 @@
             var selectedValue = Student.data[index].job;
             console.log(selectedValue);
             switch(selectedValue){
-                case "Students":
+                case "Student":
                 document.getElementById("selectOption2").value = "1";
+                break;
                 case "Software Developer":
                 document.getElementById("selectOption2").value = "2";
+                break;
                 case "Web -fullstack developer":
                 document.getElementById("selectOption2").value = "3";
-                case "Web -fullstack developer":
+                break;
+                case "Sofware engineer":
                 document.getElementById("selectOption2").value = "4";
+                break;
+            
             }
             //******************************************DANG LAM TOI DAY
             
@@ -278,7 +283,7 @@
     function changeSelectedValue(getValue) {
         switch(getValue){
             case "1":
-            return "Students";
+            return "Student";
             break;
 
             case "2":
