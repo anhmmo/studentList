@@ -65,7 +65,7 @@
 </div>
 
 <div id="popup-section" class="edit__popup">
-    
+    <i id="popup-close" class="popup-close fas fa-times-circle"></i>
     <form action="#" id="popup__form" >
         <div class="popup__form--input">
             <label for="name">Name</label>
@@ -278,7 +278,11 @@
             
     }
 
-    
+    document.getElementById("popup-close").addEventListener("click", closeBtn);
+
+    function closeBtn(){
+        document.getElementById("popup-section").removeAttribute("class");
+    }
     
     function changeSelectedValue(getValue) {
         switch(getValue){
