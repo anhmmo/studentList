@@ -257,6 +257,11 @@
                 break;
             
             }
+
+            document.getElementById("submit").removeEventListener("click",submitClickHandle);
+            document.getElementById("submit").addEventListener("click", function(event){
+  event.preventDefault()
+});
             //******************************************DANG LAM TOI DAY
             
             function submitForm(){
