@@ -265,6 +265,7 @@
             //******************************************DANG LAM TOI DAY
             
             function submitForm(){
+                
 
                 var name2 = getInputValue("#name2");
                 var address2 = getInputValue("#address2");
@@ -288,6 +289,7 @@
     function closeBtn(){
         document.getElementById("popup-section").removeAttribute("class");
         document.getElementById("popup-section").setAttribute("class", "edit__popup");
+        window.location.reload();
     }
     
     function changeSelectedValue(getValue) {
