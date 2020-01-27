@@ -79,7 +79,12 @@ body {
     display: block;
    cursor: pointer;
    font-size: 2.7rem;
-   margin-top: 3rem;
+   margin-top: 2.45rem;
+}
+
+#copy, #info {
+    font-size: 3.2rem;
+    transform: translateX(-0.35rem);
 }
 
 

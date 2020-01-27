@@ -204,7 +204,7 @@
             let divIcon = document.createElement("div");
             divItem.setAttribute("class", "item__box--info");
             divIcon.setAttribute("class", "item__box--icon");
-            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit" class="fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="readmore" class="fas fa-walking"></i><i id="copy" class="fab fa-creative-commons-share"></i>';
+            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit" class="fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="copy" class="fab fa-creative-commons-share"></i><i id="info" class="fas fa-info-circle"></i>';
             divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
             itembox.appendChild(divItem);
             itembox.appendChild(divIcon);
