@@ -321,6 +321,11 @@
     // copy student info
 
     function onCopyStudentInfo(info){
+
+        var copyText = document.getElementById("myInput");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
     
         let studentInfo = document.getElementById("copiedStudent" + info);
         console.log(studentInfo);
@@ -329,7 +334,7 @@
         setTimeout(function(){
             studentInfo.removeAttribute("class");
             studentInfo.setAttribute("class", "copyStudent");
-        }, 2000);
+        }, 600);
     }
 
     //******************************************DANG LAM TOI DAY********************************************
