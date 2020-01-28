@@ -1,10 +1,11 @@
-
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
 
 :root {
     --color-white: #f3f3f3;
     --color-darkblue: #1b1b32;
     --color-darkblue-alpha: rgba(26, 114, 99, 0.8);
     --colorBlueWhite: #00BCD4;
+    --color-bluelight: #11b8af;
     --buttonColorGold: linear-gradient(to right bottom, rgba(255, 234, 0, 0.8),rgba(180, 60, 52, 0.8));
     --buttonColorGreen: linear-gradient(to right bottom, #FFEB3B,#03c2af);
     --text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
@@ -19,6 +20,7 @@
 }
 
 html {
+    font-family: 'Poppins', sans-serif;
     font-size: 10px;
 }
 
@@ -34,7 +36,7 @@ body {
     background: tomato;
     height: 100vh;
     display: flex;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 
@@ -55,6 +57,7 @@ body {
     outline: 0;
     border-radius: .2rem;
     position: relative;
+    font-size: 1.8rem;
 }
 
 .item__box:hover {
@@ -79,13 +82,13 @@ body {
 .item__box--icon i{
     display: block;
    cursor: pointer;
-   font-size: 2.7rem;
-   margin-top: 2.45rem;
+   font-size: 2.8rem;
+   margin-top: 2.8rem;
 }
 
 #copy, #info {
-    font-size: 3.2rem;
-    transform: translateX(-0.35rem);
+    font-size: 3.3rem;
+    transform: translateX(-0.4rem);
 }
 
 
@@ -158,7 +161,7 @@ body {
     display: block;
     position: relative;
     background-color: darkgoldenrod;
-    font-size: 2rem;
+    font-size: 1.7rem;
     max-width: 400px;
     width: 100%;
     top: 50%;
@@ -176,8 +179,8 @@ body {
 
 #popup__form {
     width: 80%;
-    margin: 2rem 0 2rem 10%;
-    padding: 1.5rem 0;
+    margin: 1.9rem 0 1.9rem 10%;
+    padding: 1rem 0;
 }
 
 .edit__popup--icon {
@@ -208,7 +211,7 @@ body {
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 2rem;
-    background-color: green;
+    background-color: rgb(3, 204, 137);
 }
 
 
