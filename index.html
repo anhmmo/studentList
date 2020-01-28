@@ -192,6 +192,7 @@
 
    
     //render student item to html items list
+    
     function renderStudents() {
 
         const Students = Student.list;
@@ -204,11 +205,18 @@
             itembox.setAttribute("class", "item__box");
             let divItem = document.createElement("div");
             let divIcon = document.createElement("div");
+            let divCopiedStudent = document.createElement("div");
+
             divItem.setAttribute("class", "item__box--info");
             divIcon.setAttribute("class", "item__box--icon");
-            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit" class="fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="copy" class="fab fa-creative-commons-share" onclick="onCopyStudentInfo(' + i + ')"></i><i id="info" class="fas fa-info-circle" onclick="onGetInfoStudent(' + i + ')"></i>';
+            
             divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
+            divCopiedStudent.innerHTML = '<div class="copiedStudent">Copy Student</div>';
+            divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit" class="fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="copy" class="fab fa-creative-commons-share" onclick="onCopyStudentInfo(' + i + ')"></i><i id="info" class="fas fa-info-circle" onclick="onGetInfoStudent(' + i + ')"></i>';
+            
+            
             itembox.appendChild(divItem);
+            itembox.appendChild(divCopiedStudent);
             itembox.appendChild(divIcon);
            // console.log(opiskelija.job);
             listItem.appendChild(itembox);
@@ -217,6 +225,26 @@
 
         
     }
+
+    /*
+    <div class="item__box">
+        <div class="item__box--info">
+            <p>Name: </p>
+            <p>Address : </p>
+            <p>Phone : </p>
+            <p>Email: </p>
+            <p>Age: </p>
+            <p>Job : Student</p>
+        </div>
+        <div class="copiedStudent">Copy Student</div>
+        <div class="item__box--icon">
+            <i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(i)" aria-hidden="true"></i>
+            <i id="edit" class="fas fa-edit" onclick="onEditStudent(i)" aria-hidden="true"></i>
+            <i id="copy" class="fab fa-creative-commons-share" onclick="onCopyStudentInfo(i)" aria-hidden="true"></i>
+            <i id="info" class="fas fa-info-circle" onclick="onGetInfoStudent(i)" aria-hidden="true"></i>
+        </div>
+    </div>
+    */
 
 
 //delete item
@@ -290,7 +318,7 @@
 
 
     function onCopyStudentInfo(info) {
-        tempAlert("copied student info",1000);
+        tempAlert("copied student info", 1000);
     }
 
     //******************************************DANG LAM TOI DAY********************************************
@@ -346,10 +374,11 @@
             var el = document.createElement("div");
             el.setAttribute("style","position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);background-color:white;");
             el.innerHTML = msg;
+            document.body.appendChild(el);
             setTimeout(function(){
             el.parentNode.removeChild(el);
         },duration);
-            document.body.appendChild(el);
+            
     }
 
 </script>
