@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://metropolia.website/project/english-center/vendors/css/neon_light.css">
     <script src="https://kit.fontawesome.com/efd33a6a78.js" crossorigin="anonymous"></script>
 </head>
 
@@ -209,9 +210,9 @@
 
             divItem.setAttribute("class", "item__box--info");
             divIcon.setAttribute("class", "item__box--icon");
-            
+
             divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
-            divCopiedStudent.innerHTML = '<div class="copiedStudent">Copy Student</div>';
+            divCopiedStudent.innerHTML = '<div class="copiedStudent"><span></span><span></span><span></span><span></span>Copy Student</div>';
             divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit" class="fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="copy" class="fab fa-creative-commons-share" onclick="onCopyStudentInfo(' + i + ')"></i><i id="info" class="fas fa-info-circle" onclick="onGetInfoStudent(' + i + ')"></i>';
             
             

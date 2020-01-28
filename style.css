@@ -211,7 +211,11 @@ body {
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 2rem;
-    background-color: rgb(3, 204, 137);
+    color: #ffffff;
+    background-color: rgb(135, 240, 189);
+    box-shadow: 0 0 10px rgb(135, 240, 189), 0 0 40px rgb(135, 240, 189), 0 0 80px rgb(135, 240, 189);
+    transition-delay: 1s;
+    border-radius: 3%;
 }
 
 
