@@ -13,7 +13,7 @@
     <div class="container">
             <!--List student-->
         <div id="list-item" class="list-item">
-            <!--Javascript add items here-->
+            <!--Javascript add listt-items here-->
         </div>
 
         <!--Right container with form-->
@@ -119,6 +119,9 @@
 <!--Javascript part*********************************************-->
 <script>
     'use strict';
+
+
+    //create object to store student info, function
     var storeKey = "STUDENT_DATA";
     let listItem = document.getElementById("list-item");
     const Student = {
@@ -167,6 +170,8 @@
 
       //[{"name":"","address":"","phone":"","email":"","age":"","job":""}]
     
+
+    //when submit button click
     document.getElementById("submit").addEventListener("click",submitClickHandle);
     function submitClickHandle() {
         
@@ -187,7 +192,7 @@
             });
 
         Student.save();
-       window.location.reload();
+        window.location.reload();
     }
 
    
@@ -353,6 +358,8 @@
     function onGetInfoStudent(info){
         alert(info);
     }
+
+    //popup click
 
     document.getElementById("popup-close").addEventListener("click", closeBtn);
 
