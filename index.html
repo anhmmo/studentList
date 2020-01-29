@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/efd33a6a78.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="myFunction22()">
+<body>
     <div class="container">
             <!--List student-->
         <div id="list-item" class="list-item">
@@ -120,10 +120,12 @@
 <script>
     'use strict';
 
+    window.onload = checkExitsLocalStorage();
+
 //check if localStorage not exits, then create new localStorage
-    function myFunction22() {
-        var x = localStorage.length;
-        if(x < 1){
+    function checkExitsLocalStorage() {
+        var ifExits = localStorage.length; //return 0 if not exits
+        if(ifExits < 1){
             const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
             localStorage.setItem("STUDENT_DATA", jsonData);
         }
