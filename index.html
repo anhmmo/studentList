@@ -120,9 +120,13 @@
 <script>
     'use strict';
 
+//check if localStorage not exits, then create new localStorage
     function myFunction22() {
         var x = localStorage.length;
-        console.log(x);
+        if(x < 1){
+            const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
+            localStorage.setItem("STUDENT_DATA", jsonData);
+        }
     }
     //create object to store student info, function
     var storeKey = "STUDENT_DATA";
