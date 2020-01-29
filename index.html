@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/efd33a6a78.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="myFunction22()">
     <div class="container">
             <!--List student-->
         <div id="list-item" class="list-item">
@@ -120,7 +120,10 @@
 <script>
     'use strict';
 
-
+    function myFunction22() {
+        var x = localStorage.length;
+        console.log(x);
+    }
     //create object to store student info, function
     var storeKey = "STUDENT_DATA";
     let listItem = document.getElementById("list-item");
