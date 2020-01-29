@@ -223,8 +223,20 @@ body {
     border-radius: 3%;
 }
 
+/*copy from input*/
+.myInput {
+    display: none;
+}
 
-
+.myInput2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: .1rem;
+    z-index: -2;
+    
+}
 
 
 
