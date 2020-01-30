@@ -121,17 +121,17 @@
     'use strict';
 
     window.onload = checkExitsLocalStorage();
-    var storeKey = "STUDENT_DATA";
+    
 //check if localStorage not exits, then create new localStorage
     function checkExitsLocalStorage() {
         var ifExits = localStorage.length; //return 0 if not exits
         if(ifExits < 1){
             const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
-            localStorage.setItem(storeKey, jsonData);
+            localStorage.setItem("STUDENT_DATA", jsonData);
         }
     }
     //create object to store student info, function
-    
+    var storeKey = "STUDENT_DATA";
     let listItem = document.getElementById("list-item");
     const Student = {
         
