@@ -243,7 +243,10 @@ body {
 popup for student info
 */
 
-
+.student__popup {
+    max-width: 1080px;
+    width: 100%;
+}
 
 
 
