@@ -242,7 +242,12 @@ body {
 popup for student info
 */
 
+.student__popup--hide{
+    display: none;
+}
+
 .student__popup {
+    display: block;
     max-width: 980px;
     width: 100%;
     height: 80vh;
@@ -254,6 +259,26 @@ popup for student info
     transform: translate(-50%,-50%);
     color: #1c1c24;
     font-family: 'Raleway', sans-serif;
+    
+}
+
+
+
+.student__popup h2{
+    text-align: center;
+    margin: 4rem 0;
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.student__popup p{
+    margin: 1rem 4rem;
+}
+
+.student__popup h2:hover, .student__popup p:hover {
+    color: #e7015e;
 }
 
 
