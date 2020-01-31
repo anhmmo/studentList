@@ -271,9 +271,6 @@ popup for student info
     cursor: pointer;
 }
 
-.student__popup p{
-    margin: 1rem 4rem;
-}
 
 .student__popup h2:hover{
     color: #e7015e;
@@ -281,6 +278,12 @@ popup for student info
 
 .student__infomation {
     position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.student__infomation div:not(:last-child) {
+    margin-right: 5rem;
 }
 
 .small-gallery {
