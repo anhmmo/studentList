@@ -327,6 +327,12 @@ function clickChangePortfolioStatus() {
 
 // student info gallery
 
+function openImage(luku) {
+    let style1 = document.getElementById("openThis");
+    style1.removeAttribute("class");
+    style1.setAttribute("class", "student__gallery student"+luku);
+}
+
 
 
 function changeSelectedValue(getValue) {
