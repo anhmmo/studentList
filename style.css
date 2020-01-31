@@ -269,11 +269,8 @@ popup for student info
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
-}
-
-
-.student__popup h2:hover{
-    color: #e7015e;
+    animation: toLeft 2s;
+    color: #ce0153;
 }
 
 .student__infomation {
@@ -293,7 +290,7 @@ popup for student info
     padding: 1rem 4rem;
     transition: color 500ms;
     transition: border-bottom 500ms;
-    transition: background-color 1s;
+    transition: background-color 500ms;
 }
 
 .student__infomation div:hover{
@@ -356,7 +353,7 @@ popup for student info
 }
 
 .student__text {
-    margin: 1.5rem 0 0 8rem;
+    margin: 1.5rem 0 0 7rem;
     font-size: 1.8rem;
     position: relative;
     
@@ -365,6 +362,8 @@ popup for student info
 .student__text--info {
     display: block;
     position: absolute;
+    animation: toTop 1.2s;
+    opacity: .95;
 }
 
 .student__text--info li{
@@ -482,7 +481,17 @@ popup for student info
     
   }
 
+  @keyframes toLeft {
   
+    0%  {left:40px; top:0px; opacity: 0;}
+      100%   {left:0px; top:0px;}
+  }
+
+  @keyframes toTop {
+  
+    0%  {bottom:40px; top:40px; opacity: 0;}
+      100%   {bottom:0px; top:0px;}
+  }
 
 
 
