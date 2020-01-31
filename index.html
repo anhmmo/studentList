@@ -115,15 +115,15 @@
 </div>
 
 
-<div id="student__popup" class="student__popup--hide">
+<div id="student__popup" class="student__popup">
     <h2>Student name</h2>
     <div class="student__infomation">
-        <div>info</div>
-        <div>credit</div>
-        <div>portfolio</div>
+        <div id="student__infomation--info">info</div>
+        <div id="student__infomation--credit">credit</div>
+        <div id="student__infomation--portfolio">portfolio</div>
     </div>
     <div class="student__text">
-        <ul class="student__text--info">
+        <ul id="student__text-1" class="student__text--info">
             <li>Our passion is to build great customer experiences</li>
             <li>You have proven skills in Front End development</li>
             <li>We highly value experience with</li>
@@ -133,7 +133,28 @@
             <li>Ideaalihakijamme on tekniseen viestintään erikoistunut tai muuten teknisellä taustalla varustettu henkilö</li>
             <li>jolla on jo hieman kokemusta teknisellä alalla työskentelystä</li>
             <li>Ideaalihakijamme on tekniseen viestintään erikoistunut tai muuten teknisellä taustalla varustettu henkilö</li>
-           
+        </ul>
+        <ul id="student__text-2" class="student__text--info-2">
+            <li>Our sfgsgspassion is to build great customer experiences</li>
+            <li>You have proven skills in Front End development</li>
+            <li>We highlyshshf value experience with</li>
+            <li>Front End Developer, Ålands Penningautomatförening (PAF), Maarianhamina
+            </li>
+            <li>Työtehtäviisi kuuluu sekä uuden sisällön tuottaminen että jo olemassa olevan sisällön </li>
+            <li>Ideaalihakijamme on tekniseen viestintään erikoistunut tai muuten teknisellä taustalla varustettu henkilö</li>
+            <li>jolla on jo hieman kokemusta teknisellä alalla työskentelystä</li>
+            <li>Ideaalihakijamme on tekniseen viestintään erikoistunut tai muuten teknisellä taustalla varustettu henkilö</li>
+        </ul>
+        <ul id="student__text-3" class="student__text--info-3">
+            <li>hello sdifsd sgisfigsfg sgsfg</li>
+            <li>You have proven skills in Front End development</li>
+            <li>We highly value experience with</li>
+            <li>Front End Developer, Ålands Penningautomatförening (PAF), Maarianhamina
+            </li>
+            <li>Työtehtäviisi kuuluu sekä uuden sisällön tuottaminen että jo olemassa olevan sisällön </li>
+            <li>Ideaalihakijamme on tekniseen viestintään erikoistunut tai muuten teknisellä taustalla varustettu henkilö</li>
+            <li>jolla on jo hieman kokemusta teknisellä alalla työskentelystä</li>
+            <li>Ideaalihakijamme on tekniseen viestintään erikoistunut tai muuten teknisellä taustalla varustettu henkilö</li>
         </ul>
     </div>
     <div class="small-gallery">
@@ -438,6 +459,14 @@
         let popup = document.getElementById("student__popup");
         popup.removeAttribute("class");
         popup.setAttribute("class", "student__popup");
+    }
+
+
+    function clickChangeCreditStatus() {
+        let credit = document.getElementById("student__infomation--credit");
+        let studentTextFirst = document.getElementById("student__text-1");
+        let studentTextSecond = document.getElementById("student__text-2");
+        let studentTextThird = document.getElementById("student__text-3");
     }
 
 
