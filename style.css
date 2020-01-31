@@ -359,14 +359,14 @@ popup for student info
     
 }
 
-.student__text--info {
+.student__text--default {
     display: block;
     position: absolute;
     animation: toTop 1.2s;
     opacity: .95;
 }
 
-.student__text--info li{
+.student__text--default li{
     padding: .5rem;
 }
 

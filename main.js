@@ -257,8 +257,6 @@ function closeBtn(){
 //info--popup--student
 
 
-//******************************************DANG LAM TOI DAY********************************************
-//*******************************************************************************************************
 
 
 function onGetInfoStudent(info){
@@ -285,7 +283,6 @@ let studentTextThird = document.getElementById("student__text-3");
 
 function clickChangeCreditStatus() {
    
-    studentTextFirst.removeAttribute("class");
     info.removeAttribute("class");
     info.setAttribute("class", "student__infomation--show");
     credit.setAttribute("class", "student__infomation--default");
@@ -294,13 +291,11 @@ function clickChangeCreditStatus() {
     studentTextFirst.style.display = "none";
     studentTextThird.style.display = "none";
     studentTextSecond.style.display = "block";
-    studentTextSecond.setAttribute("class", "student__text--info");
+    studentTextSecond.setAttribute("class", "student__text--default");
 }
 
 function clickChangeInfoStatus() {
 
-    
-    studentTextSecond.removeAttribute("class");
     credit.removeAttribute("class");
     credit.setAttribute("class", "student__infomation--show");
     info.setAttribute("class", "student__infomation--default");
@@ -309,14 +304,11 @@ function clickChangeInfoStatus() {
     studentTextFirst.style.display = "block";
     studentTextThird.style.display = "none";
     studentTextSecond.style.display = "none";
-    studentTextFirst.setAttribute("class", "student__text--info");
+    studentTextFirst.setAttribute("class", "student__text--default");
 }
 
 function clickChangePortfolioStatus() {
 
-    
-    studentTextSecond.removeAttribute("class");
-    studentTextFirst.removeAttribute("class");
     credit.removeAttribute("class");
     info.removeAttribute("class");
     credit.setAttribute("class", "student__infomation--show");
@@ -326,7 +318,7 @@ function clickChangePortfolioStatus() {
     studentTextFirst.style.display = "none";
     studentTextThird.style.display = "block";
     studentTextSecond.style.display = "none";
-    studentTextThird.setAttribute("class", "student__text--info");
+    studentTextThird.setAttribute("class", "student__text--default");
 }
 
 
