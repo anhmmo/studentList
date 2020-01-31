@@ -422,35 +422,35 @@ popup for student info
 }
 
 .box1 {
-    background-image: url(img/4910.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2017/06/20/22/14/men-2425121_1280.jpg);
 }
 
 .box2 {
-    background-image: url(https://image.freepik.com/free-photo/handsome-businesman-summer-city_1157-18997.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2015/06/22/08/37/children-817365_1280.jpg);
 }
 
 .box3 {
-    background-image: url(https://image.freepik.com/free-photo/portrait-happy-woman-smiling_1303-9953.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2017/03/30/18/17/girl-2189247_1280.jpg);
 }
 
 .box4 {
-    background-image: url(https://image.freepik.com/free-photo/girl-posing_1321-1540.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2016/05/19/17/09/girl-1403418_1280.jpg);
 }
 
 .box5 {
-    background-image: url(https://image.freepik.com/free-photo/young-pretty-chinese-woman-going-cold-due-low-temperature-sickness_1187-24019.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2016/12/23/12/40/night-1927265_1280.jpg);
 }
 
 .box6 {
-    background-image: url(https://image.freepik.com/free-photo/asian-lesbian-lgbtq-women-couple-hold-grocery-shopping-paper-bags-home_7861-1760.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2014/07/31/22/50/photographer-407068_1280.jpg);
 }
 
 .box7 {
-    background-image: url(https://image.freepik.com/free-photo/happy-beautiful-asian-friends-women-blogger-using-smartphone-photo-making-food-vlog-video_7861-1019.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2016/01/19/17/19/young-woman-1149643_1280.jpg);
 }
 
 .box8 {
-    background-image: url(https://image.freepik.com/free-photo/three-young-beautiful-smiling-gorgeous-girls-trendy-summer-clothes-sexy-carefree-women-posing-positive-models-having-fun-round-sunglasses_158538-5271.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2016/11/14/04/54/woman-1822646_1280.jpg);
 }
 
 
@@ -474,40 +474,44 @@ popup for student info
 
 .student1 {
     
-    background-image: url(img/4910.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2017/06/20/22/14/men-2425121_1280.jpg);
 }
 
 .student2 {
-    background-image: url(https://image.freepik.com/free-photo/handsome-businesman-summer-city_1157-18997.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2015/06/22/08/37/children-817365_1280.jpg);
 }
 
 .student3 {
-    background-image: url(https://image.freepik.com/free-photo/portrait-happy-woman-smiling_1303-9953.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2017/03/30/18/17/girl-2189247_1280.jpg);
 }
 
 .student4 {
-    background-image: url(https://image.freepik.com/free-photo/girl-posing_1321-1540.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2016/05/19/17/09/girl-1403418_1280.jpg);
 }
 
 .student5 {
-    background-image: url(https://image.freepik.com/free-photo/young-pretty-chinese-woman-going-cold-due-low-temperature-sickness_1187-24019.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2016/12/23/12/40/night-1927265_1280.jpg);
 }
 
 .student6 {
-    background-image: url(https://image.freepik.com/free-photo/asian-lesbian-lgbtq-women-couple-hold-grocery-shopping-paper-bags-home_7861-1760.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2014/07/31/22/50/photographer-407068_1280.jpg);
 }
 
 .student7 {
-    background-image: url(https://image.freepik.com/free-photo/happy-beautiful-asian-friends-women-blogger-using-smartphone-photo-making-food-vlog-video_7861-1019.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2016/01/19/17/19/young-woman-1149643_1280.jpg);
 }
 
 .student8 {
-    background-image: url(https://image.freepik.com/free-photo/three-young-beautiful-smiling-gorgeous-girls-trendy-summer-clothes-sexy-carefree-women-posing-positive-models-having-fun-round-sunglasses_158538-5271.jpg);
+    background-image: url(https://cdn.pixabay.com/photo/2016/11/14/04/54/woman-1822646_1280.jpg);
 }
 
 .student__gallery .small-gallery{
     margin-bottom: 1rem;
+    
 }
+
+
+
 
 
   /* ----------- scroll right tab ---------------*/
