@@ -462,18 +462,67 @@
     }
 
     document.getElementById("student__infomation--credit").addEventListener("click", clickChangeCreditStatus);
+    document.getElementById("student__infomation--info").addEventListener("click", clickChangeInfoStatus);
+    document.getElementById("student__infomation--portfolio").addEventListener("click", clickChangePortfolioStatus);
+    
+    let credit = document.getElementById("student__infomation--credit");
+    let info = document.getElementById("student__infomation--info");
+    let portfolio = document.getElementById("student__infomation--portfolio");
+  
+    let studentTextFirst = document.getElementById("student__text-1");
+    let studentTextSecond = document.getElementById("student__text-2");
+    let studentTextThird = document.getElementById("student__text-3");
+
+
 
     function clickChangeCreditStatus() {
-        let credit = document.getElementById("student__infomation--credit");
-        let info = document.getElementById("student__infomation--info");
-        let portfolio = document.getElementById("student__infomation--portfolio");
-        
-        let studentTextFirst = document.getElementById("student__text-1");
-        let studentTextSecond = document.getElementById("student__text-2");
-        let studentTextThird = document.getElementById("student__text-3");
+       
         studentTextFirst.removeAttribute("class");
         info.removeAttribute("class");
+        info.setAttribute("class", "student__infomation--show");
+        credit.setAttribute("class", "student__infomation--info");
+        portfolio.removeAttribute("class");
+        portfolio.setAttribute("class", "student__infomation--show");
+        studentTextFirst.style.display = "none";
+        studentTextThird.style.display = "none";
+        studentTextSecond.style.display = "block";
+        studentTextSecond.setAttribute("class", "student__text--info");
     }
+
+    function clickChangeInfoStatus() {
+
+        
+        studentTextSecond.removeAttribute("class");
+        credit.removeAttribute("class");
+        credit.setAttribute("class", "student__infomation--show");
+        info.setAttribute("class", "student__infomation--info");
+        portfolio.removeAttribute("class");
+        portfolio.setAttribute("class", "student__infomation--show");
+        studentTextFirst.style.display = "block";
+        studentTextThird.style.display = "none";
+        studentTextSecond.style.display = "none";
+        studentTextFirst.setAttribute("class", "student__text--info");
+    }
+
+    function clickChangePortfolioStatus() {
+
+        
+        studentTextSecond.removeAttribute("class");
+        studentTextFirst.removeAttribute("class");
+        credit.removeAttribute("class");
+        info.removeAttribute("class");
+        credit.setAttribute("class", "student__infomation--show");
+        info.setAttribute("class", "student__infomation--show");
+        portfolio.setAttribute("class", "student__infomation--info");
+        
+        studentTextFirst.style.display = "none";
+        studentTextThird.style.display = "block";
+        studentTextSecond.style.display = "none";
+        studentTextThird.setAttribute("class", "student__text--info");
+    }
+
+
+   
 
 
     

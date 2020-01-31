@@ -293,32 +293,37 @@ popup for student info
     padding: 0 4rem 1rem 4rem;
 }
 
-#student__infomation--info {
+.student__infomation--info {
     border-bottom: .2rem solid #ff007a;
     color: #ff007a;
    
 }
 
-#student__infomation--credit {
+.student__infomation--credit {
     border-bottom: .2rem solid #888888;
    
 }
 
-#student__infomation--portfolio {
+.student__infomation--portfolio {
     border-bottom: .2rem solid #888888;
    
 }
 
 
+.student__infomation--show {
+    border-bottom: .2rem solid #888888;
+   
+}
 
+#student__text-1 {
+    display: block;
+}
 
-
-
-.student__text--info-2 {
+#student__text-2 {
     display: none;
 }
 
-.student__text--info-3 {
+#student__text-3 {
     display: none;
 }
 
