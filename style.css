@@ -280,6 +280,7 @@ popup for student info
     position: relative;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .student__infomation div:not(:last-child) {
