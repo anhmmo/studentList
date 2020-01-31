@@ -115,7 +115,7 @@
 </div>
 
 
-<div class="student__popup--hide">
+<div id="student__popup" class="student__popup--hide">
     <div class="student__infomation">
         <h2>Student name</h2>
         <p>sdfsdfsdf</p>
@@ -372,13 +372,7 @@
         }, 600);
     }
 
-    //******************************************DANG LAM TOI DAY********************************************
-    //*******************************************************************************************************
-
     
-    function onGetInfoStudent(info){
-        alert(info);
-    }
 
     //popup click
 
@@ -396,9 +390,15 @@
     //info--popup--student
 
 
+//******************************************DANG LAM TOI DAY********************************************
+    //*******************************************************************************************************
 
-
-
+    
+    function onGetInfoStudent(info){
+        let popup = document.getElementById("student__popup");
+        popup.removeAttribute("class");
+        popup.setAttribute("class", "student__popup");
+    }
 
 
     
