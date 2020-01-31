@@ -454,10 +454,59 @@ popup for student info
 }
 
 
+/* student info gallery */
 
 
+.student__gallery {
+    display: block;
+    max-width: 980px;
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #1c1c24;
+    font-family: 'Raleway', sans-serif;
+    overflow-x: scroll;
+    background-size: cover;
+}
 
+.student1 {
+    background-image: url(img/4910.jpg);
+}
 
+.student2 {
+    background-image: url(https://image.freepik.com/free-photo/handsome-businesman-summer-city_1157-18997.jpg);
+}
+
+.student3 {
+    background-image: url(https://image.freepik.com/free-photo/portrait-happy-woman-smiling_1303-9953.jpg);
+}
+
+.student4 {
+    background-image: url(https://image.freepik.com/free-photo/girl-posing_1321-1540.jpg);
+}
+
+.student5 {
+    background-image: url(https://image.freepik.com/free-photo/young-pretty-chinese-woman-going-cold-due-low-temperature-sickness_1187-24019.jpg);
+}
+
+.student6 {
+    background-image: url(https://image.freepik.com/free-photo/asian-lesbian-lgbtq-women-couple-hold-grocery-shopping-paper-bags-home_7861-1760.jpg);
+}
+
+.student7 {
+    background-image: url(https://image.freepik.com/free-photo/happy-beautiful-asian-friends-women-blogger-using-smartphone-photo-making-food-vlog-video_7861-1019.jpg);
+}
+
+.student8 {
+    background-image: url(https://image.freepik.com/free-photo/three-young-beautiful-smiling-gorgeous-girls-trendy-summer-clothes-sexy-carefree-women-posing-positive-models-having-fun-round-sunglasses_158538-5271.jpg);
+}
+
+.student__gallery .small-gallery{
+    margin-bottom: 1rem;
+}
 
 
   /* ----------- scroll right tab ---------------*/
