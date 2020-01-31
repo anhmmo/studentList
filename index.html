@@ -118,9 +118,9 @@
 <div id="student__popup" class="student__popup">
     <h2>Student name</h2>
     <div class="student__infomation">
-        <div id="student__infomation--info">info</div>
-        <div id="student__infomation--credit">credit</div>
-        <div id="student__infomation--portfolio">portfolio</div>
+        <div id="student__infomation--info" class="student__infomation--info">info</div>
+        <div id="student__infomation--credit" class="student__infomation--credit">credit</div>
+        <div id="student__infomation--portfolio" class="student__infomation--portfolio">portfolio</div>
     </div>
     <div class="student__text">
         <ul id="student__text-1" class="student__text--info">
@@ -461,12 +461,18 @@
         popup.setAttribute("class", "student__popup");
     }
 
+    document.getElementById("student__infomation--credit").addEventListener("click", clickChangeCreditStatus);
 
     function clickChangeCreditStatus() {
         let credit = document.getElementById("student__infomation--credit");
+        let info = document.getElementById("student__infomation--info");
+        let portfolio = document.getElementById("student__infomation--portfolio");
+        
         let studentTextFirst = document.getElementById("student__text-1");
         let studentTextSecond = document.getElementById("student__text-2");
         let studentTextThird = document.getElementById("student__text-3");
+        studentTextFirst.removeAttribute("class");
+        info.removeAttribute("class");
     }
 
 
