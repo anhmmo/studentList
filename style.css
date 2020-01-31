@@ -259,8 +259,6 @@ popup for student info
     transform: translate(-50%,-50%);
     color: #1c1c24;
     font-family: 'Raleway', sans-serif;
-    
-    
 }
 
 
@@ -303,6 +301,7 @@ popup for student info
     width: 12%;
     position: relative;
     overflow: hidden;
+    transition: box-shadow 1s;
 }
 
 .img-box:not(:last-child) {
@@ -311,6 +310,7 @@ popup for student info
 
 .img-box:hover {
     cursor: pointer;
+    box-shadow: 0 0 30px rgb(202, 202, 202), 0 0 30px rgb(150, 144, 144), 0 0 30px rgb(138, 129, 129);
 }
 
 .img-content {
@@ -318,13 +318,15 @@ popup for student info
     padding: 5rem;
     background-position: center;
     background-size: cover;
-    border-radius: .2rem;
-    border: 2px dashed #e5e5e5;
+    border: 2px dashed #eeeded;
+    filter: opacity(.6);
     transition: all .5s;
+
 }
 
 .img-content:hover {
     transform: scale(1.2);
+    filter: opacity(1);
 }
 
 .box1 {
@@ -386,6 +388,8 @@ popup for student info
     background-image: linear-gradient(to right bottom, #FFEB3B,#03c2af) ;
     
   }
+
+  
 
 
 
