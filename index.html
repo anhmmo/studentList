@@ -118,7 +118,7 @@
 <div id="student__popup" class="student__popup">
     <h2>Student name</h2>
     <div class="student__infomation">
-        <div id="student__infomation--info" class="student__infomation--info">info</div>
+        <div id="student__infomation--info" class="student__infomation--default ">info</div>
         <div id="student__infomation--credit" class="student__infomation--credit">credit</div>
         <div id="student__infomation--portfolio" class="student__infomation--portfolio">portfolio</div>
     </div>
@@ -461,13 +461,15 @@
         popup.setAttribute("class", "student__popup");
     }
 
-    document.getElementById("student__infomation--credit").addEventListener("click", clickChangeCreditStatus);
-    document.getElementById("student__infomation--info").addEventListener("click", clickChangeInfoStatus);
-    document.getElementById("student__infomation--portfolio").addEventListener("click", clickChangePortfolioStatus);
     
+
     let credit = document.getElementById("student__infomation--credit");
     let info = document.getElementById("student__infomation--info");
     let portfolio = document.getElementById("student__infomation--portfolio");
+
+    credit.addEventListener("click", clickChangeCreditStatus);
+    info.addEventListener("click", clickChangeInfoStatus);
+    portfolio.addEventListener("click", clickChangePortfolioStatus);
   
     let studentTextFirst = document.getElementById("student__text-1");
     let studentTextSecond = document.getElementById("student__text-2");
@@ -480,7 +482,7 @@
         studentTextFirst.removeAttribute("class");
         info.removeAttribute("class");
         info.setAttribute("class", "student__infomation--show");
-        credit.setAttribute("class", "student__infomation--info");
+        credit.setAttribute("class", "student__infomation--default");
         portfolio.removeAttribute("class");
         portfolio.setAttribute("class", "student__infomation--show");
         studentTextFirst.style.display = "none";
@@ -495,7 +497,7 @@
         studentTextSecond.removeAttribute("class");
         credit.removeAttribute("class");
         credit.setAttribute("class", "student__infomation--show");
-        info.setAttribute("class", "student__infomation--info");
+        info.setAttribute("class", "student__infomation--default");
         portfolio.removeAttribute("class");
         portfolio.setAttribute("class", "student__infomation--show");
         studentTextFirst.style.display = "block";
@@ -513,7 +515,7 @@
         info.removeAttribute("class");
         credit.setAttribute("class", "student__infomation--show");
         info.setAttribute("class", "student__infomation--show");
-        portfolio.setAttribute("class", "student__infomation--info");
+        portfolio.setAttribute("class", "student__infomation--default");
         
         studentTextFirst.style.display = "none";
         studentTextThird.style.display = "block";

@@ -290,13 +290,25 @@ popup for student info
 
 
 .student__infomation div{
-    padding: 0 4rem 1rem 4rem;
+    padding: 1rem 4rem;
+    transition: color 500ms;
+    transition: border-bottom 500ms;
+    transition: background-color 1s;
 }
 
-.student__infomation--info {
+.student__infomation div:hover{
+    background-color: #e7015e;
+    color: white;
+}
+
+
+.student__infomation--default {
     border-bottom: .2rem solid #ff007a;
     color: #ff007a;
-   
+}
+
+.student__infomation--default:hover {
+    border-bottom: .2rem solid #ffffff;
 }
 
 .student__infomation--credit {
@@ -312,6 +324,22 @@ popup for student info
 
 .student__infomation--show {
     border-bottom: .2rem solid #888888;
+   
+}
+
+.student__infomation--credit:hover {
+    border-bottom: .2rem solid #ffffff;
+   
+}
+
+.student__infomation--portfolio:hover {
+    border-bottom: .2rem solid #ffffff;
+   
+}
+
+
+.student__infomation--show:hover {
+    border-bottom: .2rem solid #ffffff;
    
 }
 
