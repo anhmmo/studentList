@@ -1,6 +1,10 @@
 'use strict';
 
 window.onload = checkExitsLocalStorage();
+let thisSaveScrollNumber = 0;
+
+
+
 
 //check if localStorage not exits, then create new localStorage
 function checkExitsLocalStorage() {
@@ -83,7 +87,7 @@ function submitClickHandle() {
     window.location.reload();
 }
 
-let thisSaveScrollNumber;
+
 //render student item to html items list
 
 function renderStudents() {
@@ -145,6 +149,8 @@ function renderStudents() {
 //delete item
 function onDeleteStudent(index) {
     thisSaveScrollNumber = index;
+    const scrollNumber = JSON.stringify(thisSaveScrollNumber);
+    localStorage.setItem("SCROLL", scrollNumber);
     let CheckAnswer = confirm("Delete this student ?");
     if(CheckAnswer){
         Student.delete(index);
@@ -454,6 +460,6 @@ function getInputValue(selector){
     return inputValue.value;
 }
 
-
-scrollToMyView("delete"+ 35) ? (scrollToMyView("delete"+ 1)):(scrollToMyView("delete"+ 35)) ; 
+let getScroll = localStorage.getItem("SCROLL");
+scrollToMyView("delete"+ getScroll) ? (scrollToMyView("delete"+ 1)):(scrollToMyView("delete"+ getScroll)) ; 
 
