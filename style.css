@@ -198,11 +198,15 @@ body {
     cursor: pointer;
 }
 
+.popup-close-hide {
+    display: none;
+}
+
 .popup-close-2 {
     position: fixed;
-    color: tomato;
+    color: rgb(5, 255, 138);
     font-size: 4rem;
-    left: -1rem;
+    right: -1rem;
     top: -1rem;
     cursor: pointer;
 }

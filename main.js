@@ -358,15 +358,16 @@ function showThisImageBox() {
 
 let studentCloseSlider = document.getElementById("student__gallery");
 let createCloseButton = document.getElementById("gallery-close");
+let createCloseButtonMain = document.getElementById("gallery-close-main");
 createCloseButton.addEventListener("click", closeThisSlider);
 function closeThisSlider () {
     studentCloseSlider.style.display = "none";
     createCloseButton.removeAttribute("class");
-    createCloseButton.setAttribute("class", "popup-close-2 fas fa-times-circle");
+    createCloseButtonMain.removeAttribute("class");
+    createCloseButtonMain.setAttribute("class","popup-close-2 fas fa-times-circle");
 }
 
-let closeButton = document.querySelector(".popup-close-2");
-closeButton.addEventListener("click", closeSecondButton);
+createCloseButtonMain.addEventListener("click", closeSecondButton);
 
 function closeSecondButton () {
     document.getElementById("student__popup").removeAttribute("class");
