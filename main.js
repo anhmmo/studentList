@@ -83,7 +83,7 @@ function submitClickHandle() {
     window.location.reload();
 }
 
-
+let thisSaveScrollNumber;
 //render student item to html items list
 
 function renderStudents() {
@@ -144,16 +144,18 @@ function renderStudents() {
 
 //delete item
 function onDeleteStudent(index) {
-
+    thisSaveScrollNumber = index;
     let CheckAnswer = confirm("Delete this student ?");
     if(CheckAnswer){
         Student.delete(index);
         Student.save();
         window.location.reload();
+        
     }
+    
 }
 
-            
+
         
 //edit item
 function onEditStudent(index) {
@@ -416,7 +418,11 @@ function preventOtherFunctionByDefault () {
 }
 
 
-
+// scroll bar to view
+function scrollToMyView(elementti) {
+    let elmnt = document.getElementById(elementti);
+    elmnt.scrollIntoView();
+  }
 
 
 function changeSelectedValue(getValue) {
@@ -449,6 +455,5 @@ function getInputValue(selector){
 }
 
 
-
-
+scrollToMyView("delete"+ 35) ? (scrollToMyView("delete"+ 1)):(scrollToMyView("delete"+ 35)) ; 
 
