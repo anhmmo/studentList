@@ -328,14 +328,6 @@ function clickChangePortfolioStatus() {
 // student info gallery
 
 
-
-function openImage(luku) {
-    studentCloseSlider.style.display = "block";
-    let style1 = document.getElementById("openThis");
-    style1.removeAttribute("class");
-    style1.setAttribute("class", "student__gallery student" + luku);
-}
-
 let studentGallery = document.getElementById("small-gallery");
 let iconShow = document.getElementById("iconShow");
 let iconHide = document.querySelector("#iconHide");
@@ -373,6 +365,16 @@ function closeSecondButton () {
     document.getElementById("student__popup").removeAttribute("class");
     document.getElementById("student__popup").setAttribute("class", "student__popup--hide");
     
+}
+
+
+function openImage(luku) {
+    studentCloseSlider.style.display = "block";
+    let style1 = document.getElementById("openThis");
+    style1.removeAttribute("class");
+    style1.setAttribute("class", "student__gallery student" + luku);
+    createCloseButton.setAttribute("class","popup-close fas fa-times-circle");
+    createCloseButtonMain.removeAttribute("class");
 }
 
 //slidershow clode button control
