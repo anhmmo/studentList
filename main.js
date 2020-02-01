@@ -257,7 +257,7 @@ function closeBtn(){
 //info--popup--student
 
 
-
+let timeOutF;
 
 function onGetInfoStudent(info){
     let popup = document.getElementById("student__popup");
@@ -338,6 +338,7 @@ function hideThisImageBox() {
     iconShow.removeAttribute("class");
     iconShow.setAttribute("class","showImageIcon fas fa-image");
     iconHide.removeAttribute("class");
+    
 }
 
 iconShow.addEventListener("click", showThisImageBox);
@@ -346,6 +347,7 @@ function showThisImageBox() {
     studentGallery.style.display = "flex";
     iconHide.setAttribute("class","hideImageIcon fas fa-window-close");
     iconShow.removeAttribute("class");
+    clearTimeout(timeOutF);
 }
 
 let studentCloseSlider = document.getElementById("student__gallery");
@@ -358,6 +360,7 @@ function closeThisSlider () {
     createCloseButton.removeAttribute("class");
     createCloseButtonMain.removeAttribute("class");
     createCloseButtonMain.setAttribute("class","popup-close-2 fas fa-times-circle");
+    clearTimeout(timeOutF);
 }
 
 createCloseButtonMain.addEventListener("click", closeSecondButton);
@@ -370,13 +373,32 @@ function closeSecondButton () {
 
 
 function openImage(luku) {
+    
     studentCloseSlider.style.display = "block";
     let style1 = document.getElementById("openThis");
     style1.removeAttribute("class");
     style1.setAttribute("class", "student__gallery student" + luku);
     createCloseButton.setAttribute("class","popup-close fas fa-times-circle");
     createCloseButtonMain.removeAttribute("class");
+    
+    if(luku>7){
+        luku = 0;
+    }
+    
+    timeOutF = setTimeout(
+        function()
+        { 
+            hideThisImageBox();
+            openImage(++luku);
+
+        }, 3000);
+
 }
+
+
+
+
+
 
 //slidershow clode button control
 
