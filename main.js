@@ -349,6 +349,7 @@ function showThisImageBox() {
 }
 
 let studentCloseSlider = document.getElementById("student__gallery");
+studentCloseSlider.style.display = "none";
 let createCloseButton = document.getElementById("gallery-close");
 let createCloseButtonMain = document.getElementById("gallery-close-main");
 createCloseButton.addEventListener("click", closeThisSlider);
