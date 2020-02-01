@@ -28,6 +28,7 @@ html {
 body {
     font-size: 1.6rem;
     max-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 .container {

@@ -148,9 +148,7 @@ function renderStudents() {
 
 //delete item
 function onDeleteStudent(index) {
-    thisSaveScrollNumber = index;
-    const scrollNumber = JSON.stringify(thisSaveScrollNumber);
-    localStorage.setItem("SCROLL", scrollNumber);
+    saveScrollNumber(index);
     let CheckAnswer = confirm("Delete this student ?");
     if(CheckAnswer){
         Student.delete(index);
@@ -196,6 +194,7 @@ function onEditStudent(index) {
         
         }
 
+        saveScrollNumber(index);
         preventOtherFunctionByDefault ();
         
 
@@ -460,6 +459,13 @@ function getInputValue(selector){
     return inputValue.value;
 }
 
+function saveScrollNumber (luku) {
+    thisSaveScrollNumber = luku;
+    const scrollNumber = JSON.stringify(thisSaveScrollNumber);
+    localStorage.setItem("SCROLL", scrollNumber);
+}
+
 let getScroll = localStorage.getItem("SCROLL");
-scrollToMyView("delete"+ getScroll) ? (scrollToMyView("delete"+ 1)):(scrollToMyView("delete"+ getScroll)) ; 
+--getScroll;
+scrollToMyView("copy"+ getScroll) ? (scrollToMyView("copy"+ 1)):(scrollToMyView("delete"+ getScroll)) ; 
 
