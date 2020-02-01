@@ -248,7 +248,7 @@ document.getElementById("popup-close").addEventListener("click", closeBtn);
 function closeBtn(){
     document.getElementById("popup-section").removeAttribute("class");
     document.getElementById("popup-section").setAttribute("class", "edit__popup");
-    //window.location.reload();
+    window.location.reload();
 }
 
 
@@ -263,6 +263,7 @@ function onGetInfoStudent(info){
     let popup = document.getElementById("student__popup");
     popup.removeAttribute("class");
     popup.setAttribute("class", "student__popup");
+    preventOtherFunctionByDefault ();
 }
 
 
@@ -368,7 +369,7 @@ createCloseButtonMain.addEventListener("click", closeSecondButton);
 function closeSecondButton () {
     document.getElementById("student__popup").removeAttribute("class");
     document.getElementById("student__popup").setAttribute("class", "student__popup--hide");
-    
+    window.location.reload();
 }
 
 //slidershow clode button control
@@ -401,12 +402,13 @@ function openImage(luku) {
 
 function preventOtherFunctionByDefault () {
     
+    for (let index = 0; index < Student.list.length; index++) {
+        document.getElementById("delete"+index).onclick = "";
+        document.getElementById("edit"+index).onclick = "";
+        document.getElementById("copy"+index).onclick = "";
+        document.getElementById("info"+index).onclick = "";
+    }
     document.getElementById("submit").removeEventListener("click",submitClickHandle);
-    alert(Student.list.length);
-    document.getElementById("delete").onclick = "";
-    document.getElementById("edit").onclick = "";
-    document.getElementById("copy").onclick = "";
-    document.getElementById("info").onclick = "";
     document.getElementById("submit").addEventListener("click", function(event){
     event.preventDefault()
 });
