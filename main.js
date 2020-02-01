@@ -244,6 +244,7 @@ function onCopyStudentInfo(info){
         copyText.removeAttribute("class");
         copyText.setAttribute("class", "myInput");
     }, 600);
+    
 }
 
 
@@ -266,10 +267,11 @@ function closeBtn(){
 
 let timeOutF;
 
-function onGetInfoStudent(info){
+function onGetInfoStudent(index){
     let popup = document.getElementById("student__popup");
     popup.removeAttribute("class");
     popup.setAttribute("class", "student__popup");
+    saveScrollNumber(index);
     preventOtherFunctionByDefault ();
 }
 
