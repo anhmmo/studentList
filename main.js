@@ -104,6 +104,8 @@ function renderStudents() {
         itembox.setAttribute("class", "item__box");
         let divItem = document.createElement("div");
         let divIcon = document.createElement("div");
+        let letItemIcon = document.createElement("i");
+        let letItemIcon2 = document.createElement("i");
         let divCopiedStudent = document.createElement("div");
 
         divItem.setAttribute("class", "item__box--info");
@@ -115,10 +117,15 @@ function renderStudents() {
         divCopiedStudent.innerHTML = '<input class="myInput" type="text" value="'+studentCopyInfo+'" id="myInput'+ i +'"><div id="copiedStudent'+ i +'" class="copyStudent">Copy Student</div>';
         divIcon.innerHTML = '<i id="delete'+i+'" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit'+i+'" class="fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="copy'+i+'" class="copyIcon fab fa-creative-commons-share" onclick="onCopyStudentInfo(' + i + ')"></i><i id="info'+i+'" class="infoIcon fas fa-info-circle" onclick="onGetInfoStudent(' + i + ')"></i>';
         
+        letItemIcon.className = "iconcircle fas fa-circle";
+        letItemIcon2.className = "iconcircle2 fas fa-circle";
 
         itembox.appendChild(divItem);
         itembox.appendChild(divCopiedStudent);
         itembox.appendChild(divIcon);
+        itembox.appendChild(letItemIcon);
+        itembox.appendChild(letItemIcon2);
+
        // console.log(opiskelija.job);
         listItem.appendChild(itembox);
         
