@@ -357,11 +357,22 @@ function showThisImageBox() {
 }
 
 let studentCloseSlider = document.getElementById("student__gallery");
-document.getElementById("gallery-close").addEventListener("click", closeThisSlider);
+let createCloseButton = document.getElementById("gallery-close");
+createCloseButton.addEventListener("click", closeThisSlider);
 function closeThisSlider () {
     studentCloseSlider.style.display = "none";
+    createCloseButton.removeAttribute("class");
+    createCloseButton.setAttribute("class", "popup-close-2 fas fa-times-circle");
 }
 
+let closeButton = document.querySelector(".popup-close-2");
+closeButton.addEventListener("click", closeSecondButton);
+
+function closeSecondButton () {
+    document.getElementById("student__popup").removeAttribute("class");
+    document.getElementById("student__popup").setAttribute("class", "student__popup--hide");
+    
+}
 
 //slidershow clode button control
 

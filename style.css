@@ -202,7 +202,7 @@ body {
     position: fixed;
     color: tomato;
     font-size: 4rem;
-    right: -1rem;
+    left: -1rem;
     top: -1rem;
     cursor: pointer;
 }
@@ -250,6 +250,8 @@ body {
 /*
 popup for student info
 */
+
+
 
 .student__popup--hide{
     display: none;
