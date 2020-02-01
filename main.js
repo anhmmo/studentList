@@ -327,7 +327,10 @@ function clickChangePortfolioStatus() {
 
 // student info gallery
 
+
+
 function openImage(luku) {
+    studentCloseSlider.style.display = "block";
     let style1 = document.getElementById("openThis");
     style1.removeAttribute("class");
     style1.setAttribute("class", "student__gallery student" + luku);
@@ -358,6 +361,16 @@ document.getElementById("gallery-close").addEventListener("click", closeThisSlid
 function closeThisSlider () {
     studentCloseSlider.style.display = "none";
 }
+
+
+//slidershow clode button control
+
+
+
+
+
+
+
 
 
 function changeSelectedValue(getValue) {

@@ -198,6 +198,15 @@ body {
     cursor: pointer;
 }
 
+.popup-close-2 {
+    position: fixed;
+    color: tomato;
+    font-size: 4rem;
+    right: -1rem;
+    top: -1rem;
+    cursor: pointer;
+}
+
 .submit-button2 {
     margin-top: 3rem;
     margin-bottom: 1rem;
