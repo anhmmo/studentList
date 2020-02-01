@@ -73,6 +73,8 @@ function submitClickHandle() {
     var email = getInputValue("#email");
     var age = getInputValue("#age");
     var selected = changeSelectedValue(getInputValue("#selectOption"));
+
+    saveScrollNumber(Student.list.length);
     
     Student.add({
         name: name,
@@ -424,6 +426,7 @@ function preventOtherFunctionByDefault () {
     
 }
 
+// to the to event
 
 // scroll bar to view
 function scrollToMyView(elementti) {
