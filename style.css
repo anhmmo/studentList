@@ -204,7 +204,7 @@ body {
 
 .popup-close-2 {
     position: fixed;
-    color: rgb(5, 255, 138);
+    color: #FF9800;
     font-size: 4rem;
     right: -1rem;
     top: -1rem;
@@ -285,7 +285,11 @@ popup for student info
     font-weight: 700;
     cursor: pointer;
     animation: toLeft 2s;
-    color: #ce0153;
+    color: #FFC107;
+}
+
+.student__popup h2:hover{
+    color: #ff007a;
 }
 
 .student__infomation {
@@ -295,13 +299,15 @@ popup for student info
     cursor: pointer;
     width: 45%;
     margin: 0 auto;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
     padding: 1rem;
 }
 
 
 .student__infomation div{
+    text-transform: uppercase;
+    color: #546E7A;
     padding: 1rem 4rem;
     transition: color 500ms;
     transition: border-bottom 500ms;
@@ -316,7 +322,7 @@ popup for student info
 
 .student__infomation--default {
     border-bottom: .2rem solid #ff007a;
-    color: #ff007a;
+    color: #ff007a !important;
 }
 
 .student__infomation--default:hover {
@@ -324,18 +330,18 @@ popup for student info
 }
 
 .student__infomation--credit {
-    border-bottom: .2rem solid #888888;
+    border-bottom: .2rem solid #B0BEC5;
    
 }
 
 .student__infomation--portfolio {
-    border-bottom: .2rem solid #888888;
+    border-bottom: .2rem solid #B0BEC5;
    
 }
 
 
 .student__infomation--show {
-    border-bottom: .2rem solid #888888;
+    border-bottom: .2rem solid #B0BEC5;
    
 }
 
