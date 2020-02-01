@@ -330,9 +330,34 @@ function clickChangePortfolioStatus() {
 function openImage(luku) {
     let style1 = document.getElementById("openThis");
     style1.removeAttribute("class");
-    style1.setAttribute("class", "student__gallery student"+luku);
+    style1.setAttribute("class", "student__gallery student" + luku);
 }
 
+let studentGallery = document.getElementById("small-gallery");
+let iconShow = document.getElementById("iconShow");
+let iconHide = document.querySelector("#iconHide");
+
+iconHide.addEventListener("click", hideThisImageBox);
+function hideThisImageBox() {
+    studentGallery.style.display = "none";
+    iconShow.removeAttribute("class");
+    iconShow.setAttribute("class","showImageIcon fas fa-image");
+    iconHide.removeAttribute("class");
+}
+
+iconShow.addEventListener("click", showThisImageBox);
+
+function showThisImageBox() {
+    studentGallery.style.display = "flex";
+    iconHide.setAttribute("class","hideImageIcon fas fa-window-close");
+    iconShow.removeAttribute("class");
+}
+
+let studentCloseSlider = document.getElementById("student__gallery");
+document.getElementById("gallery-close").addEventListener("click", closeThisSlider);
+function closeThisSlider () {
+    studentCloseSlider.style.display = "none";
+}
 
 
 function changeSelectedValue(getValue) {
