@@ -107,7 +107,7 @@ function renderStudents() {
 
         divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
         divCopiedStudent.innerHTML = '<input class="myInput" type="text" value="'+studentCopyInfo+'" id="myInput'+ i +'"><div id="copiedStudent'+ i +'" class="copyStudent">Copy Student</div>';
-        divIcon.innerHTML = '<i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit" class="fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="copy" class="fab fa-creative-commons-share" onclick="onCopyStudentInfo(' + i + ')"></i><i id="info" class="fas fa-info-circle" onclick="onGetInfoStudent(' + i + ')"></i>';
+        divIcon.innerHTML = '<i id="delete'+i+'" class="fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit'+i+'" class="fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="copy'+i+'" class="copyIcon fab fa-creative-commons-share" onclick="onCopyStudentInfo(' + i + ')"></i><i id="info'+i+'" class="infoIcon fas fa-info-circle" onclick="onGetInfoStudent(' + i + ')"></i>';
         
 
         itembox.appendChild(divItem);
@@ -182,13 +182,13 @@ function onEditStudent(index) {
             case "Sofware engineer":
             document.getElementById("selectOption2").value = "4";
             break;
+            default:
+            document.getElementById("selectOption2").value = "";
+            break;
         
         }
 
-        document.getElementById("submit").removeEventListener("click",submitClickHandle);
-        document.getElementById("submit").addEventListener("click", function(event){
-        event.preventDefault()
-});
+        preventOtherFunctionByDefault ();
         
 
         
@@ -248,7 +248,7 @@ document.getElementById("popup-close").addEventListener("click", closeBtn);
 function closeBtn(){
     document.getElementById("popup-section").removeAttribute("class");
     document.getElementById("popup-section").setAttribute("class", "edit__popup");
-    window.location.reload();
+    //window.location.reload();
 }
 
 
@@ -371,6 +371,7 @@ function closeSecondButton () {
     
 }
 
+//slidershow clode button control
 
 function openImage(luku) {
     
@@ -398,13 +399,19 @@ function openImage(luku) {
 
 
 
-
-
-//slidershow clode button control
-
-
-
-
+function preventOtherFunctionByDefault () {
+    
+    document.getElementById("submit").removeEventListener("click",submitClickHandle);
+    alert(Student.list.length);
+    document.getElementById("delete").onclick = "";
+    document.getElementById("edit").onclick = "";
+    document.getElementById("copy").onclick = "";
+    document.getElementById("info").onclick = "";
+    document.getElementById("submit").addEventListener("click", function(event){
+    event.preventDefault()
+});
+    
+}
 
 
 
