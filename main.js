@@ -430,9 +430,8 @@ function preventOtherFunctionByDefault () {
     
 }
 
-// to the to event
 
-// scroll bar to view
+// scroll to position where it is current view
 function scrollToMyView(elementti) {
     let elmnt = document.getElementById(elementti);
     elmnt.scrollIntoView();
