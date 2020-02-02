@@ -255,7 +255,7 @@ function onCopyStudentInfo(info){
 
 
 
-//popup click
+//popup close click
 
 document.getElementById("popup-close").addEventListener("click", closeBtn);
 
