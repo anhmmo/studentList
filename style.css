@@ -37,6 +37,7 @@ body {
     margin: 0 auto;
     background-color: white;
     /*background-image: url(img/bg.png);*/
+    /*background: linear-gradient(to right bottom, #ff512f, #cf2170);*/
     height: 100vh;
     display: flex;
     font-size: 1.8rem;
@@ -47,6 +48,7 @@ body {
 .list-item {
     width: 50%;
     overflow-y: scroll;
+    
 }
 
 
@@ -124,6 +126,9 @@ body {
 .right-container {
     width: 50%;
     overflow: hidden;
+    background-image: linear-gradient(to bottom right, #0ba360 0%, #3cba92 100%);
+    /*background: linear-gradient(to right, #ff512f, #f09819);*/
+    
 }
 
 #main-form{
@@ -187,7 +192,7 @@ body {
 .edit__popup--open{
     display: block;
     position: relative;
-    background-color: darkgoldenrod;
+    background: linear-gradient(to right bottom, #e74929, #a71c5a);
     font-size: 1.7rem;
     max-width: 400px;
     width: 100%;

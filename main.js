@@ -172,8 +172,8 @@ function onDeleteStudent(index) {
         
 //edit item
 function onEditStudent(index) {
-        document.getElementById("popup-section").removeAttribute("class");
-        document.getElementById("popup-section").setAttribute("class", "edit__popup--open");
+
+        document.getElementById("popup-section").className = "edit__popup--open";
         document.getElementById("submit2").addEventListener("click", submitForm);
        
         document.getElementById("name2").value = Student.data[index].name;
@@ -236,8 +236,7 @@ function onCopyStudentInfo(info){
     
 
     var copyText = document.getElementById("myInput" + info);
-    copyText.removeAttribute("class");
-    copyText.setAttribute("class", "myInput2");
+    copyText.className = "myInput2";
     copyText.select();
     copyText.setSelectionRange(0, 99999)
     document.execCommand("copy");
@@ -245,13 +244,11 @@ function onCopyStudentInfo(info){
 
     let studentInfo = document.getElementById("copiedStudent" + info);
     console.log(studentInfo);
-    studentInfo.removeAttribute("class");
-    studentInfo.setAttribute("class", "copiedStudent");
+    
+    studentInfo.className = "copiedStudent";
     setTimeout(function(){
-        studentInfo.removeAttribute("class");
-        studentInfo.setAttribute("class", "copyStudent");
-        copyText.removeAttribute("class");
-        copyText.setAttribute("class", "myInput");
+        studentInfo.className = "copyStudent";
+        copyText.className = "myInput";
     }, 600);
     
 }
@@ -263,8 +260,7 @@ function onCopyStudentInfo(info){
 document.getElementById("popup-close").addEventListener("click", closeBtn);
 
 function closeBtn(){
-    document.getElementById("popup-section").removeAttribute("class");
-    document.getElementById("popup-section").setAttribute("class", "edit__popup");
+    document.getElementById("popup-section").className = "edit__popup";
     window.location.reload();
 }
 
