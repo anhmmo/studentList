@@ -413,7 +413,7 @@ function openImage(luku) {
 }
 
 
-
+//this function prevent other event working when an popup open
 
 function preventOtherFunctionByDefault () {
     
