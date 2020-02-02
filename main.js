@@ -281,8 +281,8 @@ function onGetInfoStudent(index){
     }
     createH2.innerHTML = Student.list[index].name;
     popup.insertBefore(createH2, popup.childNodes[0]);
-    popup.removeAttribute("class");
-    popup.setAttribute("class", "student__popup");
+    
+    popup.className = "student__popup";
     saveScrollNumber(index);
     preventOtherFunctionByDefault ();
 }
@@ -305,11 +305,11 @@ let studentTextThird = document.getElementById("student__text-3");
 
 function clickChangeCreditStatus() {
    
-    info.removeAttribute("class");
-    info.setAttribute("class", "student__infomation--show");
+    
+    info.className = "student__infomation--show";
     credit.setAttribute("class", "student__infomation--default");
-    portfolio.removeAttribute("class");
-    portfolio.setAttribute("class", "student__infomation--show");
+    
+    portfolio.className = "student__infomation--show";
     studentTextFirst.style.display = "none";
     studentTextThird.style.display = "none";
     studentTextSecond.style.display = "block";
@@ -318,8 +318,8 @@ function clickChangeCreditStatus() {
 
 function clickChangeInfoStatus() {
 
-    credit.removeAttribute("class");
-    credit.setAttribute("class", "student__infomation--show");
+    
+    credit.className = "student__infomation--show";
     info.setAttribute("class", "student__infomation--default");
     portfolio.removeAttribute("class");
     portfolio.setAttribute("class", "student__infomation--show");
