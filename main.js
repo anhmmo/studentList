@@ -388,7 +388,7 @@ function closeSecondButton () {
     window.location.reload();
 }
 
-//slidershow clode button control
+//slidershow open image automatically
 
 function openImage(luku) {
     
