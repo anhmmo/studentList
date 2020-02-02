@@ -101,15 +101,15 @@ function renderStudents() {
         //console.log(Students.length);
         var opiskelija = Students[i];
         var itembox = document.createElement("div");
-        itembox.setAttribute("class", "item__box");
+        itembox.className = "item__box";
         let divItem = document.createElement("div");
         let divIcon = document.createElement("div");
         let letItemIcon = document.createElement("i");
         let letItemIcon2 = document.createElement("i");
         let divCopiedStudent = document.createElement("div");
 
-        divItem.setAttribute("class", "item__box--info");
-        divIcon.setAttribute("class", "item__box--icon");
+        divItem.className = "item__box--info";
+        divIcon.className = "item__box--icon";
 
         let studentCopyInfo = opiskelija.name + ", " + opiskelija.address + ", " + opiskelija.phone + ", " + opiskelija.email + ", " + opiskelija.age + ", " + opiskelija.job;
 
@@ -305,42 +305,38 @@ let studentTextThird = document.getElementById("student__text-3");
 
 function clickChangeCreditStatus() {
    
-    
     info.className = "student__infomation--show";
-    credit.setAttribute("class", "student__infomation--default");
+    credit.className = "student__infomation--default";
     
     portfolio.className = "student__infomation--show";
     studentTextFirst.style.display = "none";
     studentTextThird.style.display = "none";
     studentTextSecond.style.display = "block";
-    studentTextSecond.setAttribute("class", "student__text--default");
+    studentTextSecond.className = "student__text--default";
 }
 
 function clickChangeInfoStatus() {
 
     
     credit.className = "student__infomation--show";
-    info.setAttribute("class", "student__infomation--default");
-    portfolio.removeAttribute("class");
-    portfolio.setAttribute("class", "student__infomation--show");
+    info.className = "student__infomation--default";
+    portfolio.className = "student__infomation--show";
     studentTextFirst.style.display = "block";
     studentTextThird.style.display = "none";
     studentTextSecond.style.display = "none";
-    studentTextFirst.setAttribute("class", "student__text--default");
+    studentTextFirst.className = "student__text--default";
 }
 
 function clickChangePortfolioStatus() {
 
-    credit.removeAttribute("class");
-    info.removeAttribute("class");
-    credit.setAttribute("class", "student__infomation--show");
-    info.setAttribute("class", "student__infomation--show");
-    portfolio.setAttribute("class", "student__infomation--default");
+    credit.className = "student__infomation--show";
+    info.className = "student__infomation--show";
+    portfolio.className = "student__infomation--default";
     
     studentTextFirst.style.display = "none";
     studentTextThird.style.display = "block";
     studentTextSecond.style.display = "none";
-    studentTextThird.setAttribute("class", "student__text--default");
+    studentTextThird.className = "student__text--default";
 }
 
 
@@ -357,8 +353,8 @@ let iconHide = document.querySelector("#iconHide");
 iconHide.addEventListener("click", hideThisImageBox);
 function hideThisImageBox() {
     studentGallery.style.display = "none";
-    iconShow.removeAttribute("class");
-    iconShow.setAttribute("class","showImageIcon fas fa-image");
+    
+    iconShow.className = "showImageIcon fas fa-image";
     iconHide.removeAttribute("class");
     
 }
@@ -367,7 +363,7 @@ iconShow.addEventListener("click", showThisImageBox);
 
 function showThisImageBox() {
     studentGallery.style.display = "flex";
-    iconHide.setAttribute("class","hideImageIcon fas fa-window-close");
+    iconHide.className = "hideImageIcon fas fa-window-close";
     iconShow.removeAttribute("class");
     clearTimeout(timeOutF);
 }
@@ -380,16 +376,15 @@ createCloseButton.addEventListener("click", closeThisSlider);
 function closeThisSlider () {
     studentCloseSlider.style.display = "none";
     createCloseButton.removeAttribute("class");
-    createCloseButtonMain.removeAttribute("class");
-    createCloseButtonMain.setAttribute("class","popup-close-2 fas fa-times-circle");
+    
+    createCloseButtonMain.className = "popup-close-2 fas fa-times-circle";
     clearTimeout(timeOutF);
 }
 
 createCloseButtonMain.addEventListener("click", closeSecondButton);
 
 function closeSecondButton () {
-    document.getElementById("student__popup").removeAttribute("class");
-    document.getElementById("student__popup").setAttribute("class", "student__popup--hide");
+    document.getElementById("student__popup").className = "student__popup--hide";
     window.location.reload();
 }
 
@@ -399,9 +394,8 @@ function openImage(luku) {
     
     studentCloseSlider.style.display = "block";
     let style1 = document.getElementById("openThis");
-    style1.removeAttribute("class");
-    style1.setAttribute("class", "student__gallery student" + luku);
-    createCloseButton.setAttribute("class","popup-close fas fa-times-circle");
+    style1.className = "student__gallery student" + luku;
+    createCloseButton.className = "popup-close fas fa-times-circle";
     createCloseButtonMain.removeAttribute("class");
     
     if(luku>7){
