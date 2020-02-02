@@ -1,7 +1,7 @@
 'use strict';
 
 window.onload = checkExitsLocalStorage();
-let thisSaveScrollNumber = 0;
+let thisSaveScrollNumber = 0; //this variables save number where position of item is.
 
 
 
@@ -468,11 +468,15 @@ function getInputValue(selector){
     return inputValue.value;
 }
 
+
+//save scroll number to localStorage
 function saveScrollNumber (luku) {
     thisSaveScrollNumber = luku;
     const scrollNumber = JSON.stringify(thisSaveScrollNumber);
     localStorage.setItem("SCROLL", scrollNumber);
 }
+
+//get position number of item then call scrollToView function
 
 let getScroll = localStorage.getItem("SCROLL");
 --getScroll;
