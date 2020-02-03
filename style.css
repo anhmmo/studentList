@@ -137,6 +137,7 @@ body {
 }
 
 .main-form__input, .popup__form--input {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -185,6 +186,21 @@ body {
 
 .submit-button:hover, .submit-button2:hover {
     cursor: pointer;
+}
+
+.falseIcon {
+    position: absolute;
+    right: 4%;
+    bottom: 18%;
+    color: red;
+}
+
+.trueIcon {
+    
+    position: absolute;
+    color: green;
+    right: 4%;
+    bottom: 18%;
 }
 
 
