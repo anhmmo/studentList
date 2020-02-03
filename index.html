@@ -23,7 +23,7 @@
         <form action="#" id="main-form" >
             <div class="main-form__input">
                 <label for="">Name</label>
-                <input id="name" type="text" name="name" placeholder="Enter your name" required/>
+                <input id="name" type="text" tabindex="-1" name="name" placeholder="Enter your name" required/>
                 <i id="falseIcon" class="falseIcon fas fa-times"></i>
                 <i id="trueIcon" class="trueIcon fas fa-check"></i>
                 <i id="requiredIcon" class="requiredIcon fas fa-star-of-life"></i>
@@ -31,7 +31,7 @@
 
             <div class="main-form__input">
                 <label for="">Address</label>
-                <input id="address"  type="text" name="address" placeholder="Enter your address" required/>
+                <input id="address"  type="text" tabindex="-1" name="address" placeholder="Enter your address" required/>
                 <i id="falseIcon" class="falseIcon fas fa-times"></i>
                 <i id="trueIcon" class="trueIcon fas fa-check"></i>
                 <i id="requiredIcon" class="requiredIcon fas fa-star-of-life"></i>
@@ -40,7 +40,7 @@
             
             <div class="main-form__input">
                 <label for="">Phone</label>
-                <input id="phone" type="number" placeholder="Enter your Phone"  required>
+                <input id="phone" type="number" tabindex="-1" placeholder="Enter your Phone"  required>
                 <i id="falseIcon" class="falseIcon fas fa-times"></i>
                 <i id="trueIcon" class="trueIcon fas fa-check"></i>
                 <i id="requiredIcon" class="requiredIcon fas fa-star-of-life"></i>
@@ -48,7 +48,7 @@
 
             <div class="main-form__input">
                 <label for="">Email</label>
-                <input id="email" type="email" placeholder="Enter your Email" required>
+                <input id="email" type="email" onpaste="return false;" tabindex="-1" placeholder="Enter your Email" required>
                 <i id="falseIcon" class="falseIcon fas fa-times"></i>
                 <i id="trueIcon" class="trueIcon fas fa-check"></i>
                 <i id="requiredIcon" class="requiredIcon fas fa-star-of-life"></i>
@@ -56,7 +56,7 @@
 
             <div class="main-form__input">
                 <label for="">Age</label>
-                <input id="age" type="number" min="18" max="90" placeholder="Enter your age" required>
+                <input id="age" type="number" tabindex="-1" min="18" max="90" placeholder="Enter your age" required>
                 <i id="falseIcon" class="falseIcon fas fa-times"></i>
                 <i id="trueIcon" class="trueIcon fas fa-check"></i>
                 <i id="requiredIcon" class="requiredIcon fas fa-star-of-life"></i>
@@ -64,7 +64,7 @@
 
             <div class="main-form__input">
                 <label for="">Which option is your current job?</label>
-                <select id="selectOption" required>
+                <select id="selectOption" tabindex="-1" required>
                     <option value="" disabled selected>Select current job</option>
                     <option value="1">Student</option>
                     <option value="2">Software developer</option>

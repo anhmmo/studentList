@@ -439,37 +439,61 @@ function scrollToMyView(elementti) {
 
 
   //form validation
+ let selectMainForm = document.getElementById("main-form").querySelectorAll("div");
+ let selectIElement = selectMainForm[0].querySelectorAll("i");
+ selectIElement[0].className = "hideFormIcon";
+ selectIElement[1].className = "hideFormIcon";
   
   let nameField = document.getElementById("name");
-
+ // let addressField = document.getElementById("address");
+  nameField.addEventListener("click", checkFormEvent);
   //icon control
   let falseIcon = document.getElementById("falseIcon");
   let trueIcon = document.getElementById("trueIcon");
-  let requiredIcon= document.getElementById("requiredIcon");
+  let requiredIcon = document.getElementById("requiredIcon");
   
-  falseIcon.className = "hideFormIcon";
-  trueIcon.className = "hideFormIcon";
 
-  nameField.addEventListener("blur", checkIfNotType);
-  nameField.addEventListener("focus", checkTyping);
 
+  function checkFormEvent() {
+    nameField.addEventListener("focus", checkTyping);
+    nameField.addEventListener("input", checkInputForm);
+    nameField.addEventListener("blur", checkIfNotType);
 
   function checkIfNotType () {
       nameField.placeholder ="Name is required";
-  }
 
-  function checkInputForm () {
+      if(nameField.value.length==0) {
+        requiredIcon.style.color = "red";
+      }
+      else {
+        requiredIcon.style.color = "white";
+      }
       
   }
 
-  function checkTyping() {
-    nameField.placeholder ="";
-    console.log(nameField.value.length);
+  function checkInputForm () {
+    
     if (nameField.value.length>0) {
-        alert("qua it ky tu");
+        trueIcon.className = "trueIcon fas fa-check";
+        falseIcon.className = "hideFormIcon";
+        requiredIcon.style.color = "white";
+
     }
-    falseIcon.className = "falseIcon fas fa-times";
+    else {
+        falseIcon.className = "falseIcon fas fa-times";
+        trueIcon.className = "hideFormIcon";
+        requiredIcon.style.color = "red";
+    }
+    
+    
   }
+
+    function checkTyping() {
+        nameField.placeholder ="";
+    }
+}
+
+  
 
 
 
