@@ -212,7 +212,9 @@ body {
     top: 35%;
 }
 
-
+.hideFormIcon {
+    display: none;
+}
 
 
 .edit__popup--open{

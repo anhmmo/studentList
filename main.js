@@ -439,18 +439,41 @@ function scrollToMyView(elementti) {
 
 
   //form validation
-
+  
   let nameField = document.getElementById("name");
+
+  //icon control
+  let falseIcon = document.getElementById("falseIcon");
+  let trueIcon = document.getElementById("trueIcon");
+  let requiredIcon= document.getElementById("requiredIcon");
+  
+  falseIcon.className = "hideFormIcon";
+  trueIcon.className = "hideFormIcon";
+
   nameField.addEventListener("blur", checkIfNotType);
   nameField.addEventListener("focus", checkTyping);
+
+
   function checkIfNotType () {
       nameField.placeholder ="Name is required";
   }
 
-  function checkTyping() {
-    nameField.placeholder ="";
+  function checkInputForm () {
+      
   }
 
+  function checkTyping() {
+    nameField.placeholder ="";
+    console.log(nameField.value.length);
+    if (nameField.value.length>0) {
+        alert("qua it ky tu");
+    }
+    falseIcon.className = "falseIcon fas fa-times";
+  }
+
+
+
+  //other need function
 
 function changeSelectedValue(getValue) {
     switch(getValue){
