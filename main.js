@@ -456,33 +456,58 @@ function scrollToMyView(elementti) {
 
 
   //form validation
- let selectMainForm = document.getElementById("main-form").querySelectorAll("div");
- let selectIElement = selectMainForm[0].querySelectorAll("i");
- let selectInputElement = selectMainForm[0].querySelector("#name");
 
- let falseIcon = selectIElement[0];
- let trueIcon = selectIElement[1];
- let requiredIcon = selectIElement[2];
-
- selectIElement[0].className = "hideFormIcon";
- selectIElement[1].className = "hideFormIcon";
+  //first hide all icon
+  let selectInputElement;
+  let selectMainForm = document.getElementById("main-form").querySelectorAll("div");
+  for (let index = 0; index < selectMainForm.length; index++) {
+    let selectIElement = selectMainForm[index].querySelectorAll("i");
+    selectIElement[0].className = "hideFormIcon";
+    selectIElement[1].className = "hideFormIcon";
+  }
+  
+ 
+  selectInputElement = selectMainForm[0].querySelector("input");
+ let selectInputElement1 = selectMainForm[1].querySelector("input");
+ let selectInputElement2 = selectMainForm[2].querySelector("input");
+ let selectInputElement3 = selectMainForm[3].querySelector("input");
+  let selectInputElement4 = selectMainForm[4].querySelector("input");
+  let selectInputElement5 = selectMainForm[5].querySelector("input");
+  
+ 
   
  // let addressField = document.getElementById("address");
-    selectInputElement.addEventListener("click", checkFormEvent);
+
+    selectInputElement.onclick = checkFormEvent(0, "#name");  
+    selectInputElement1.onclick = checkFormEvent(1, "#address");  
+    selectInputElement2.onclick = checkFormEvent(2, "#phone");  
+    selectInputElement3.onclick = checkFormEvent(3, "#email");  
+    selectInputElement4.onclick = checkFormEvent(4, "#age");  
+    selectInputElement5.onclick = checkFormEvent(5, "#selectOption");  
   //icon control
  
   
 
 
-  function checkFormEvent() {
-    selectInputElement.addEventListener("focus", checkTyping);
-    selectInputElement.addEventListener("input", checkInputForm);
-    selectInputElement.addEventListener("blur", checkIfNotType);
+  function checkFormEvent(index, name) {
+
+    let selectMainForm2 = document.getElementById("main-form").querySelectorAll("div");
+    let selectIElement2 = selectMainForm2[index].querySelectorAll("i");
+    let selectInputElement2 = selectMainForm2[index].querySelector(name);
+   
+    let falseIcon = selectIElement2[0];
+    let trueIcon = selectIElement2[1];
+    let requiredIcon = selectIElement2[2];
+
+
+    selectInputElement2.addEventListener("focus", checkTyping);
+    selectInputElement2.addEventListener("input", checkInputForm);
+    selectInputElement2.addEventListener("blur", checkIfNotType);
 
   function checkIfNotType () {
-      selectInputElement.placeholder ="Name is required";
+      selectInputElement2.placeholder ="Name is required";
 
-      if(selectInputElement.value.length==0) {
+      if(selectInputElement2.value.length==0) {
         requiredIcon.style.color = "red";
       }
       else {
@@ -493,7 +518,7 @@ function scrollToMyView(elementti) {
 
   function checkInputForm () {
     
-    if (selectInputElement.value.length>0) {
+    if (selectInputElement2.value.length>0) {
         trueIcon.className = "trueIcon fas fa-check";
         falseIcon.className = "hideFormIcon";
         requiredIcon.style.color = "white";
@@ -509,7 +534,7 @@ function scrollToMyView(elementti) {
   }
 
     function checkTyping() {
-        selectInputElement.placeholder ="";
+        selectInputElement2.placeholder ="";
     }
 }
 
