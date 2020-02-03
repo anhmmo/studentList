@@ -438,20 +438,39 @@ function scrollToMyView(elementti) {
   }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //form validation
  let selectMainForm = document.getElementById("main-form").querySelectorAll("div");
  let selectIElement = selectMainForm[0].querySelectorAll("i");
  let selectInputElement = selectMainForm[0].querySelector("#name");
 
+ let falseIcon = selectIElement[0];
+ let trueIcon = selectIElement[1];
+ let requiredIcon = selectIElement[2];
+
  selectIElement[0].className = "hideFormIcon";
  selectIElement[1].className = "hideFormIcon";
   
  // let addressField = document.getElementById("address");
- selectInputElement.addEventListener("click", checkFormEvent);
+    selectInputElement.addEventListener("click", checkFormEvent);
   //icon control
-  let falseIcon = document.getElementById("falseIcon");
-  let trueIcon = document.getElementById("trueIcon");
-  let requiredIcon = document.getElementById("requiredIcon");
+ 
   
 
 
@@ -495,6 +514,26 @@ function scrollToMyView(elementti) {
 }
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
