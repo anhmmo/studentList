@@ -441,12 +441,13 @@ function scrollToMyView(elementti) {
   //form validation
  let selectMainForm = document.getElementById("main-form").querySelectorAll("div");
  let selectIElement = selectMainForm[0].querySelectorAll("i");
+ let selectInputElement = selectMainForm[0].querySelector("#name");
+
  selectIElement[0].className = "hideFormIcon";
  selectIElement[1].className = "hideFormIcon";
   
-  let nameField = document.getElementById("name");
  // let addressField = document.getElementById("address");
-  nameField.addEventListener("click", checkFormEvent);
+ selectInputElement.addEventListener("click", checkFormEvent);
   //icon control
   let falseIcon = document.getElementById("falseIcon");
   let trueIcon = document.getElementById("trueIcon");
@@ -455,14 +456,14 @@ function scrollToMyView(elementti) {
 
 
   function checkFormEvent() {
-    nameField.addEventListener("focus", checkTyping);
-    nameField.addEventListener("input", checkInputForm);
-    nameField.addEventListener("blur", checkIfNotType);
+    selectInputElement.addEventListener("focus", checkTyping);
+    selectInputElement.addEventListener("input", checkInputForm);
+    selectInputElement.addEventListener("blur", checkIfNotType);
 
   function checkIfNotType () {
-      nameField.placeholder ="Name is required";
+      selectInputElement.placeholder ="Name is required";
 
-      if(nameField.value.length==0) {
+      if(selectInputElement.value.length==0) {
         requiredIcon.style.color = "red";
       }
       else {
@@ -473,7 +474,7 @@ function scrollToMyView(elementti) {
 
   function checkInputForm () {
     
-    if (nameField.value.length>0) {
+    if (selectInputElement.value.length>0) {
         trueIcon.className = "trueIcon fas fa-check";
         falseIcon.className = "hideFormIcon";
         requiredIcon.style.color = "white";
@@ -489,7 +490,7 @@ function scrollToMyView(elementti) {
   }
 
     function checkTyping() {
-        nameField.placeholder ="";
+        selectInputElement.placeholder ="";
     }
 }
 
