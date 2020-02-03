@@ -73,8 +73,13 @@ function submitClickHandle() {
     var email = getInputValue("#email");
     var age = getInputValue("#age");
     var selected = changeSelectedValue(getInputValue("#selectOption"));
-
     saveScrollNumber(Student.list.length);
+
+    if(name == "" || address=="" || phone =="" || email == "" || age == "" || selected == "") {
+        return;
+    }
+
+    
     
     Student.add({
         name: name,
@@ -472,7 +477,7 @@ function scrollToMyView(elementti) {
  let selectInputElement2 = selectMainForm[2].querySelector("input");
  let selectInputElement3 = selectMainForm[3].querySelector("input");
   let selectInputElement4 = selectMainForm[4].querySelector("input");
-  let selectInputElement5 = selectMainForm[5].querySelector("input");
+  let selectInputElement5 = selectMainForm[5].querySelector("select");
   
  
   
