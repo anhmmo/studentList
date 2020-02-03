@@ -204,6 +204,14 @@ body {
 }
 
 
+.requiredIcon {
+    color: white;
+    font-size: .8rem;
+    position: absolute;
+    right: -4%;
+    top: 35%;
+}
+
 
 .edit__popup--open{
     display: block;
