@@ -212,9 +212,7 @@ body {
     top: 35%;
 }
 
-#name:focus::placeholder, #address:focus::placeholder,#phone:focus::placeholder,#email:focus::placeholder,#age:focus::placeholder {
-        color: transparent;  
-}
+
 
 
 .edit__popup--open{

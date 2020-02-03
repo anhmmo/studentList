@@ -438,7 +438,18 @@ function scrollToMyView(elementti) {
   }
 
 
+  //form validation
 
+  let nameField = document.getElementById("name");
+  nameField.addEventListener("blur", checkIfNotType);
+  nameField.addEventListener("focus", checkTyping);
+  function checkIfNotType () {
+      nameField.placeholder ="Name is required";
+  }
+
+  function checkTyping() {
+    nameField.placeholder ="";
+  }
 
 
 function changeSelectedValue(getValue) {
