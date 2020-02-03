@@ -438,6 +438,9 @@ function scrollToMyView(elementti) {
   }
 
 
+
+
+
 function changeSelectedValue(getValue) {
     switch(getValue){
         case "1":
