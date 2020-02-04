@@ -228,6 +228,7 @@ body {
     left: 50%;
     transform: translate(-50%,-50%);
     margin-top: -25%;
+    animation: zoomForm .8s;
    
 }
 
@@ -662,8 +663,19 @@ popup for student info
       100%   {bottom:0px; top:0px;}
   }
 
+  @keyframes zoomForm {
+  
+    0%  {transform: translate(-50%,-50%) scale(.1);}
+      100%   {transform: translate(-50%,-50%) scale(1);}
+  }
 
 
 
 
 
+
+  
+  
+
+    
+ 

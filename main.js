@@ -66,7 +66,7 @@ const Student = {
 //when submit button click
 document.getElementById("submit").addEventListener("click",submitClickHandle);
 function submitClickHandle() {
-    
+   
     var name = getInputValue("#name");
     var address = getInputValue("#address");
     var phone = getInputValue("#phone");
@@ -74,19 +74,16 @@ function submitClickHandle() {
     var age = getInputValue("#age");
     var selected = changeSelectedValue(getInputValue("#selectOption"));
     saveScrollNumber(Student.list.length);
-  
-    ValidateEmail(email);
     
-   /* if(email.indexOf("@")<0 || email.indexOf(".")==-1 || name == "" || address=="" || phone =="" || email == "" || age == "" || selected == "Not selected" ) {
+   if(name == "" || address=="" || phone =="" || email.indexOf(".") < 0 || age == "" || selected == "Not selected" ) {
         
         return;
     }
-*/
 
 console.log(ValidateEmail(email));
 
 if(ValidateEmail(email) == false) {
-        
+    
     return;
 }
     
@@ -519,7 +516,7 @@ function scrollToMyView(elementti) {
     selectInputElement2.addEventListener("input", checkInputForm);
     selectInputElement2.addEventListener("blur", checkIfNotType);
 
-  function checkIfNotType (name) {
+  function checkIfNotType () {
       selectInputElement2.placeholder = this.name + " is required";
 
       if(selectInputElement2.value.length==0) {
@@ -534,6 +531,7 @@ function scrollToMyView(elementti) {
   function checkInputForm () {
     
     if (selectInputElement2.value.length>0) {
+        
         trueIcon.className = "trueIcon fas fa-check";
         falseIcon.className = "hideFormIcon";
         requiredIcon.style.color = "white";
@@ -555,10 +553,6 @@ function scrollToMyView(elementti) {
 
   
 
-
-
-
-//check email form
 
 
 
@@ -623,6 +617,7 @@ function saveScrollNumber (luku) {
 let getScroll = localStorage.getItem("SCROLL");
 --getScroll;
 scrollToMyView("copy"+ getScroll) ? (scrollToMyView("copy"+ 1)):(scrollToMyView("delete"+ getScroll)) ; 
+
 
 function ValidateEmail(email) 
 {
