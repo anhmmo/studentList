@@ -74,11 +74,21 @@ function submitClickHandle() {
     var age = getInputValue("#age");
     var selected = changeSelectedValue(getInputValue("#selectOption"));
     saveScrollNumber(Student.list.length);
-
-    if(name == "" || address=="" || phone =="" || email == "" || age == "" || selected == "") {
+  
+    ValidateEmail(email);
+    
+   /* if(email.indexOf("@")<0 || email.indexOf(".")==-1 || name == "" || address=="" || phone =="" || email == "" || age == "" || selected == "Not selected" ) {
+        
         return;
     }
+*/
 
+console.log(ValidateEmail(email));
+
+if(ValidateEmail(email) == false) {
+        
+    return;
+}
     
     
     Student.add({
@@ -503,14 +513,14 @@ function scrollToMyView(elementti) {
     let falseIcon = selectIElement2[0];
     let trueIcon = selectIElement2[1];
     let requiredIcon = selectIElement2[2];
-
+    
 
     selectInputElement2.addEventListener("focus", checkTyping);
     selectInputElement2.addEventListener("input", checkInputForm);
     selectInputElement2.addEventListener("blur", checkIfNotType);
 
-  function checkIfNotType () {
-      selectInputElement2.placeholder ="Name is required";
+  function checkIfNotType (name) {
+      selectInputElement2.placeholder = this.name + " is required";
 
       if(selectInputElement2.value.length==0) {
         requiredIcon.style.color = "red";
@@ -547,6 +557,8 @@ function scrollToMyView(elementti) {
 
 
 
+
+//check email form
 
 
 
@@ -612,3 +624,11 @@ let getScroll = localStorage.getItem("SCROLL");
 --getScroll;
 scrollToMyView("copy"+ getScroll) ? (scrollToMyView("copy"+ 1)):(scrollToMyView("delete"+ getScroll)) ; 
 
+function ValidateEmail(email) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+  {
+    return (true);
+  }
+    return (false);
+}
