@@ -74,18 +74,16 @@ function submitClickHandle() {
     var age = getInputValue("#age");
     var selected = changeSelectedValue(getInputValue("#selectOption"));
     saveScrollNumber(Student.list.length);
-    
-   if(name == "" || address=="" || phone =="" || email.indexOf(".") < 0 || age == "" || selected == "Not selected" ) {
+    ValidateEmail(email);
+    console.log(ValidateEmail(email));
+   if(name == "" || address=="" || phone =="" || age == "" || selected == "Not selected" ) {
         
         return;
     }
 
-console.log(ValidateEmail(email));
 
-if(ValidateEmail(email) == false) {
-    
-    return;
-}
+
+
     
     
     Student.add({
@@ -625,5 +623,6 @@ function ValidateEmail(email)
   {
     return (true);
   }
-    return (false);
+    
+   return false;
 }
