@@ -191,9 +191,15 @@ body {
 }
 
 
-.main-form__input p {
-    color: red;
+.main-form__input .notice-display-none {
+    display: none;
+}
+
+.main-form__input .notice-display-block {
+    display: block;
+    color: rgb(255, 251, 0);
     font-size: 1.5rem;
+    margin: 5px 0 0 10px;
 }
 
 .submit-button, .submit-button2{
