@@ -496,7 +496,7 @@ function scrollToMyView(elementti) {
     selectInputElement.onclick = checkFormEvent(0, "#name");  
     selectInputElement1.onclick = checkFormEvent(1, "#address");  
     selectInputElement2.onclick = checkFormEvent(2, "#phone");  
-    selectInputElement3.onclick = checkFormEvent(3, "#email");  
+   
     selectInputElement4.onclick = checkFormEvent(4, "#age");  
     selectInputElement5.onclick = checkFormEvent(5, "#selectOption");  
   //icon control
@@ -555,8 +555,55 @@ function scrollToMyView(elementti) {
 }
 
   
+selectInputElement3.onclick = checkFormEventEmail();  
+function checkFormEventEmail () {
+    let selectMainForm = document.getElementById("main-form").querySelectorAll("div");
+    let selectIElement = selectMainForm[3].querySelectorAll("i");
+    let selectInputElement = selectMainForm[3].querySelector("#email");
+   
+    let falseIcon = selectIElement[0];
+    let trueIcon = selectIElement[1];
+    let requiredIcon = selectIElement[2];
+    
 
+    selectInputElement.addEventListener("focus", checkTyping);
+    selectInputElement.addEventListener("input", checkInputForm);
+    selectInputElement.addEventListener("blur", checkIfNotType);
 
+  function checkIfNotType () {
+      selectInputElement.placeholder = this.name + " is required";
+
+      if(selectInputElement.value.length==0) {
+        requiredIcon.style.color = "red";
+      }
+      else {
+        requiredIcon.style.color = "white";
+      }
+      
+  }
+
+  function checkInputForm () {
+    
+    if (selectInputElement.value.length>0 && ValidateEmail(selectInputElement.value)) {
+        
+        trueIcon.className = "trueIcon fas fa-check";
+        falseIcon.className = "hideFormIcon";
+        requiredIcon.style.color = "white";
+
+    }
+    else {
+        falseIcon.className = "falseIcon fas fa-times";
+        trueIcon.className = "hideFormIcon";
+        requiredIcon.style.color = "red";
+    }
+    
+    
+  }
+
+    function checkTyping() {
+        selectInputElement.placeholder ="";
+    }
+}
 
 
 
