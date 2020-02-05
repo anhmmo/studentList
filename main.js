@@ -65,7 +65,7 @@ const Student = {
 
 //when submit button click
 document.getElementById("submit").addEventListener("click",submitClickHandle);
-function submitClickHandle() {
+function submitClickHandle(e) {
    
     var name = getInputValue("#name");
     var address = getInputValue("#address");
@@ -74,9 +74,14 @@ function submitClickHandle() {
     var age = getInputValue("#age");
     var selected = changeSelectedValue(getInputValue("#selectOption"));
     saveScrollNumber(Student.list.length);
-    ValidateEmail(email);
-    console.log(ValidateEmail(email));
-   if(name == "" || address=="" || phone =="" || age == "" || selected == "Not selected" ) {
+    if(email == "example@gmail.com") {
+        e.preventDefault();
+        alert("email not valid");
+        return false;
+        
+    }
+    
+   if(name == "" || address=="" || phone =="" || age == "" || selected == "Not selected") {
         
         return;
     }
@@ -599,6 +604,13 @@ function changeSelectedValue(getValue) {
 
 function getInputValue(selector){
     var inputValue = document.querySelector(selector);
+    if(selector == "#email") {
+        let results = ValidateEmail(inputValue.value);
+        if(results){
+            return inputValue.value;
+        }
+        return "example@gmail.com";
+    }
     return inputValue.value;
 }
 
