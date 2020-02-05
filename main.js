@@ -62,12 +62,19 @@ const Student = {
 
   //[{"name":"","address":"","phone":"","email":"","age":"","job":""}]
 
+  let selectDivInMain = document.getElementById("main-form").querySelectorAll("div");
+  let selectNotice = selectDivInMain[0].querySelector("p");
+  let selectNotice2 = selectDivInMain[1].querySelector("p");
+  let selectNotice3 = selectDivInMain[2].querySelector("p");
+  let selectNotice4 = selectDivInMain[3].querySelector("p");
+  let selectNotice5 = selectDivInMain[4].querySelector("p");
+  let selectNotice6 = selectDivInMain[5].querySelector("p");
 
 //when submit button click
 document.getElementById("submit").addEventListener("click",submitClickHandle);
 function submitClickHandle(e) {
     
-   
+    
     var name = getInputValue("#name");
     var address = getInputValue("#address");
     var phone = getInputValue("#phone");
@@ -75,14 +82,51 @@ function submitClickHandle(e) {
     var age = getInputValue("#age");
     var selected = changeSelectedValue(getInputValue("#selectOption"));
     saveScrollNumber(Student.list.length);
+
+    if(email == "example@gmail.com" && name == "" && address=="" && phone =="" && age == "" && selected == "Not selected") {
+        selectNotice.className = "notice-display-block";
+        selectNotice2.className = "notice-display-block";
+        selectNotice3.className = "notice-display-block";
+        selectNotice4.className = "notice-display-block";
+        selectNotice5.className = "notice-display-block";
+        selectNotice6.className = "notice-display-block";
+        e.preventDefault();
+        return;
+    }
+
+    if(name.length == 0) {
+        selectNotice.className = "notice-display-block";
+        return;
+    }
+
+    if(address.length == 0) {
+        selectNotice2.className = "notice-display-block";
+        return;
+    }
+
+    if(phone.length == 0) {
+        selectNotice3.className = "notice-display-block";
+        return;
+    }
+
     if(email == "example@gmail.com") {
+        selectNotice4.className = "notice-display-block";
         e.preventDefault();
         return false;
-        
+    }
+
+    if(age.length == 0) {
+        selectNotice5.className = "notice-display-block";
+        return;
+    }
+
+    if(selected == "Not selected") {
+        selectNotice6.className = "notice-display-block";
+        return;
     }
     
-   if(name == "" || address=="" || phone =="" || age == "" || selected == "Not selected") {
-        
+   if(email == "example@gmail.com" || name == "" || address=="" || phone =="" || age == "" || selected == "Not selected") {
+        e.preventDefault();
         return;
     }
 
