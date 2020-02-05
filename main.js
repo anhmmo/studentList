@@ -66,6 +66,7 @@ const Student = {
 //when submit button click
 document.getElementById("submit").addEventListener("click",submitClickHandle);
 function submitClickHandle(e) {
+    
    
     var name = getInputValue("#name");
     var address = getInputValue("#address");

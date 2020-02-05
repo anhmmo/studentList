@@ -191,11 +191,11 @@ body {
 }
 
 
-.main-form__input .notice-display-none {
+.notice-display-none {
     display: none;
 }
 
-.main-form__input .notice-display-block {
+.notice-display-block {
     display: block;
     color: rgb(255, 251, 0);
     font-size: 1.5rem;
