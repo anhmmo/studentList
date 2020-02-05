@@ -128,8 +128,28 @@ body {
     overflow: hidden;
     background-image: linear-gradient(to bottom right, #0ba360 0%, #3cba92 100%);
     /*background: linear-gradient(to right, #ff512f, #f09819);*/
-    
+    overflow-y: scroll;
 }
+
+.right-container::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Handle */
+  .right-container::-webkit-scrollbar-thumb {
+    
+    background-image: linear-gradient(to right bottom, #d33d0f,rgb(248, 89, 89)) ;
+    border-radius: 3px;
+    
+  }
+  
+  /* Handle on hover */
+  .right-container::-webkit-scrollbar-thumb:hover {
+      
+    background-image: linear-gradient(to right bottom, rgb(240, 224, 4),#ff0202) ;
+
+  }
+
 
 #main-form{
     width: 60%;
@@ -168,6 +188,12 @@ body {
     border-color: var(--color-darkblue-alpha);
    outline: 0;
    box-shadow: 0 0 0 0.135rem white;
+}
+
+
+.main-form__input p {
+    color: red;
+    font-size: 1.5rem;
 }
 
 .submit-button, .submit-button2{

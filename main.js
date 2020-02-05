@@ -495,7 +495,7 @@ function scrollToMyView(elementti) {
     selectInputElement.onclick = checkFormEvent(0, "#name");  
     selectInputElement1.onclick = checkFormEvent(1, "#address");  
     selectInputElement2.onclick = checkFormEvent(2, "#phone");  
-   
+    selectInputElement3.onclick = checkFormEvent(3, "#email"); 
     selectInputElement4.onclick = checkFormEvent(4, "#age");  
     selectInputElement5.onclick = checkFormEvent(5, "#selectOption");  
   //icon control
@@ -533,7 +533,7 @@ function scrollToMyView(elementti) {
   function checkInputForm () {
     if(this.name=="Email"){
         
-        if (selectInputElement.value.length>0 && ValidateEmail(selectInputElement.value)) {
+        if (selectInputElement2.value.length>0 && ValidateEmail(selectInputElement2.value)) {
         
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
@@ -543,26 +543,27 @@ function scrollToMyView(elementti) {
     
    
         else {
-        falseIcon.className = "falseIcon fas fa-times";
-        trueIcon.className = "hideFormIcon";
-        requiredIcon.style.color = "red";
-     }
+            falseIcon.className = "falseIcon fas fa-times";
+            trueIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "red";
+        }
     
     }
-    else {
-    
-    if (selectInputElement2.value.length>0) {
-        
-        trueIcon.className = "trueIcon fas fa-check";
-        falseIcon.className = "hideFormIcon";
-        requiredIcon.style.color = "white";
 
-    }
     else {
-        falseIcon.className = "falseIcon fas fa-times";
-        trueIcon.className = "hideFormIcon";
-        requiredIcon.style.color = "red";
-    }
+    
+         if (selectInputElement2.value.length>0) {
+        
+            trueIcon.className = "trueIcon fas fa-check";
+            falseIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "white";
+
+        }
+        else {
+            falseIcon.className = "falseIcon fas fa-times";
+            trueIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "red";
+        }
     
     }
   }
@@ -573,7 +574,7 @@ function scrollToMyView(elementti) {
 }
 
   
-selectInputElement3.onclick = checkFormEventEmail();  
+
 
 
 
