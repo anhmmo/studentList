@@ -76,7 +76,6 @@ function submitClickHandle(e) {
     saveScrollNumber(Student.list.length);
     if(email == "example@gmail.com") {
         e.preventDefault();
-        alert("email not valid");
         return false;
         
     }
@@ -532,6 +531,25 @@ function scrollToMyView(elementti) {
   }
 
   function checkInputForm () {
+    if(this.name=="Email"){
+        
+        if (selectInputElement.value.length>0 && ValidateEmail(selectInputElement.value)) {
+        
+            trueIcon.className = "trueIcon fas fa-check";
+            falseIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "white";
+    
+        }
+    
+   
+        else {
+        falseIcon.className = "falseIcon fas fa-times";
+        trueIcon.className = "hideFormIcon";
+        requiredIcon.style.color = "red";
+     }
+    
+    }
+    else {
     
     if (selectInputElement2.value.length>0) {
         
@@ -546,7 +564,7 @@ function scrollToMyView(elementti) {
         requiredIcon.style.color = "red";
     }
     
-    
+    }
   }
 
     function checkTyping() {
@@ -556,54 +574,7 @@ function scrollToMyView(elementti) {
 
   
 selectInputElement3.onclick = checkFormEventEmail();  
-function checkFormEventEmail () {
-    let selectMainForm = document.getElementById("main-form").querySelectorAll("div");
-    let selectIElement = selectMainForm[3].querySelectorAll("i");
-    let selectInputElement = selectMainForm[3].querySelector("#email");
-   
-    let falseIcon = selectIElement[0];
-    let trueIcon = selectIElement[1];
-    let requiredIcon = selectIElement[2];
-    
 
-    selectInputElement.addEventListener("focus", checkTyping);
-    selectInputElement.addEventListener("input", checkInputForm);
-    selectInputElement.addEventListener("blur", checkIfNotType);
-
-  function checkIfNotType () {
-      selectInputElement.placeholder = this.name + " is required";
-
-      if(selectInputElement.value.length==0) {
-        requiredIcon.style.color = "red";
-      }
-      else {
-        requiredIcon.style.color = "white";
-      }
-      
-  }
-
-  function checkInputForm () {
-    
-    if (selectInputElement.value.length>0 && ValidateEmail(selectInputElement.value)) {
-        
-        trueIcon.className = "trueIcon fas fa-check";
-        falseIcon.className = "hideFormIcon";
-        requiredIcon.style.color = "white";
-
-    }
-    else {
-        falseIcon.className = "falseIcon fas fa-times";
-        trueIcon.className = "hideFormIcon";
-        requiredIcon.style.color = "red";
-    }
-    
-    
-  }
-
-    function checkTyping() {
-        selectInputElement.placeholder ="";
-    }
-}
 
 
 
