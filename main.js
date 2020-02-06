@@ -132,9 +132,6 @@ function submitClickHandle(e) {
 
 
 
-
-    
-    
     Student.add({
         name: name,
         address: address,
