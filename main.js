@@ -579,7 +579,7 @@ function scrollToMyView(elementti) {
     if(this.name=="Email"){
         
         if (selectInputElement2.value.length>0 && ValidateEmail(selectInputElement2.value)) {
-        
+           
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
             requiredIcon.style.color = "white";
@@ -598,7 +598,6 @@ function scrollToMyView(elementti) {
     else {
     
          if (selectInputElement2.value.length>0) {
-        
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
             requiredIcon.style.color = "white";
@@ -608,6 +607,7 @@ function scrollToMyView(elementti) {
             falseIcon.className = "falseIcon fas fa-times";
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
+           
         }
     
     }
