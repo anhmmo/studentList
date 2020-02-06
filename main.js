@@ -83,44 +83,62 @@ function submitClickHandle(e) {
     var selected = changeSelectedValue(getInputValue("#selectOption"));
     saveScrollNumber(Student.list.length);
 
-   
+   let selectForm2 = document.getElementById("main-form").querySelectorAll("div");
+   let getAllIcon = selectForm2[0].querySelectorAll("i");
+   let getAllIcon1 = selectForm2[1].querySelectorAll("i");
+   let getAllIcon2 = selectForm2[2].querySelectorAll("i");
+   let getAllIcon3 = selectForm2[3].querySelectorAll("i");
+   let getAllIcon4 = selectForm2[4].querySelectorAll("i");
+   let getAllIcon5 = selectForm2[5].querySelectorAll("i");
+    
+
 
     if(name.length == 0) {
         selectNotice.className = "notice-display-block";
+        getAllIcon[0].className = "falseIconEmpty fas fa-times";
+        getAllIcon[2].className = "requiredIconEmpty fas fa-star-of-life";
         return;
     }
 
     if(address.length == 0) {
         selectNotice2.className = "notice-display-block";
+        getAllIcon1[0].className = "falseIconEmpty fas fa-times";
+        getAllIcon1[2].className = "requiredIconEmpty fas fa-star-of-life";
         return;
     }
 
     if(phone.length == 0) {
         selectNotice3.className = "notice-display-block";
+        getAllIcon2[0].className = "falseIconEmpty fas fa-times";
+        getAllIcon2[2].className = "requiredIconEmpty fas fa-star-of-life";
         return;
     }
 
     if(email == "example@gmail.com") {
         selectNotice4.className = "notice-display-block";
+        getAllIcon3[0].className = "falseIconEmpty fas fa-times";
+        getAllIcon3[2].className = "requiredIconEmpty fas fa-star-of-life";
         e.preventDefault();
         return false;
     }
 
     if(age.length == 0) {
         selectNotice5.className = "notice-display-block";
+        getAllIcon4[0].className = "falseIconEmpty fas fa-times";
+        getAllIcon4[2].className = "requiredIconEmpty fas fa-star-of-life";
         return;
     }
 
     if(selected == "Not selected") {
         selectNotice6.className = "notice-display-block";
+        getAllIcon5[0].className = "falseIconEmpty fas fa-times";
+        getAllIcon5[2].className = "requiredIconEmpty fas fa-star-of-life";
         return;
     }
     
-   if(email == "example@gmail.com" || name == "" || address=="" || phone =="" || age == "" || selected == "Not selected") {
-        e.preventDefault();
-        return;
-    }
+  
 
+   
 
 
     Student.add({
@@ -532,8 +550,9 @@ function scrollToMyView(elementti) {
     selectInputElement4.onclick = checkFormEvent(4, "#age");  
     selectInputElement5.onclick = checkFormEvent(5, "#selectOption");  
   //icon control
- 
-  
+
+
+
 
 
   function checkFormEvent(index, name) {
@@ -580,6 +599,7 @@ function scrollToMyView(elementti) {
     if(this.name=="Email"){
         
         if (selectInputElement2.value.length>0 && ValidateEmail(selectInputElement2.value)) {
+            
             selectNotice4.className = "notice-display-none";
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
@@ -599,6 +619,7 @@ function scrollToMyView(elementti) {
     else {
     
          if (selectInputElement2.value.length>0) {
+           
             selectNotice.className = "notice-display-none";
             selectNotice2.className = "notice-display-none";
             selectNotice3.className = "notice-display-none";
@@ -685,6 +706,21 @@ function getInputValue(selector){
 }
 
 
+
+//scroll to top icon view
+
+listItem.onscroll = function() {
+
+    if (listItem.scrollTop > 500) {
+          document.getElementById("toTheTop").style.display = "block";
+    } else {
+          document.getElementById("toTheTop").style.display = "none";
+    }
+      
+};
+
+
+
 //save scroll number to localStorage
 function saveScrollNumber (luku) {
     thisSaveScrollNumber = luku;
@@ -695,6 +731,7 @@ function saveScrollNumber (luku) {
 //get position number of item then call scrollToView function
 
 let getScroll = localStorage.getItem("SCROLL");
+
 --getScroll;
 scrollToMyView("copy"+ getScroll) ? (scrollToMyView("copy"+ 1)):(scrollToMyView("delete"+ getScroll)) ; 
 
