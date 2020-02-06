@@ -83,52 +83,9 @@ function submitClickHandle(e) {
     var selected = changeSelectedValue(getInputValue("#selectOption"));
     saveScrollNumber(Student.list.length);
 
-    if(email == "example@gmail.com" && name == "" && address=="" && phone =="" && age == "" && selected == "Not selected") {
-        selectNotice.className = "notice-display-block";
-        selectNotice2.className = "notice-display-block";
-        selectNotice3.className = "notice-display-block";
-        selectNotice4.className = "notice-display-block";
-        selectNotice5.className = "notice-display-block";
-        selectNotice6.className = "notice-display-block";
-        e.preventDefault();
-        return;
-    }
-
-    if(name.length == 0) {
-        selectNotice.className = "notice-display-block";
-        return;
-    }
-
-    if(address.length == 0) {
-        selectNotice2.className = "notice-display-block";
-        return;
-    }
-
-    if(phone.length == 0) {
-        selectNotice3.className = "notice-display-block";
-        return;
-    }
-
-    if(email == "example@gmail.com") {
-        selectNotice4.className = "notice-display-block";
-        e.preventDefault();
-        return false;
-    }
-
-    if(age.length == 0) {
-        selectNotice5.className = "notice-display-block";
-        return;
-    }
-
-    if(selected == "Not selected") {
-        selectNotice6.className = "notice-display-block";
-        return;
-    }
+   
+    emailCheckStatus(e);
     
-   if(email == "example@gmail.com" || name == "" || address=="" || phone =="" || age == "" || selected == "Not selected") {
-        e.preventDefault();
-        return;
-    }
 
 
 
@@ -576,7 +533,7 @@ function scrollToMyView(elementti) {
     if(this.name=="Email"){
         
         if (selectInputElement2.value.length>0 && ValidateEmail(selectInputElement2.value)) {
-          
+            selectNotice4.className = "notice-display-none";
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
             requiredIcon.style.color = "white";
@@ -598,7 +555,6 @@ function scrollToMyView(elementti) {
             selectNotice.className = "notice-display-none";
             selectNotice2.className = "notice-display-none";
             selectNotice3.className = "notice-display-none";
-            selectNotice4.className = "notice-display-none";
             selectNotice5.className = "notice-display-none";
             selectNotice6.className = "notice-display-none";
             trueIcon.className = "trueIcon fas fa-check";
@@ -621,7 +577,46 @@ function scrollToMyView(elementti) {
     }
 }
 
-  
+
+function emailCheckStatus (e) {
+    if(name.length == 0) {
+        selectNotice.className = "notice-display-block";
+        falseIcon.className = "falseIcon fas fa-times";
+        requiredIcon.style.color = "red";
+        return;
+    }
+
+    if(address.length == 0) {
+        selectNotice2.className = "notice-display-block";
+        return;
+    }
+
+    if(phone.length == 0) {
+        selectNotice3.className = "notice-display-block";
+        return;
+    }
+
+    if(email == "example@gmail.com") {
+        selectNotice4.className = "notice-display-block";
+        e.preventDefault();
+        return false;
+    }
+
+    if(age.length == 0) {
+        selectNotice5.className = "notice-display-block";
+        return;
+    }
+
+    if(selected == "Not selected") {
+        selectNotice6.className = "notice-display-block";
+        return;
+    }
+    
+   if(email == "example@gmail.com" || name == "" || address=="" || phone =="" || age == "" || selected == "Not selected") {
+        e.preventDefault();
+        return;
+    }
+}
 
 
 
@@ -705,3 +700,4 @@ function ValidateEmail(email)
     
    return false;
 }
+
