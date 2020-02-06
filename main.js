@@ -554,12 +554,25 @@ function scrollToMyView(elementti) {
   function checkIfNotType () {
       selectInputElement2.placeholder = this.name + " is required";
 
-      if(selectInputElement2.value.length==0) {
-        requiredIcon.style.color = "red";
+      if(this.name=="Email"){
+        if(selectInputElement2.value.length>0 && ValidateEmail(selectInputElement2.value)) {
+            requiredIcon.style.color = "white";
+          }
+          else {
+            requiredIcon.style.color = "red";
+          }
       }
+
       else {
-        requiredIcon.style.color = "white";
+        if(selectInputElement2.value.length==0) {
+            requiredIcon.style.color = "red";
+          }
+          else {
+            requiredIcon.style.color = "white";
+          }
       }
+
+     
       
   }
 
