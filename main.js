@@ -84,8 +84,42 @@ function submitClickHandle(e) {
     saveScrollNumber(Student.list.length);
 
    
-    emailCheckStatus(e);
+
+    if(name.length == 0) {
+        selectNotice.className = "notice-display-block";
+        return;
+    }
+
+    if(address.length == 0) {
+        selectNotice2.className = "notice-display-block";
+        return;
+    }
+
+    if(phone.length == 0) {
+        selectNotice3.className = "notice-display-block";
+        return;
+    }
+
+    if(email == "example@gmail.com") {
+        selectNotice4.className = "notice-display-block";
+        e.preventDefault();
+        return false;
+    }
+
+    if(age.length == 0) {
+        selectNotice5.className = "notice-display-block";
+        return;
+    }
+
+    if(selected == "Not selected") {
+        selectNotice6.className = "notice-display-block";
+        return;
+    }
     
+   if(email == "example@gmail.com" || name == "" || address=="" || phone =="" || age == "" || selected == "Not selected") {
+        e.preventDefault();
+        return;
+    }
 
 
 
@@ -577,46 +611,7 @@ function scrollToMyView(elementti) {
     }
 }
 
-
-function emailCheckStatus (e) {
-    if(name.length == 0) {
-        selectNotice.className = "notice-display-block";
-        falseIcon.className = "falseIcon fas fa-times";
-        requiredIcon.style.color = "red";
-        return;
-    }
-
-    if(address.length == 0) {
-        selectNotice2.className = "notice-display-block";
-        return;
-    }
-
-    if(phone.length == 0) {
-        selectNotice3.className = "notice-display-block";
-        return;
-    }
-
-    if(email == "example@gmail.com") {
-        selectNotice4.className = "notice-display-block";
-        e.preventDefault();
-        return false;
-    }
-
-    if(age.length == 0) {
-        selectNotice5.className = "notice-display-block";
-        return;
-    }
-
-    if(selected == "Not selected") {
-        selectNotice6.className = "notice-display-block";
-        return;
-    }
-    
-   if(email == "example@gmail.com" || name == "" || address=="" || phone =="" || age == "" || selected == "Not selected") {
-        e.preventDefault();
-        return;
-    }
-}
+  
 
 
 
@@ -700,4 +695,3 @@ function ValidateEmail(email)
     
    return false;
 }
-
