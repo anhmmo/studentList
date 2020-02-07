@@ -6,15 +6,27 @@ let thisSaveScrollNumber = 0; //this variables save number where position of ite
 
 
 
+
 //check if localStorage not exits, then create new localStorage
 function checkExitsLocalStorage() {
-    changeBackgroundColor();
+    
     var ifExits = localStorage.length; //return 0 if not exits
+   
+    if(ifExits == 0){
+        changeBackgroundColor();
+    }
     if(ifExits < 3){
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
+
+
+    
+    
+
 }
+
+
 //create object to store student info, function
 var storeKey = "STUDENT_DATA";
 let listItem = document.getElementById("list-item");
@@ -753,4 +765,9 @@ function ValidateEmail(email)
 function changeBackgroundColor () {
     const scrollNumber = JSON.stringify(["#E91E63","#FFC107"]);
     localStorage.setItem("COLOR", scrollNumber);
+    
 }
+
+
+
+

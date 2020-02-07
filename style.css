@@ -31,6 +31,53 @@ body {
     scroll-behavior: smooth;
 }
 
+.ribbon {
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+}
+
+.ribbon a {
+    position: absolute;
+    right: -60px;
+    top: 60px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px #888;
+    background-color: #8ba644;
+    color: #fff;
+    display: block;
+    font-family: "PT Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 1px 0;
+    padding: 5px 50px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 0 5px #444;
+}
+
+.ribbon a::after {
+    top: auto;
+    bottom: 1px;
+}
+
+.ribbon a::before {
+    top: auto;
+    top: 1px;
+}
+
+.ribbon a::before, .ribbon a::after {
+    content: '';
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    height: 1px;
+    background-color: #b8cc84;
+}
+
 .container {
     max-width: 1080px;
     width: 100%;
