@@ -29,7 +29,10 @@ body {
     font-size: 1.6rem;
     max-height: 100vh;
     scroll-behavior: smooth;
+    position: relative;
 }
+
+
 
 .ribbon {
     overflow: hidden;
@@ -755,7 +758,7 @@ popup for student info
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
       
-    background-image: linear-gradient(to right bottom, rgba(0, 252, 105, 0.8),#678a74) ;
+    background-image: linear-gradient(to right bottom, #37ffab,rgb(200, 231, 112));
 
   }
 
