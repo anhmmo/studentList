@@ -195,7 +195,7 @@ body {
   /* Handle */
   .right-container::-webkit-scrollbar-thumb {
     
-    background-image: linear-gradient(to right bottom, #d33d0f,rgb(248, 89, 89)) ;
+    background-image: linear-gradient(to right bottom, #33f0a1,rgb(206, 248, 89));
     border-radius: 3px;
     
   }
@@ -203,7 +203,7 @@ body {
   /* Handle on hover */
   .right-container::-webkit-scrollbar-thumb:hover {
       
-    background-image: linear-gradient(to right bottom, rgb(240, 224, 4),#ff0202) ;
+    background-image: linear-gradient(to right bottom, rgb(245, 233, 70),#f84747) ;
 
   }
 
@@ -281,20 +281,20 @@ body {
     position: absolute;
     right: 4%;
     bottom: 18%;
-    color: red;
+    color: tomato;
 }
 
 .falseIconEmpty {
     position: absolute;
     right: 4%;
     bottom: 38%;
-    color: red;
+    color: tomato;
 }
 
 .trueIcon {
     
     position: absolute;
-    color: green;
+    color: #1aa86b;
     right: 4%;
     bottom: 18%;
 }
