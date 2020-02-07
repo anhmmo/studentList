@@ -47,25 +47,33 @@ body {
     top: 60px;
     transform: rotate(45deg);
     box-shadow: 0 0 10px #888;
-    background-color: #8ba644;
+    /*background-color: #8ba644;*/
+    background-color: #7ddba1;
     color: #fff;
     display: block;
     font-family: "PT Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     margin: 1px 0;
-    padding: 5px 50px;
+    padding: 7px 50px;
     text-align: center;
     text-decoration: none;
     text-shadow: 0 0 5px #444;
+    transition: background-color .5s;
+    transition: transform .5s;
+}
+
+.ribbon a:hover {
+    background-color: #50db85;
+    transform: scale(1.1) rotate(45deg);
+    
 }
 
 .ribbon a::after {
-    top: auto;
     bottom: 1px;
 }
 
 .ribbon a::before {
-    top: auto;
-    top: 1px;
+    top: 2px;
+    
 }
 
 .ribbon a::before, .ribbon a::after {
@@ -75,7 +83,8 @@ body {
     position: absolute;
     left: 0;
     height: 1px;
-    background-color: #b8cc84;
+    /*background-color: #b8cc84;*/
+    background-color: white;
 }
 
 .container {
