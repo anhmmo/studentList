@@ -12,9 +12,7 @@ function checkExitsLocalStorage() {
     
     var ifExits = localStorage.length; //return 0 if not exits
    
-    if(ifExits == 0){
-        changeBackgroundColor();
-    }
+    changeBackgroundColor();
     if(ifExits < 3){
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
@@ -768,9 +766,17 @@ function changeBackgroundColor () {
     const colorNumber = JSON.stringify("#FFC107");
     localStorage.setItem("COLOR", colorNumber);
     let colorParse = JSON.parse(colorNumber);
+    document.body.style.backgroundColor = colorParse;
     return colorParse;
 }
 
 
 
 
+var changeRedColor = document.getElementById("changeColor");
+changeRedColor.addEventListener("click", changecolorToRed);
+
+function changecolorToRed() {
+    let getCurrentColor = changeBackgroundColor();
+    document.body.style.backgroundColor = getCurrentColor;
+}
