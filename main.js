@@ -12,10 +12,11 @@ function checkExitsLocalStorage() {
     
     var ifExits = localStorage.length; //return 0 if not exits
    
-    if(ifExits>2){
-        getBackgroundColor();
+    if(ifExits<2){
+        
+        changeBackgroundColor();
     }
-    changeBackgroundColor();
+    getBackgroundColor();
     if(ifExits < 3){
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
@@ -88,6 +89,7 @@ const Student = {
 document.getElementById("submit").addEventListener("click",submitClickHandle);
 function submitClickHandle(e) {
     
+    e.preventDefault();
     
     var name = getInputValue("#name");
     var address = getInputValue("#address");
@@ -132,7 +134,6 @@ function submitClickHandle(e) {
         selectNotice4.className = "notice-display-block";
         getAllIcon3[0].className = "falseIconEmpty fas fa-times";
         getAllIcon3[2].className = "requiredIconEmpty fas fa-star-of-life";
-        e.preventDefault();
         return false;
     }
 
@@ -790,10 +791,7 @@ var changeRedColor = document.getElementById("changeColor");
 changeRedColor.addEventListener("click", changecolorToRed);
 
 function changecolorToRed() {
-    document.body.style.backgroundColor = "#8BC34A";
-    const colorNumber = JSON.stringify("#FFC107");
-    localStorage.setItem("COLOR", colorNumber);
-    let colorParse = JSON.parse(colorNumber);
-    document.body.style.backgroundColor = colorParse;
-    //window.location.reload();
+    const colorRed = JSON.stringify("#8BC34A");
+    localStorage.setItem("COLOR", colorRed);
+    window.location.reload();
 }
