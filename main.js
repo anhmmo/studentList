@@ -763,9 +763,10 @@ function ValidateEmail(email)
 
 //change background color function 
 function changeBackgroundColor () {
-    const scrollNumber = JSON.stringify(["#E91E63","#FFC107"]);
-    localStorage.setItem("COLOR", scrollNumber);
-    
+    const colorNumber = JSON.stringify("#FFC107");
+    localStorage.setItem("COLOR", colorNumber);
+    let colorParse = JSON.parse(colorNumber);
+    return colorParse;
 }
 
 
