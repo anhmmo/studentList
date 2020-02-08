@@ -718,7 +718,7 @@ function getInputValue(selector){
     return inputValue.value;
 }
 
-
+document.getElementById("toTheTop").style.display = "none";
 
 //scroll to top icon view
 
