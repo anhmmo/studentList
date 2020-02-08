@@ -782,7 +782,15 @@ popup for student info
 
   
 
-
+.changeColor {
+    color: white;
+    display: inline;
+    padding: 2rem;
+    background-color: red;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+}
 
 
 

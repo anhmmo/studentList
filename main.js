@@ -312,6 +312,7 @@ function onEditStudent(index) {
 
 function onCopyStudentInfo(info){
     
+    let changeColor = changeBackgroundColor();
 
     var copyText = document.getElementById("myInput" + info);
     copyText.className = "myInput2";
@@ -328,6 +329,7 @@ function onCopyStudentInfo(info){
         studentInfo.className = "copyStudent";
         copyText.className = "myInput";
     }, 600);
+    studentInfo.style.backgroundColor = changeColor;
     
 }
 
