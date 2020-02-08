@@ -12,6 +12,9 @@ function checkExitsLocalStorage() {
     
     var ifExits = localStorage.length; //return 0 if not exits
    
+    if(ifExits>2){
+        getBackgroundColor();
+    }
     changeBackgroundColor();
     if(ifExits < 3){
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
@@ -512,7 +515,10 @@ function preventOtherFunctionByDefault () {
 // scroll to position where it is current view
 function scrollToMyView(elementti) {
     let elmnt = document.getElementById(elementti);
-    elmnt.scrollIntoView();
+    if(elmnt !== null)
+    {
+        elmnt.scrollIntoView();
+    }
   }
 
 
@@ -746,7 +752,9 @@ function saveScrollNumber (luku) {
 let getScroll = localStorage.getItem("SCROLL");
 
 --getScroll;
-scrollToMyView("copy"+ getScroll) ? (scrollToMyView("copy"+ 1)):(scrollToMyView("delete"+ getScroll)) ; 
+if(getScroll==-1)
+getScroll=0;
+scrollToMyView("copy"+ getScroll) ? (scrollToMyView("copy"+ 0)):(scrollToMyView("delete"+ getScroll)) ; 
 
 
 function ValidateEmail(email) 
@@ -770,13 +778,22 @@ function changeBackgroundColor () {
     return colorParse;
 }
 
-
+function getBackgroundColor () {
+    let getthisColor = localStorage.getItem("COLOR");
+    let colorParse = JSON.parse(getthisColor);
+    document.body.style.backgroundColor = colorParse;
+    return colorParse;
+}
 
 
 var changeRedColor = document.getElementById("changeColor");
 changeRedColor.addEventListener("click", changecolorToRed);
 
 function changecolorToRed() {
-    let getCurrentColor = changeBackgroundColor();
-    document.body.style.backgroundColor = getCurrentColor;
+    document.body.style.backgroundColor = "#8BC34A";
+    const colorNumber = JSON.stringify("#FFC107");
+    localStorage.setItem("COLOR", colorNumber);
+    let colorParse = JSON.parse(colorNumber);
+    document.body.style.backgroundColor = colorParse;
+    //window.location.reload();
 }
