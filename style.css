@@ -782,14 +782,49 @@ popup for student info
 
   
 
-.changeColor {
+.changeColorRed {
     color: white;
     display: inline;
-    padding: 2rem;
+    padding: 4rem;
     background-color: red;
     cursor: pointer;
     position: fixed;
     top: 0;
+}
+
+.changeColorGreen {
+    color: white;
+    display: inline;
+    padding: 4rem;
+    background-color: rgb(0, 255, 13);
+    cursor: pointer;
+    position: fixed;
+    top: 100px;
+}
+
+.boxtool1 {
+    position: absolute;
+    color: white;
+    
+    background-color: #1b1b32;
+    padding-left: 2rem;
+    top: 300px;
+    left: -9%;
+    transition: left 500ms;
+    text-decoration: none;
+}
+
+.boxtool1:hover {
+    cursor: pointer;
+    left: -.5%;
+    box-shadow: 0 2px 10px rgb(216, 213, 213);
+}
+
+.boxtool1 i{
+    padding: 2rem 2rem;
+    background-color: tomato;
+    margin-left: 2rem;
+    font-size: 2rem;
 }
 
 

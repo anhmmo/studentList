@@ -787,11 +787,20 @@ function getBackgroundColor () {
 }
 
 
-var changeRedColor = document.getElementById("changeColor");
+var changeRedColor = document.getElementById("changeColorRed");
 changeRedColor.addEventListener("click", changecolorToRed);
 
 function changecolorToRed() {
-    const colorRed = JSON.stringify("#8BC34A");
+    const colorRed = JSON.stringify("#F44336");
     localStorage.setItem("COLOR", colorRed);
+    window.location.reload();
+}
+
+var changeGreenColor = document.getElementById("changeColorGreen");
+changeGreenColor.addEventListener("click", changecolorToGreen);
+
+function changecolorToGreen() {
+    const colorGreen = JSON.stringify("#4CAF50");
+    localStorage.setItem("COLOR", colorGreen);
     window.location.reload();
 }
