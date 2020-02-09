@@ -786,7 +786,7 @@ function getBackgroundColor () {
     return colorParse;
 }
 
-
+/*
 var changeRedColor = document.getElementById("changeColorRed");
 changeRedColor.addEventListener("click", changecolorToRed);
 
@@ -805,7 +805,22 @@ function changecolorToGreen() {
     window.location.reload();
 }
 
-
+*/
 
 // color menu box
 
+let colorMenuBox = document.getElementById("colorMenu");
+let colorMenuSetting = document.getElementById("colorSetting");
+colorMenuSetting.addEventListener("click", openColorMenuBox);
+
+function openColorMenuBox() {
+    let isThisClassUsed = colorMenuBox.getAttribute("class");
+   
+    if(isThisClassUsed == "colorMenuHide"){
+        colorMenuBox.className = "colorMenuShow";
+    }
+    else {
+        colorMenuBox.className = "colorMenuHide";
+    }
+    
+}
