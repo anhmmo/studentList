@@ -790,7 +790,7 @@ popup for student info
 
 
 .colorMenuShow {
-    padding: 3.5rem 3.8rem;
+    padding: 3.5rem 3.8rem 2rem 3.8rem;
     position: fixed;
     background-color: #223142;
     color: white;
@@ -800,7 +800,7 @@ popup for student info
 
 .colorSetting {
     position: absolute;
-    left: 209px;
+    left: 205px;
     padding: 1.5rem;
     background-color: #223142;
 }
@@ -810,7 +810,7 @@ popup for student info
 }
 
 .colorMenuHide {
-    padding: 3.5rem 3.8rem;
+    padding: 3.5rem 3.8rem 2rem 3.8rem;
     position: fixed;
     background-color: #223142;
     color: white;
@@ -819,6 +819,70 @@ popup for student info
     animation: colorMenuBoxHide 1s;
 }
 
+
+.colorClose {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+.colorBox p {
+    position: absolute;
+    top: 1.2rem;
+
+}
+
+.colorLine,.colorLine2 {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.color,.color2 {
+    width: 2.1rem;
+    height: 2.1rem;
+    background-color: tomato;
+    margin-left: 5px;
+}
+
+.color:hover,.color2:hover {
+    cursor: pointer;
+    
+}
+
+
+.colorGreen {
+    background-color: #4CAF50;
+}
+.colorRed {
+    background-color: #F44336;
+}
+.colorBlue {
+    background-color: #2196F3;
+}
+.colorViolet {
+    background-color: #9C27B0;
+}
+.colorYellow {
+    background-color: #FFEB3B;
+}
+.colorPink {
+    background-color: #E91E63;
+}
+.colorPurple {
+    background-color: #673AB7;
+}
+.colorGray {
+    background-color: #9E9E9E;
+}
+.colorOrange {
+    background-color: #FF9800;
+}
+.colorBrown {
+    background-color: #795548;
+}
   
   
 

@@ -811,7 +811,10 @@ function changecolorToGreen() {
 
 let colorMenuBox = document.getElementById("colorMenu");
 let colorMenuSetting = document.getElementById("colorSetting");
+let colorCloseBtn = document.getElementById("colorClose");
+
 colorMenuSetting.addEventListener("click", openColorMenuBox);
+colorCloseBtn.addEventListener("click", openColorMenuBox);
 
 function openColorMenuBox() {
     let isThisClassUsed = colorMenuBox.getAttribute("class");
