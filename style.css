@@ -828,7 +828,20 @@ popup for student info
 }
 
 
+.colorMenu {
+    padding: 3.5rem 3.8rem;
+    position: fixed;
+    background-color: #223142;
+    color: white;
+    top: 250px;
+}
 
+.colorSetting {
+    position: absolute;
+    left: 210px;
+    padding: 1.5rem;
+    background-color: #223142;
+}
 
   
   
