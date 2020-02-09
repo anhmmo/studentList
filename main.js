@@ -804,3 +804,8 @@ function changecolorToGreen() {
     localStorage.setItem("COLOR", colorGreen);
     window.location.reload();
 }
+
+
+
+// color menu box
+
