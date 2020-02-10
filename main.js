@@ -171,7 +171,7 @@ function submitClickHandle(e) {
 
 
 //render student item to html items list
-/*
+
 function renderStudents() {
 
     const Students = Student.list;
@@ -213,7 +213,7 @@ function renderStudents() {
 
     
 }
-*/
+
 /*
 <div class="item__box">
     <div class="item__box--info">
