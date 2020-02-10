@@ -796,6 +796,7 @@ popup for student info
     color: white;
     top: 250px;
     animation: colorMenuBoxShow 1s;
+    z-index: 1000;
 }
 
 .colorSetting {
@@ -817,6 +818,7 @@ popup for student info
     top: 250px;
     left: -180px;
     animation: colorMenuBoxHide 1s;
+    z-index: 1000;
 }
 
 .hideMenu{
@@ -826,6 +828,7 @@ popup for student info
     color: white;
     top: 250px;
     left: -180px;
+    z-index: 1000;
 }
 
 
