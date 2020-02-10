@@ -331,7 +331,7 @@ function onCopyStudentInfo(info){
         studentInfo.className = "copyStudent";
         copyText.className = "myInput";
     }, 600);
-    studentInfo.style.backgroundColor = changeColor;
+    
     
 }
 
@@ -819,7 +819,7 @@ var changeWhiteColor = document.getElementById("changeColorWhite");
 changeWhiteColor.addEventListener("click", changecolorToWhite);
 
 function changecolorToWhite() {
-    const colorWhite = JSON.stringify("#2196F3");
+    const colorWhite = JSON.stringify("#ffffff");
     localStorage.setItem("COLOR", colorWhite);
     window.location.reload();
 }
