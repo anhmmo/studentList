@@ -819,6 +819,15 @@ popup for student info
     animation: colorMenuBoxHide 1s;
 }
 
+.hideMenu{
+    padding: 3.5rem 3rem 2rem 2rem;
+    position: fixed;
+    background-color: #223142;
+    color: white;
+    top: 250px;
+    left: -180px;
+}
+
 
 .colorBox p {
     position: absolute;
@@ -873,8 +882,8 @@ popup for student info
 .colorOrange {
     background-color: #FF9800;
 }
-.colorBrown {
-    background-color: #795548;
+.colorWhite {
+    background-color: #ffffff;
 }
   
   

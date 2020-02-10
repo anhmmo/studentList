@@ -814,6 +814,16 @@ function changecolorToBlue() {
     window.location.reload();
 }
 
+
+var changeWhiteColor = document.getElementById("changeColorWhite");
+changeWhiteColor.addEventListener("click", changecolorToWhite);
+
+function changecolorToWhite() {
+    const colorWhite = JSON.stringify("#2196F3");
+    localStorage.setItem("COLOR", colorWhite);
+    window.location.reload();
+}
+
 // color menu box
 
 let colorMenuBox = document.getElementById("colorMenu");
@@ -826,7 +836,7 @@ colorMenuSetting.addEventListener("click", openColorMenuBox);
 function openColorMenuBox() {
     let isThisClassUsed = colorMenuBox.getAttribute("class");
    
-    if(isThisClassUsed == "colorMenuHide"){
+    if(isThisClassUsed == "hideMenu" || isThisClassUsed == "colorMenuHide"){
         colorMenuBox.className = "colorMenuShow";
     }
     else {
