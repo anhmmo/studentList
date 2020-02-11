@@ -38,21 +38,20 @@
         <a href="https://github.com/anhmmo/studentList" title="See Source Codes" target="_blank">See project <i class="fas fa-angle-double-right"></i> on Github</a>
     </div>
 
-
+     <!--Main left container-->
     <div class="container">
-            <!--List student-->
+            <!--Student list container-->
         <div id="list-item" class="list-item">
-            <!--Javascript add listt-items here-->
-           
-        
+            <!--Javascript add list-items here-->
         </div>
 
-        <!--Right container with form-->
+    <!--Main right container-->
     <div id="right-containers" class="right-container">
+        <!--Main form on the right-->
         <form action="#" id="main-form" >
             <div class="main-form__input">
                 <label for="">Name</label>
-                <input id="name" type="text" name="Name" placeholder="Enter your name" required/>
+                <input id="name" type="text" name="Name" placeholder="Enter your name"/>
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
@@ -61,7 +60,7 @@
 
             <div class="main-form__input">
                 <label for="">Address</label>
-                <input id="address"  type="text" name="Address" placeholder="Enter your address" required/>
+                <input id="address"  type="text" name="Address" placeholder="Enter your address"/>
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
@@ -71,17 +70,18 @@
             
             <div class="main-form__input">
                 <label for="">Phone</label>
-                <input id="phone" type="number" name="Phone" placeholder="Enter your phone"  required>
+                <input id="phone" type="number" name="Phone" placeholder="Enter your phone" >
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
                 <p id="notice-text" class="notice-display-none">* PHONE field cannot be empty</p>
             </div>
-            <!--onpaste="return false"; prevent copy paste email-->
+
             <div class="main-form__input">
                 <label for="">Email</label>
+                <!--onpaste="return false"; prevent copy paste email-->
                 <input id="email" type="email" onpaste="return false;" 
-                 name="Email" placeholder="Enter your email" required>
+                 name="Email" placeholder="Enter your email">
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
@@ -90,7 +90,7 @@
 
             <div class="main-form__input">
                 <label for="">Age</label>
-                <input id="age" type="number" name="Age" min="18" max="90" placeholder="Enter your age" required>
+                <input id="age" type="number" name="Age" min="18" max="90" placeholder="Enter your age">
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
@@ -99,7 +99,7 @@
 
             <div class="main-form__input">
                 <label for="">Which option is your current job?</label>
-                <select id="selectOption" required>
+                <select id="selectOption">
                     <option value="" disabled selected>Select current job</option>
                     <option value="1">Student</option>
                     <option value="2">Software developer</option>
@@ -121,39 +121,39 @@
 
 </div>
 
-<!--Popup edit section-->
+<!-- Edit-Popup section-->
 <div id="popup-section" class="edit__popup">
     <i id="popup-close" class="popup-close fas fa-times-circle"></i>
     <form action="#" id="popup__form" >
         <div class="popup__form--input">
             <label for="name">Name</label>
-            <input type="text" name="name2" placeholder="Enter your name" id="name2" required/>
+            <input type="text" name="name2" placeholder="Enter your name" id="name2"/>
         </div>
 
         <div class="popup__form--input">
             <label for="name">Address</label>
-            <input type="text" name="address2" placeholder="Enter your address" id="address2" required/>
+            <input type="text" name="address2" placeholder="Enter your address" id="address2"/>
         </div>
 
         
         <div class="popup__form--input">
             <label for="">Phone</label>
-            <input type="number2" placeholder="Enter your Phone" id="phone2" required>
+            <input type="number2" placeholder="Enter your Phone" id="phone2">
         </div>
 
         <div class="popup__form--input">
             <label for="">Email</label>
-            <input type="email" placeholder="Enter your Email" id="email2" required>
+            <input type="email" placeholder="Enter your Email" id="email2">
         </div>
 
         <div class="popup__form--input">
             <label for="">Age</label>
-            <input type="number" min="18" max="90" placeholder="Enter your age" id="age2" required>
+            <input type="number" min="18" max="90" placeholder="Enter your age" id="age2">
         </div>
 
         <div class="popup__form--input">
             <label for="">Which option is your current job?</label>
-            <select id="selectOption2" required>
+            <select id="selectOption2">
                 <option value="" disabled selected>Select current job</option>
                 <option value="1">Student</option>
                 <option value="2">Software developer</option>
