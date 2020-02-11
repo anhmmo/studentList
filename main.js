@@ -1,19 +1,13 @@
 'use strict';
-
+var storeKey = "STUDENT_DATA";
+var storeColor = "COLOR";
 window.onload = checkExitsLocalStorage();
 let thisSaveScrollNumber = 0; //this variables save number where position of item is.
 
-
-
-
-
 //check if localStorage not exits, then create new localStorage
 function checkExitsLocalStorage() {
-    
     var ifExits = localStorage.length; //return 0 if not exits
-   
     if(ifExits<2){
-        
         changeBackgroundColor();
     }
     getBackgroundColor();
@@ -21,22 +15,12 @@ function checkExitsLocalStorage() {
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
-
-
-    
-    
-
 }
 
-
 //create object to store student info, function
-var storeKey = "STUDENT_DATA";
 let listItem = document.getElementById("list-item");
 const Student = {
-    
     data : [],
-
-    
     load: function() {
         const jsonData = localStorage.getItem(storeKey);
         try {
@@ -45,37 +29,26 @@ const Student = {
             alert("chua co thong tin");
         }
     },
-
     add: function(student){
         this.data.push(student)
     },
-
     edit:function(index, student){
         this.data[index] = student;
     },
-
     delete: function(index){
         this.data.splice(index,1);
     },
-
-    
     save: function(){
             const jsonData = JSON.stringify(this.data);
             localStorage.setItem(storeKey, jsonData);
     },
-
-
     get list(){
         return this.data;
     }
-
 }
 
   Student.load();
   renderStudents();
-
-
-  //[{"name":"","address":"","phone":"","email":"","age":"","job":""}]
 
   let selectDivInMain = document.getElementById("main-form").querySelectorAll("div");
   let selectNotice = selectDivInMain[0].querySelector("p");
@@ -85,7 +58,7 @@ const Student = {
   let selectNotice5 = selectDivInMain[4].querySelector("p");
   let selectNotice6 = selectDivInMain[5].querySelector("p");
 
-//when submit button click
+//when save button click
 document.getElementById("submit").addEventListener("click",submitClickHandle);
 function submitClickHandle(e) {
     
@@ -106,8 +79,6 @@ function submitClickHandle(e) {
    let getAllIcon3 = selectForm2[3].querySelectorAll("i");
    let getAllIcon4 = selectForm2[4].querySelectorAll("i");
    let getAllIcon5 = selectForm2[5].querySelectorAll("i");
-    
-
 
     if(name.length == 0) {
         selectNotice.className = "notice-display-block";
@@ -151,11 +122,6 @@ function submitClickHandle(e) {
         return;
     }
     
-  
-
-   
-
-
     Student.add({
         name: name,
         address: address,
@@ -169,16 +135,12 @@ function submitClickHandle(e) {
     window.location.reload();
 }
 
-
 //render student item to html items list
 
 function renderStudents() {
-
     const Students = Student.list;
+    for(let i = 0; i < Students.length; i++) {
 
-    for(let i = 0; i < Students.length; i++){
-
-        //console.log(Students.length);
         var opiskelija = Students[i];
         var itembox = document.createElement("div");
         itembox.className = "item__box";
@@ -206,34 +168,33 @@ function renderStudents() {
         itembox.appendChild(letItemIcon);
         itembox.appendChild(letItemIcon2);
 
-       // console.log(opiskelija.job);
         listItem.appendChild(itembox);
-        
     }
-
-    
 }
-
 /*
 <div class="item__box">
     <div class="item__box--info">
-        <p>Name: </p>
-        <p>Address : </p>
-        <p>Phone : </p>
-        <p>Email: </p>
-        <p>Age: </p>
-        <p>Job : Student</p>
+        <p>Name: Anhmmo</p>
+        <p>Address : kirstin 2 h 6</p>
+        <p>Phone : 0025254252</p>
+        <p>Email: anhmmo@gmail.com</p>
+        <p>Age: 99</p>
+        <p>Job : Software Developer</p>
     </div>
-    <div class="copiedStudent">Copy Student</div>
+    <div>
+        <input class="myInput" type="text" value="Anhmmo, kirstin 2 h 6, 0025254252, anhmmo@gmail.com, 99, Software Developer" id="myInput0">
+        <div id="copiedStudent0" class="copyStudent">Copy Student</div>
+    </div>
     <div class="item__box--icon">
-        <i id="delete" class="fas fa-trash-alt" onclick="onDeleteStudent(i)" aria-hidden="true"></i>
-        <i id="edit" class="fas fa-edit" onclick="onEditStudent(i)" aria-hidden="true"></i>
-        <i id="copy" class="fab fa-creative-commons-share" onclick="onCopyStudentInfo(i)" aria-hidden="true"></i>
-        <i id="info" class="fas fa-info-circle" onclick="onGetInfoStudent(i)" aria-hidden="true"></i>
+        <i id="delete0" class="deleteInfo fas fa-trash-alt" onclick="onDeleteStudent(0)" aria-hidden="true"></i>
+        <i id="edit0" class="editInfo fas fa-edit" onclick="onEditStudent(0)" aria-hidden="true"></i>
+        <i id="copy0" class="copyIcon fab fa-creative-commons-share" onclick="onCopyStudentInfo(0)" aria-hidden="true"></i>
+        <i id="info0" class="infoIcon fas fa-info-circle" onclick="onGetInfoStudent(0)" aria-hidden="true"></i>
     </div>
+    <i class="iconcircle fas fa-circle" aria-hidden="true"></i>
+    <i class="iconcircle2 fas fa-circle" aria-hidden="true"></i>
 </div>
 */
-
 
 //delete item
 function onDeleteStudent(index) {
@@ -243,13 +204,9 @@ function onDeleteStudent(index) {
         Student.delete(index);
         Student.save();
         window.location.reload();
-        
     }
-    
 }
-
-
-        
+    
 //edit item
 function onEditStudent(index) {
 
@@ -280,18 +237,12 @@ function onEditStudent(index) {
             default:
             document.getElementById("selectOption2").value = "";
             break;
-        
         }
 
         saveScrollNumber(index);
         preventOtherFunctionByDefault ();
         
-
-        
-        
-        function submitForm(){
-            
-
+        function submitForm() {
             var name2 = getInputValue("#name2");
             var address2 = getInputValue("#address2");
             var phone2 = getInputValue("#phone2");
@@ -307,53 +258,33 @@ function onEditStudent(index) {
         }      
 }
 
-
-
 // copy student info
 
-
 function onCopyStudentInfo(info){
-    
-   
-
     var copyText = document.getElementById("myInput" + info);
     copyText.className = "myInput2";
     copyText.select();
     copyText.setSelectionRange(0, 99999)
     document.execCommand("copy");
     /* Copy the text inside the text field */
-
     let studentInfo = document.getElementById("copiedStudent" + info);
-    console.log(studentInfo);
-    
     studentInfo.className = "copiedStudent";
     setTimeout(function(){
         studentInfo.className = "copyStudent";
         copyText.className = "myInput";
     }, 600);
-    
-    
 }
 
-
-
 //popup close click
-
 document.getElementById("popup-close").addEventListener("click", closeBtn);
-
 function closeBtn(){
     document.getElementById("popup-section").className = "edit__popup";
     window.location.reload();
 }
 
-
-
-
 //info--popup--student
 
-
 let timeOutF;
-
 function onGetInfoStudent(index){
     let popup = document.getElementById("student__popup");
     let createH2 = document.createElement("h2");
@@ -369,8 +300,6 @@ function onGetInfoStudent(index){
     preventOtherFunctionByDefault ();
 }
 
-
-
 let credit = document.getElementById("student__infomation--credit");
 let info = document.getElementById("student__infomation--info");
 let portfolio = document.getElementById("student__infomation--portfolio");
@@ -383,13 +312,10 @@ let studentTextFirst = document.getElementById("student__text-1");
 let studentTextSecond = document.getElementById("student__text-2");
 let studentTextThird = document.getElementById("student__text-3");
 
-
-
 function clickChangeCreditStatus() {
    
     info.className = "student__infomation--show";
     credit.className = "student__infomation--default";
-    
     portfolio.className = "student__infomation--show";
     studentTextFirst.style.display = "none";
     studentTextThird.style.display = "none";
@@ -398,8 +324,6 @@ function clickChangeCreditStatus() {
 }
 
 function clickChangeInfoStatus() {
-
-    
     credit.className = "student__infomation--show";
     info.className = "student__infomation--default";
     portfolio.className = "student__infomation--show";
@@ -410,7 +334,6 @@ function clickChangeInfoStatus() {
 }
 
 function clickChangePortfolioStatus() {
-
     credit.className = "student__infomation--show";
     info.className = "student__infomation--show";
     portfolio.className = "student__infomation--default";
@@ -421,13 +344,7 @@ function clickChangePortfolioStatus() {
     studentTextThird.className = "student__text--default";
 }
 
-
-//******************************************DANG LAM TOI DAY********************************************
-//*******************************************************************************************************
-
 // student info gallery
-
-
 let studentGallery = document.getElementById("small-gallery");
 let iconShow = document.getElementById("iconShow");
 let iconHide = document.querySelector("#iconHide");
@@ -435,10 +352,8 @@ let iconHide = document.querySelector("#iconHide");
 iconHide.addEventListener("click", hideThisImageBox);
 function hideThisImageBox() {
     studentGallery.style.display = "none";
-    
     iconShow.className = "showImageIcon fas fa-image";
     iconHide.removeAttribute("class");
-    
 }
 
 iconShow.addEventListener("click", showThisImageBox);
@@ -458,7 +373,6 @@ createCloseButton.addEventListener("click", closeThisSlider);
 function closeThisSlider () {
     studentCloseSlider.style.display = "none";
     createCloseButton.removeAttribute("class");
-    
     createCloseButtonMain.className = "popup-close-2 fas fa-times-circle";
     clearTimeout(timeOutF);
 }
@@ -483,17 +397,13 @@ function openImage(luku) {
     if(luku>7){
         luku = 0;
     }
-    
     timeOutF = setTimeout(
         function()
         { 
             hideThisImageBox();
             openImage(++luku);
-
         }, 3000);
-
 }
-
 
 //this function prevent other event working when an popup open
 
@@ -508,10 +418,8 @@ function preventOtherFunctionByDefault () {
     document.getElementById("submit").removeEventListener("click",submitClickHandle);
     document.getElementById("submit").addEventListener("click", function(event){
     event.preventDefault()
-});
-    
+    });
 }
-
 
 // scroll to position where it is current view
 function scrollToMyView(elementti) {
@@ -522,26 +430,7 @@ function scrollToMyView(elementti) {
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //form validation
-
   //first hide all icon
   let selectInputElement;
   let selectMainForm = document.getElementById("main-form").querySelectorAll("div");
@@ -551,29 +440,22 @@ function scrollToMyView(elementti) {
     selectIElement[1].className = "hideFormIcon";
   }
   
- 
-  selectInputElement = selectMainForm[0].querySelector("input");
+ selectInputElement = selectMainForm[0].querySelector("input");
  let selectInputElement1 = selectMainForm[1].querySelector("input");
  let selectInputElement2 = selectMainForm[2].querySelector("input");
  let selectInputElement3 = selectMainForm[3].querySelector("input");
-  let selectInputElement4 = selectMainForm[4].querySelector("input");
-  let selectInputElement5 = selectMainForm[5].querySelector("select");
-  
- 
-  
- // let addressField = document.getElementById("address");
+ let selectInputElement4 = selectMainForm[4].querySelector("input");
+ let selectInputElement5 = selectMainForm[5].querySelector("select");
 
+ // let addressField = document.getElementById("address");
     selectInputElement.onclick = checkFormEvent(0, "#name");  
     selectInputElement1.onclick = checkFormEvent(1, "#address");  
     selectInputElement2.onclick = checkFormEvent(2, "#phone");  
     selectInputElement3.onclick = checkFormEvent(3, "#email"); 
     selectInputElement4.onclick = checkFormEvent(4, "#age");  
     selectInputElement5.onclick = checkFormEvent(5, "#selectOption");  
+
   //icon control
-
-
-
-
 
   function checkFormEvent(index, name) {
 
@@ -585,14 +467,12 @@ function scrollToMyView(elementti) {
     let trueIcon = selectIElement2[1];
     let requiredIcon = selectIElement2[2];
     
-
     selectInputElement2.addEventListener("focus", checkTyping);
     selectInputElement2.addEventListener("input", checkInputForm);
     selectInputElement2.addEventListener("blur", checkIfNotType);
 
   function checkIfNotType () {
       selectInputElement2.placeholder = this.name + " is required";
-
       if(this.name=="Email"){
         if(selectInputElement2.value.length>0 && ValidateEmail(selectInputElement2.value)) {
             requiredIcon.style.color = "white";
@@ -601,7 +481,6 @@ function scrollToMyView(elementti) {
             requiredIcon.style.color = "red";
           }
       }
-
       else {
         if(selectInputElement2.value.length==0) {
             requiredIcon.style.color = "red";
@@ -610,9 +489,6 @@ function scrollToMyView(elementti) {
             requiredIcon.style.color = "white";
           }
       }
-
-     
-      
   }
 
   function checkInputForm () {
@@ -624,10 +500,7 @@ function scrollToMyView(elementti) {
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
             requiredIcon.style.color = "white";
-    
         }
-    
-   
         else {
             falseIcon.className = "falseIcon fas fa-times";
             trueIcon.className = "hideFormIcon";
@@ -648,13 +521,11 @@ function scrollToMyView(elementti) {
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
             requiredIcon.style.color = "white";
-
         }
         else {
             falseIcon.className = "falseIcon fas fa-times";
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
-           
         }
     
     }
@@ -665,29 +536,7 @@ function scrollToMyView(elementti) {
     }
 }
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //other need function
+//other need function
 
 function changeSelectedValue(getValue) {
     switch(getValue){
@@ -725,22 +574,6 @@ function getInputValue(selector){
     return inputValue.value;
 }
 
-document.getElementById("toTheTop").style.display = "none";
-
-//scroll to top icon view
-
-listItem.onscroll = function() {
-
-    if (listItem.scrollTop > 500) {
-          document.getElementById("toTheTop").style.display = "block";
-    } else {
-          document.getElementById("toTheTop").style.display = "none";
-    }
-      
-};
-
-
-
 //save scroll number to localStorage
 function saveScrollNumber (luku) {
     thisSaveScrollNumber = luku;
@@ -758,8 +591,7 @@ getScroll=0;
 scrollToMyView("copy"+ getScroll) ? (scrollToMyView("copy"+ 0)):(scrollToMyView("delete"+ getScroll)) ; 
 
 
-function ValidateEmail(email) 
-{
+function ValidateEmail(email) {
  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
   {
     return (true);
@@ -768,70 +600,12 @@ function ValidateEmail(email)
    return false;
 }
 
-
-
-//change background color function 
-function changeBackgroundColor () {
-    const colorNumber = JSON.stringify("#FFC107");
-    localStorage.setItem("COLOR", colorNumber);
-    let colorParse = JSON.parse(colorNumber);
-    document.body.style.backgroundColor = colorParse;
-    return colorParse;
-}
-
-function getBackgroundColor () {
-    let getthisColor = localStorage.getItem("COLOR");
-    let colorParse = JSON.parse(getthisColor);
-    document.body.style.backgroundColor = colorParse;
-    return colorParse;
-}
-
-
-var changeRedColor = document.getElementById("changeColorRed");
-changeRedColor.addEventListener("click", changecolorToRed);
-
-function changecolorToRed() {
-    const colorRed = JSON.stringify("#F44336");
-    localStorage.setItem("COLOR", colorRed);
-    window.location.reload();
-}
-
-var changeGreenColor = document.getElementById("changeColorGreen");
-changeGreenColor.addEventListener("click", changecolorToGreen);
-
-function changecolorToGreen() {
-    const colorGreen = JSON.stringify("#4CAF50");
-    localStorage.setItem("COLOR", colorGreen);
-    window.location.reload();
-}
-
-var changeBlueColor = document.getElementById("changeColorBlue");
-changeBlueColor.addEventListener("click", changecolorToBlue);
-
-function changecolorToBlue() {
-    const colorBlue = JSON.stringify("#2196F3");
-    localStorage.setItem("COLOR", colorBlue);
-    window.location.reload();
-}
-
-
-var changeWhiteColor = document.getElementById("changeColorWhite");
-changeWhiteColor.addEventListener("click", changecolorToWhite);
-
-function changecolorToWhite() {
-    const colorWhite = JSON.stringify("#ffffff");
-    localStorage.setItem("COLOR", colorWhite);
-    window.location.reload();
-}
-
 // color menu box
 
 let colorMenuBox = document.getElementById("colorMenu");
 let colorMenuSetting = document.getElementById("colorSetting");
 
-
 colorMenuSetting.addEventListener("click", openColorMenuBox);
-
 
 function openColorMenuBox() {
     let isThisClassUsed = colorMenuBox.getAttribute("class");
@@ -841,6 +615,69 @@ function openColorMenuBox() {
     }
     else {
         colorMenuBox.className = "colorMenuHide";
-    }
-    
+    } 
 }
+
+//change background color function 
+function changeBackgroundColor () {
+    const colorNumber = JSON.stringify("white");
+    localStorage.setItem(storeColor, colorNumber);
+    let colorParse = JSON.parse(colorNumber);
+    document.body.style.backgroundColor = colorParse;
+    return colorParse;
+}
+
+function getBackgroundColor () {
+    let getthisColor = localStorage.getItem(storeColor);
+    let colorParse = JSON.parse(getthisColor);
+    document.body.style.backgroundColor = colorParse;
+    return colorParse;
+}
+
+var changeRedColor = document.getElementById("changeColorRed");
+changeRedColor.addEventListener("click", changecolorToRed);
+
+function changecolorToRed() {
+    const colorRed = JSON.stringify("#F44336");
+    localStorage.setItem(storeColor, colorRed);
+    window.location.reload();
+}
+
+var changeGreenColor = document.getElementById("changeColorGreen");
+changeGreenColor.addEventListener("click", changecolorToGreen);
+
+function changecolorToGreen() {
+    const colorGreen = JSON.stringify("#4CAF50");
+    localStorage.setItem(storeColor, colorGreen);
+    window.location.reload();
+}
+
+var changeBlueColor = document.getElementById("changeColorBlue");
+changeBlueColor.addEventListener("click", changecolorToBlue);
+
+function changecolorToBlue() {
+    const colorBlue = JSON.stringify("#2196F3");
+    localStorage.setItem(storeColor, colorBlue);
+    window.location.reload();
+}
+
+var changeWhiteColor = document.getElementById("changeColorWhite");
+changeWhiteColor.addEventListener("click", changecolorToWhite);
+
+function changecolorToWhite() {
+    const colorWhite = JSON.stringify("#ffffff");
+    localStorage.setItem(storeColor, colorWhite);
+    window.location.reload();
+}
+
+//scroll to top icon view
+document.getElementById("toTheTop").style.display = "none";
+
+listItem.onscroll = function() {
+
+    if (listItem.scrollTop > 500) {
+          document.getElementById("toTheTop").style.display = "block";
+    } else {
+          document.getElementById("toTheTop").style.display = "none";
+    }
+};
