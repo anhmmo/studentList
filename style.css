@@ -23,7 +23,110 @@ body {
 }
 
 
+/*Color table on the left screen, used to change background color*/
 
+.colorMenuShow {
+    padding: 3.5rem 3rem 2rem 2rem;
+    position: fixed;
+    background-color: #223142;
+    color: white;
+    top: 250px;
+    animation: colorMenuBoxShow 1s;
+    z-index: 1000;
+}
+
+.colorSetting {
+    position: absolute;
+    left: 180px;
+    padding: 1.5rem;
+    background-color: #223142;
+}
+
+.colorSetting:hover {
+    cursor: pointer;
+}
+
+.colorMenuHide {
+    padding: 3.5rem 3rem 2rem 2rem;
+    position: fixed;
+    background-color: #223142;
+    color: white;
+    top: 250px;
+    left: -180px;
+    animation: colorMenuBoxHide 1s;
+    z-index: 1000;
+}
+
+.hideMenu{
+    padding: 3.5rem 3rem 2rem 2rem;
+    position: fixed;
+    background-color: #223142;
+    color: white;
+    top: 250px;
+    left: -180px;
+    z-index: 1000;
+}
+
+
+.colorBox p {
+    position: absolute;
+    top: 1.2rem;
+
+}
+
+.colorLine,.colorLine2 {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.color,.color2 {
+    width: 2.1rem;
+    height: 2.1rem;
+    background-color: tomato;
+    margin-left: 5px;
+    transition: transform .3s;
+}
+
+.color:hover,.color2:hover {
+    cursor: pointer;
+    border: 1px solid white;
+    transform: scale(1.3);
+}
+
+
+.colorGreen {
+    background-color: #4CAF50;
+}
+.colorRed {
+    background-color: #F44336;
+}
+.colorBlue {
+    background-color: #2196F3;
+}
+.colorViolet {
+    background-color: #9C27B0;
+}
+.colorYellow {
+    background-color: #FFEB3B;
+}
+.colorPink {
+    background-color: #E91E63;
+}
+.colorPurple {
+    background-color: #673AB7;
+}
+.colorGray {
+    background-color: #9E9E9E;
+}
+.colorOrange {
+    background-color: #FF9800;
+}
+.colorWhite {
+    background-color: #ffffff;
+}
+
+
+/*Github link with label on the right top screen*/
 .github-link {
     overflow: hidden;
     white-space: nowrap;
@@ -80,6 +183,8 @@ body {
     background-color: white;
 }
 
+/*Main left container*/
+
 .container {
     max-width: 1080px;
     width: 100%;
@@ -92,12 +197,9 @@ body {
     font-size: 1.8rem;
 }
 
-
-
 .list-item {
     width: 50%;
-    overflow-y: scroll;
-    
+    overflow-y: scroll;  
 }
 
 
@@ -126,7 +228,6 @@ body {
     border-radius: .2rem;
     position: relative;
     font-size: 1.8rem;
-    
 }
 
 .item__box:hover {
@@ -170,6 +271,10 @@ body {
     transform: translateX(-0.4rem) !important;
 }
 
+
+
+/*Main right container*/
+
 .right-container {
     width: 50%;
     overflow: hidden;
@@ -197,6 +302,7 @@ body {
 
   }
 
+/*Main form on the right*/
 
 #main-form{
     width: 60%;
@@ -321,7 +427,7 @@ body {
     display: none;
 }
 
-
+/*Edit-Popup section*/
 .edit__popup--open{
     display: block;
     position: relative;
@@ -334,10 +440,7 @@ body {
     transform: translate(-50%,-50%);
     margin-top: -25%;
     animation: zoomForm .8s;
-   
 }
-
-
 
 .edit__popup{
     display: none;
@@ -416,11 +519,7 @@ body {
     
 }
 
-/*
-popup for student info
-*/
-
-
+/*popup for student info*/
 
 .student__popup--hide{
     display: none;
@@ -439,8 +538,6 @@ popup for student info
     color: #1c1c24;
     font-family: 'Raleway', sans-serif;
 }
-
-
 
 .student__popup h2{
     text-align: center;
@@ -469,7 +566,6 @@ popup for student info
     padding: 1rem;
 }
 
-
 .student__infomation div{
     text-transform: uppercase;
     color: #546E7A;
@@ -483,7 +579,6 @@ popup for student info
     background-color: #e7015e;
     color: white;
 }
-
 
 .student__infomation--default {
     border-bottom: .2rem solid #ff007a;
@@ -501,29 +596,24 @@ popup for student info
 
 .student__infomation--portfolio {
     border-bottom: .2rem solid #B0BEC5;
-   
 }
 
 
 .student__infomation--show {
     border-bottom: .2rem solid #B0BEC5;
-   
 }
 
 .student__infomation--credit:hover {
     border-bottom: .2rem solid #ffffff;
-   
 }
 
 .student__infomation--portfolio:hover {
     border-bottom: .2rem solid #ffffff;
-   
 }
 
 
 .student__infomation--show:hover {
     border-bottom: .2rem solid #ffffff;
-   
 }
 
 #student__text-1 {
@@ -541,8 +631,7 @@ popup for student info
 .student__text {
     margin: 1.5rem 0 0 7rem;
     font-size: 1.8rem;
-    position: relative;
-    
+    position: relative; 
 }
 
 .student__text--default {
@@ -556,12 +645,6 @@ popup for student info
     padding: .5rem;
 }
 
-
-
-
-
-
-
 .small-gallery {
     display: block;
     position: absolute;
@@ -572,7 +655,6 @@ popup for student info
     margin-bottom: 2.8rem;
     display: flex;
 }
-
 
 .img-box {
     width: 12%;
@@ -598,7 +680,6 @@ popup for student info
     border: 2px dashed #eeeded;
     filter: opacity(.7);
     transition: all .5s;
-
 }
 
 .img-content:hover {
@@ -655,21 +736,17 @@ popup for student info
     font-family: 'Raleway', sans-serif;
     overflow-x: scroll;
     background-size: cover;
-    
 }
 
 .student1 {
-    
     background-image: url(https://cdn.pixabay.com/photo/2017/06/20/22/14/men-2425121_1280.jpg);
 }
 
 .student2 {
-    
     background-image: url(https://cdn.pixabay.com/photo/2015/06/22/08/37/children-817365_1280.jpg);
 }
 
 .student3 {
-    
     background-image: url(https://cdn.pixabay.com/photo/2017/03/30/18/17/girl-2189247_1280.jpg);
 }
 
@@ -694,11 +771,8 @@ popup for student info
 }
 
 .student__gallery .small-gallery{
-    margin-bottom: 1rem;
-    
+    margin-bottom: 1rem; 
 }
-
-
 
 .hideImageIcon {
     display: block;
@@ -733,158 +807,9 @@ popup for student info
     bottom: 3rem;
     left: 18rem;
     cursor: pointer;
-
 }
 
 
-
-  
-
-.changeColorRed {
-    color: white;
-    display: inline;
-    padding: 4rem;
-    background-color: red;
-    cursor: pointer;
-    position: fixed;
-    top: 0;
-}
-
-.changeColorGreen {
-    color: white;
-    display: inline;
-    padding: 4rem;
-    background-color: rgb(0, 255, 13);
-    cursor: pointer;
-    position: fixed;
-    top: 100px;
-}
-
-.boxtool1 {
-    position: absolute;
-    color: white;
-    
-    background-color: #1b1b32;
-    padding-left: 2rem;
-    top: 300px;
-    left: -9%;
-    transition: left 500ms;
-    text-decoration: none;
-}
-
-.boxtool1:hover {
-    cursor: pointer;
-    left: -.5%;
-    box-shadow: 0 2px 10px rgb(216, 213, 213);
-}
-
-.boxtool1 i{
-    padding: 2rem 2rem;
-    background-color: tomato;
-    margin-left: 2rem;
-    font-size: 2rem;
-}
-
-
-.colorMenuShow {
-    padding: 3.5rem 3rem 2rem 2rem;
-    position: fixed;
-    background-color: #223142;
-    color: white;
-    top: 250px;
-    animation: colorMenuBoxShow 1s;
-    z-index: 1000;
-}
-
-.colorSetting {
-    position: absolute;
-    left: 180px;
-    padding: 1.5rem;
-    background-color: #223142;
-}
-
-.colorSetting:hover {
-    cursor: pointer;
-}
-
-.colorMenuHide {
-    padding: 3.5rem 3rem 2rem 2rem;
-    position: fixed;
-    background-color: #223142;
-    color: white;
-    top: 250px;
-    left: -180px;
-    animation: colorMenuBoxHide 1s;
-    z-index: 1000;
-}
-
-.hideMenu{
-    padding: 3.5rem 3rem 2rem 2rem;
-    position: fixed;
-    background-color: #223142;
-    color: white;
-    top: 250px;
-    left: -180px;
-    z-index: 1000;
-}
-
-
-.colorBox p {
-    position: absolute;
-    top: 1.2rem;
-
-}
-
-.colorLine,.colorLine2 {
-    display: flex;
-    margin-top: 1rem;
-}
-
-.color,.color2 {
-    width: 2.1rem;
-    height: 2.1rem;
-    background-color: tomato;
-    margin-left: 5px;
-    transition: transform .3s;
-}
-
-.color:hover,.color2:hover {
-    cursor: pointer;
-    border: 1px solid white;
-    transform: scale(1.3);
-}
-
-
-.colorGreen {
-    background-color: #4CAF50;
-}
-.colorRed {
-    background-color: #F44336;
-}
-.colorBlue {
-    background-color: #2196F3;
-}
-.colorViolet {
-    background-color: #9C27B0;
-}
-.colorYellow {
-    background-color: #FFEB3B;
-}
-.colorPink {
-    background-color: #E91E63;
-}
-.colorPurple {
-    background-color: #673AB7;
-}
-.colorGray {
-    background-color: #9E9E9E;
-}
-.colorOrange {
-    background-color: #FF9800;
-}
-.colorWhite {
-    background-color: #ffffff;
-}
 
 
 
