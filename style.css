@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap');
 
-
 *,
 *::after,
 *::before{
@@ -21,7 +20,6 @@ body {
     scroll-behavior: smooth;
     position: relative;
 }
-
 
 /*Color table on the left screen, used to change background color*/
 
@@ -67,11 +65,9 @@ body {
     z-index: 1000;
 }
 
-
 .colorBox p {
     position: absolute;
     top: 1.2rem;
-
 }
 
 .colorLine,.colorLine2 {
@@ -92,7 +88,6 @@ body {
     border: 1px solid white;
     transform: scale(1.3);
 }
-
 
 .colorGreen {
     background-color: #4CAF50;
@@ -125,8 +120,8 @@ body {
     background-color: #ffffff;
 }
 
-
 /*Github link with label on the right top screen*/
+
 .github-link {
     overflow: hidden;
     white-space: nowrap;
@@ -160,7 +155,6 @@ body {
 .github-link a:hover {
     background-color: #50db85;
     transform: scale(1.1) rotate(45deg);
-    
 }
 
 .github-link a::after {
@@ -169,7 +163,6 @@ body {
 
 .github-link a::before {
     top: 2px;
-    
 }
 
 .github-link a::before, .github-link a::after {
@@ -201,7 +194,6 @@ body {
     width: 50%;
     overflow-y: scroll;  
 }
-
 
 .iconcircle {
     font-size: 2.8rem;
@@ -235,7 +227,6 @@ body {
     box-shadow: 0 10px 15px rgba(255, 255, 255, 0.74)!important;
     cursor: pointer;
 }
-
 
 .deleteInfo, .editInfo, .copyIcon, .infoIcon {
     color: #ffffff;
@@ -271,8 +262,6 @@ body {
     transform: translateX(-0.4rem) !important;
 }
 
-
-
 /*Main right container*/
 
 .right-container {
@@ -285,21 +274,16 @@ body {
 
 .right-container::-webkit-scrollbar {
     width: 12px;
-  }
+}
   
-  /* Handle */
   .right-container::-webkit-scrollbar-thumb {
-    
     background-image: linear-gradient(to right bottom, #33f0a1,rgb(206, 248, 89));
     border-radius: 3px;
-    
   }
   
-  /* Handle on hover */
-  .right-container::-webkit-scrollbar-thumb:hover {
-      
-    background-image: linear-gradient(to right bottom, rgb(245, 233, 70),#f84747) ;
 
+  .right-container::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(to right bottom, rgb(245, 233, 70),#f84747);
   }
 
 /*Main form on the right*/
@@ -316,7 +300,6 @@ body {
     flex-direction: column;
     margin-top: 1.5rem;
 }
-
 
 .main-form__input > label, .popup__form--input > label{
     display: flex;
@@ -339,8 +322,8 @@ body {
 
 .main-form__input > input:focus, .popup__form--input >input:focus{
     border-color: var(--color-darkblue-alpha);
-   outline: 0;
-   box-shadow: 0 0 0 0.135rem white;
+    outline: 0;
+    box-shadow: 0 0 0 0.135rem white;
 }
 
 
@@ -371,7 +354,6 @@ body {
     outline-offset: 0px;
     transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
     background-color: red;
-    
 }
 
 .submit-button:hover, .submit-button2:hover {
@@ -398,7 +380,6 @@ body {
 }
 
 .trueIcon {
-    
     position: absolute;
     color: #1aa86b;
     right: 4%;
@@ -414,7 +395,6 @@ body {
     top: 35%;
 }
 
-
 .requiredIconEmpty {
     color: white;
     font-size: .8rem;
@@ -428,6 +408,7 @@ body {
 }
 
 /*Edit-Popup section*/
+
 .edit__popup--open{
     display: block;
     position: relative;
@@ -484,7 +465,6 @@ body {
     margin-bottom: 1rem;
 }
 
-
 /* copied student style */
 
 .copyStudent{
@@ -516,7 +496,6 @@ body {
     left: 50%;
     transform: translate(-50%,-50%);
     font-size: .1rem;
-    
 }
 
 /*popup for student info*/
@@ -546,7 +525,6 @@ body {
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
-    animation: toLeft 2s;
     color: #FFC107;
 }
 
@@ -719,9 +697,7 @@ body {
     background-image: url(https://cdn.pixabay.com/photo/2016/11/14/04/54/woman-1822646_1280.jpg);
 }
 
-
 /* student info gallery */
-
 
 .student__gallery {
     display: block;
@@ -809,63 +785,39 @@ body {
     cursor: pointer;
 }
 
+/* ----------- scroll right tab ---------------*/
 
-
-
-
-
-
-
-
-
-
-  /* ----------- scroll right tab ---------------*/
-
-/* width */
 ::-webkit-scrollbar {
     width: 12px;
   }
-  
-  /* Handle */
   ::-webkit-scrollbar-thumb {
-    
     background-image: linear-gradient(to right bottom, #678a74,rgba(0, 252, 105, 0.8)) ;
     border-radius: 3px;
-    
   }
   
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-      
     background-image: linear-gradient(to right bottom, #37ffab,rgb(200, 231, 112));
-
   }
 
-  @keyframes toLeft {
-  
-    0%  {left:40px; top:0px; opacity: 0;}
-      100%   {left:0px; top:0px;}
-  }
+  /*animation section*/
 
   @keyframes toTop {
-  
-    0%  {bottom:40px; top:40px; opacity: 0;}
+      0%  {bottom:40px; top:40px; opacity: 0;}
       100%   {bottom:0px; top:0px;}
   }
 
   @keyframes zoomForm {
-  
-    0%  {transform: translate(-50%,-50%) scale(.1);}
+      0%  {transform: translate(-50%,-50%) scale(.1);}
       100%   {transform: translate(-50%,-50%) scale(1);}
   }
 
   @keyframes colorMenuBoxShow{
-    0%  {left:-180px; top:250px; opacity: 0.8;}
-    100%   {left:0px; top:250px; opacity: 1;}
+      0%  {left:-180px; top:250px; opacity: 0.8;}
+      100%   {left:0px; top:250px; opacity: 1;}
   }
 
   @keyframes colorMenuBoxHide{
-    0%  {left:0px; top:250px; opacity: 0.8;}
-    100%   {left:-180px; top:250px; opacity: 1;}
+      0%  {left:0px; top:250px; opacity: 0.8;}
+      100%   {left:-180px; top:250px; opacity: 1;}
   }
  
