@@ -2,21 +2,17 @@
 var storeKey = "STUDENT_DATA";
 var storeColor = "COLOR";
 
-document.addEventListener("DOMContentLoaded", ready);
-function ready() {
-    
-}
 window.onload = checkExitsLocalStorage();
 let thisSaveScrollNumber = 0; //this variables save number where position of item is.
 
 //check if localStorage not exits, then create new localStorage
 function checkExitsLocalStorage() {
-    var ifExits = localStorage.length; //return 0 if not exits
-    if(ifExits<2){
-        changeBackgroundColor();
+    var localStorageLength = localStorage.length; //return 0 if not exits, if exists localStorageLength = 1.
+    if(localStorageLength < 2){ // if COLOR not exists.
+        changeBackgroundColor(); //create new default color: white
     }
     getBackgroundColor();
-    if(ifExits < 3){
+    if(localStorageLength < 3){
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
