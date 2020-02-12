@@ -11,18 +11,19 @@ function checkExitsLocalStorage() {
     if(localStorageLength < 2){ // if COLOR not exists.
         setFirstTimeBackgroundColor(); //create new default color: white
     }
-    getBackgroundColor();
-    if(localStorageLength < 2){
+    getBackgroundColor(); // COLOR key was created, get current Backgroundcolor
+    let studentDataIndex = false;
+    for(let i =0; i < localStorage.length; i++){
+      if(typeof JSON.parse(localStorage.getItem(localStorage.key(i))) === "object"){
+        studentDataIndex = true;
+      }
+    }
+    if(!studentDataIndex){
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
 }
-  let studentDataIndex = false;
-  for(let i =0; i < localStorage.length; i++){
-      if(console.log(typeof JSON.parse(localStorage.getItem(localStorage.key(i))) === "object")){
-        studentDataIndex = true;
-      }
-  }
+  
 
 //create object to store student info, function
 let listItem = document.getElementById("list-item");
