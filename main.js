@@ -1,22 +1,28 @@
 'use strict';
-var storeKey = "STUDENT_DATA";
-var storeColor = "COLOR";
+const storeKey = "STUDENT_DATA";
+const storeColor = "COLOR";
 
 window.onload = checkExitsLocalStorage();
 let thisSaveScrollNumber = 0; //this variables save number where position of item is.
 
 //check if localStorage not exits, then create new localStorage
 function checkExitsLocalStorage() {
-    var localStorageLength = localStorage.length; //return 0 if not exits, if exists localStorageLength = 1.
+    let localStorageLength = localStorage.length; //return 0 if not exits, if exists localStorageLength = 1.
     if(localStorageLength < 2){ // if COLOR not exists.
-        changeBackgroundColor(); //create new default color: white
+        setFirstTimeBackgroundColor(); //create new default color: white
     }
     getBackgroundColor();
-    if(localStorageLength < 3){
+    if(localStorageLength < 2){
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
 }
+  let studentDataIndex = false;
+  for(let i =0; i < localStorage.length; i++){
+      if(console.log(typeof JSON.parse(localStorage.getItem(localStorage.key(i))) === "object")){
+        studentDataIndex = true;
+      }
+  }
 
 //create object to store student info, function
 let listItem = document.getElementById("list-item");
@@ -620,7 +626,7 @@ function openColorMenuBox() {
 }
 
 //change background color function 
-function changeBackgroundColor () {
+function setFirstTimeBackgroundColor () {
     const colorNumber = JSON.stringify("white");
     localStorage.setItem(storeColor, colorNumber);
     let colorParse = JSON.parse(colorNumber);
