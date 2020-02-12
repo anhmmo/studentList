@@ -60,6 +60,7 @@ const Student = {
   renderStudents();
 
   let selectDivInMain = document.getElementById("main-form").querySelectorAll("div");
+
   let selectNotice = selectDivInMain[0].querySelector("p");
   let selectNotice2 = selectDivInMain[1].querySelector("p");
   let selectNotice3 = selectDivInMain[2].querySelector("p");
@@ -81,13 +82,12 @@ function submitClickHandle(e) {
     var selected = changeSelectedValue(getInputValue("#selectOption"));
     saveScrollNumber(Student.list.length);
 
-   let selectForm2 = document.getElementById("main-form").querySelectorAll("div");
-   let getAllIcon = selectForm2[0].querySelectorAll("i");
-   let getAllIcon1 = selectForm2[1].querySelectorAll("i");
-   let getAllIcon2 = selectForm2[2].querySelectorAll("i");
-   let getAllIcon3 = selectForm2[3].querySelectorAll("i");
-   let getAllIcon4 = selectForm2[4].querySelectorAll("i");
-   let getAllIcon5 = selectForm2[5].querySelectorAll("i");
+   let getAllIcon = selectDivInMain[0].querySelectorAll("i");
+   let getAllIcon1 = selectDivInMain[1].querySelectorAll("i");
+   let getAllIcon2 = selectDivInMain[2].querySelectorAll("i");
+   let getAllIcon3 = selectDivInMain[3].querySelectorAll("i");
+   let getAllIcon4 = selectDivInMain[4].querySelectorAll("i");
+   let getAllIcon5 = selectDivInMain[5].querySelectorAll("i");
 
     if(name.length == 0) {
         selectNotice.className = "notice-display-block";
