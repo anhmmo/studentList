@@ -1,6 +1,11 @@
 'use strict';
 var storeKey = "STUDENT_DATA";
 var storeColor = "COLOR";
+
+document.addEventListener("DOMContentLoaded", ready);
+function ready() {
+    
+}
 window.onload = checkExitsLocalStorage();
 let thisSaveScrollNumber = 0; //this variables save number where position of item is.
 
