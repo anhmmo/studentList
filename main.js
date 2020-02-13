@@ -646,6 +646,10 @@ let blueColor = document.getElementById("changeColorBlue");
 blueColor.addEventListener("click", () => changeColor("#2196F3"));
 let whiteColor = document.getElementById("changeColorWhite");
 whiteColor.addEventListener("click", () => changeColor("#ffffff"));
+let violetColor = document.getElementById("changeColorViolet");
+violetColor.addEventListener("click", () => changeColor("#9C27B0"));
+
+
 
 function changeColor(color) {
     const newColor = JSON.stringify(color);
