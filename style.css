@@ -321,7 +321,7 @@ body {
 }
 
 .main-form__input > input:focus, .popup__form--input >input:focus{
-    border-color: var(--color-darkblue-alpha);
+    border-color: red;
     outline: 0;
     box-shadow: 0 0 0 0.135rem white;
 }

@@ -74,12 +74,12 @@ function submitClickHandle(e) {
     
     e.preventDefault();
     
-    var name = getInputValue("#name");
-    var address = getInputValue("#address");
-    var phone = getInputValue("#phone");
-    var email = getInputValue("#email");
-    var age = getInputValue("#age");
-    var selected = changeSelectedValue(getInputValue("#selectOption"));
+    let name = getInputValue("#name");
+    let address = getInputValue("#address");
+    let phone = getInputValue("#phone");
+    let email = getInputValue("#email");
+    let age = getInputValue("#age");
+    let selected = changeSelectedValue(getInputValue("#selectOption"));
     saveScrollNumber(Student.list.length);
 
    let getAllIcon = selectDivInMain[0].querySelectorAll("i");
@@ -150,8 +150,8 @@ function renderStudents() {
     const Students = Student.list;
     for(let i = 0; i < Students.length; i++) {
 
-        var opiskelija = Students[i];
-        var itembox = document.createElement("div");
+        let opiskelija = Students[i];
+        let itembox = document.createElement("div");
         itembox.className = "item__box";
         let divItem = document.createElement("div");
         let divIcon = document.createElement("div");
@@ -228,7 +228,7 @@ function onEditStudent(index) {
         document.getElementById("email2").value = Student.data[index].email;
         document.getElementById("age2").value = Student.data[index].age;
 
-        var selectedValue = Student.data[index].job;
+        let selectedValue = Student.data[index].job;
         console.log(selectedValue);
         switch(selectedValue){
             case "Student":
@@ -252,15 +252,15 @@ function onEditStudent(index) {
         preventOtherFunctionByDefault ();
         
         function submitForm() {
-            var name2 = getInputValue("#name2");
-            var address2 = getInputValue("#address2");
-            var phone2 = getInputValue("#phone2");
-            var email2 = getInputValue("#email2");
-            var age2 = getInputValue("#age2");
-            var selected2 = changeSelectedValue(getInputValue("#selectOption2"));
+            let name2 = getInputValue("#name2");
+            let address2 = getInputValue("#address2");
+            let phone2 = getInputValue("#phone2");
+            let email2 = getInputValue("#email2");
+            let age2 = getInputValue("#age2");
+            let selected2 = changeSelectedValue(getInputValue("#selectOption2"));
         
-            var convertStudentToString = '{"name":"'+name2+'","address":"'+address2+'","phone":"'+phone2+'","email":"'+email2+'","age":"'+age2+'","job":"'+selected2+'"}';
-            var editedStudent = JSON.parse(convertStudentToString); //convert String to JSON
+            let convertStudentToString = '{"name":"'+name2+'","address":"'+address2+'","phone":"'+phone2+'","email":"'+email2+'","age":"'+age2+'","job":"'+selected2+'"}';
+            let editedStudent = JSON.parse(convertStudentToString); //convert String to JSON
             Student.edit(index, editedStudent);  
             Student.save();
             window.location.reload();
@@ -270,7 +270,7 @@ function onEditStudent(index) {
 // copy student info
 
 function onCopyStudentInfo(info){
-    var copyText = document.getElementById("myInput" + info);
+    let copyText = document.getElementById("myInput" + info);
     copyText.className = "myInput2";
     copyText.select();
     copyText.setSelectionRange(0, 99999)
@@ -572,7 +572,7 @@ function changeSelectedValue(getValue) {
 }
 
 function getInputValue(selector){
-    var inputValue = document.querySelector(selector);
+    let inputValue = document.querySelector(selector);
     if(selector == "#email") {
         let results = ValidateEmail(inputValue.value);
         if(results){
@@ -643,7 +643,7 @@ function getBackgroundColor () {
     return colorParse;
 }
 
-var changeRedColor = document.getElementById("changeColorRed");
+let changeRedColor = document.getElementById("changeColorRed");
 changeRedColor.addEventListener("click", changecolorToRed);
 
 function changecolorToRed() {
@@ -652,7 +652,7 @@ function changecolorToRed() {
     window.location.reload();
 }
 
-var changeGreenColor = document.getElementById("changeColorGreen");
+let changeGreenColor = document.getElementById("changeColorGreen");
 changeGreenColor.addEventListener("click", changecolorToGreen);
 
 function changecolorToGreen() {
@@ -661,7 +661,7 @@ function changecolorToGreen() {
     window.location.reload();
 }
 
-var changeBlueColor = document.getElementById("changeColorBlue");
+let changeBlueColor = document.getElementById("changeColorBlue");
 changeBlueColor.addEventListener("click", changecolorToBlue);
 
 function changecolorToBlue() {
@@ -670,7 +670,7 @@ function changecolorToBlue() {
     window.location.reload();
 }
 
-var changeWhiteColor = document.getElementById("changeColorWhite");
+let changeWhiteColor = document.getElementById("changeColorWhite");
 changeWhiteColor.addEventListener("click", changecolorToWhite);
 
 function changecolorToWhite() {
