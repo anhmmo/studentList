@@ -483,7 +483,7 @@ function scrollToMyView(elementti) {
   function checkIfNotType () {
       selectInputElement2.placeholder = this.name + " is required";
       if(this.name=="Email"){
-        if(selectInputElement2.value.length>0 && ValidateEmail(selectInputElement2.value)) {
+        if(selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value)) {
             requiredIcon.style.color = "white";
           }
           else {
@@ -503,7 +503,7 @@ function scrollToMyView(elementti) {
   function checkInputForm () {
     if(this.name=="Email"){
         
-        if (selectInputElement2.value.length>0 && ValidateEmail(selectInputElement2.value)) {
+        if (selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value)) {
             
             selectNotice4.className = "notice-display-none";
             trueIcon.className = "trueIcon fas fa-check";
@@ -574,7 +574,7 @@ function changeSelectedValue(getValue) {
 function getInputValue(selector){
     let inputValue = document.querySelector(selector);
     if(selector == "#email") {
-        let results = ValidateEmail(inputValue.value);
+        let results = validateEmail(inputValue.value);
         if(results){
             return inputValue.value;
         }
@@ -592,22 +592,16 @@ function saveScrollNumber (luku) {
 
 //get position number of item then call scrollToView function
 
-let getScroll = localStorage.getItem("SCROLL");
+let getScroll = parseInt(localStorage.getItem("SCROLL")); 
+// or +(localStorage.getItem("SCROLL")) to convert string to int
 
 --getScroll;
-if(getScroll==-1)
-getScroll=0;
-scrollToMyView("copy"+ getScroll) ? (scrollToMyView("copy"+ 0)):(scrollToMyView("delete"+ getScroll)) ; 
+
+getScroll==-1 ? getScroll = 0 : getScroll;
+scrollToMyView("copy" + getScroll) ? (scrollToMyView("copy" + 0)) : (scrollToMyView("delete" + getScroll)) ; 
 
 
-function ValidateEmail(email) {
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
-  {
-    return (true);
-  }
-    
-   return false;
-}
+let validateEmail = email => (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) ? true : false;
 
 // color menu box
 
@@ -644,8 +638,8 @@ function getBackgroundColor () {
 }
 
 let redColor = document.getElementById("changeColorRed");
-redColor.addEventListener("click", () => changeColor("#F44336"));
 //it look same redColor.addEventListener("click", function(){ changeColor("#F44336"); });
+redColor.addEventListener("click", () => changeColor("#F44336"));
 let greenColor = document.getElementById("changeColorGreen");
 greenColor.addEventListener("click", () => changeColor("#4CAF50"));
 let blueColor = document.getElementById("changeColorBlue");
