@@ -637,45 +637,25 @@ function setFirstTimeBackgroundColor () {
 }
 
 function getBackgroundColor () {
-    let getthisColor = localStorage.getItem(storeColor);
-    let colorParse = JSON.parse(getthisColor);
+    let currentBackgroundColor = localStorage.getItem(storeColor);
+    let colorParse = JSON.parse(currentBackgroundColor);
     document.body.style.backgroundColor = colorParse;
     return colorParse;
 }
 
-let changeRedColor = document.getElementById("changeColorRed");
-changeRedColor.addEventListener("click", changecolorToRed);
+let redColor = document.getElementById("changeColorRed");
+redColor.addEventListener("click", () => changeColor("#F44336"));
+//it look same redColor.addEventListener("click", function(){ changeColor("#F44336"); });
+let greenColor = document.getElementById("changeColorGreen");
+greenColor.addEventListener("click", () => changeColor("#4CAF50"));
+let blueColor = document.getElementById("changeColorBlue");
+blueColor.addEventListener("click", () => changeColor("#2196F3"));
+let whiteColor = document.getElementById("changeColorWhite");
+whiteColor.addEventListener("click", () => changeColor("#ffffff"));
 
-function changecolorToRed() {
-    const colorRed = JSON.stringify("#F44336");
-    localStorage.setItem(storeColor, colorRed);
-    window.location.reload();
-}
-
-let changeGreenColor = document.getElementById("changeColorGreen");
-changeGreenColor.addEventListener("click", changecolorToGreen);
-
-function changecolorToGreen() {
-    const colorGreen = JSON.stringify("#4CAF50");
-    localStorage.setItem(storeColor, colorGreen);
-    window.location.reload();
-}
-
-let changeBlueColor = document.getElementById("changeColorBlue");
-changeBlueColor.addEventListener("click", changecolorToBlue);
-
-function changecolorToBlue() {
-    const colorBlue = JSON.stringify("#2196F3");
-    localStorage.setItem(storeColor, colorBlue);
-    window.location.reload();
-}
-
-let changeWhiteColor = document.getElementById("changeColorWhite");
-changeWhiteColor.addEventListener("click", changecolorToWhite);
-
-function changecolorToWhite() {
-    const colorWhite = JSON.stringify("#ffffff");
-    localStorage.setItem(storeColor, colorWhite);
+function changeColor(color) {
+    const newColor = JSON.stringify(color);
+    localStorage.setItem(storeColor, newColor);
     window.location.reload();
 }
 
