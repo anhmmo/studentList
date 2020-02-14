@@ -252,14 +252,14 @@ function onEditStudent(index) {
         preventOtherFunctionByDefault ();
         
         function submitForm() {
-            let name2 = getInputValue("#name2");
-            let address2 = getInputValue("#address2");
-            let phone2 = getInputValue("#phone2");
-            let email2 = getInputValue("#email2");
-            let age2 = getInputValue("#age2");
-            let selected2 = changeSelectedValue(getInputValue("#selectOption2"));
+            let name = getInputValue("#name2");
+            let address = getInputValue("#address2");
+            let phone = getInputValue("#phone2");
+            let email = getInputValue("#email2");
+            let age = getInputValue("#age2");
+            let selected = changeSelectedValue(getInputValue("#selectOption2"));
         
-            let convertStudentToString = '{"name":"'+name2+'","address":"'+address2+'","phone":"'+phone2+'","email":"'+email2+'","age":"'+age2+'","job":"'+selected2+'"}';
+            let convertStudentToString = `{"name":"${name}","address":"${address}","phone":"${phone}","email":"${email}","age":"${age}","job":"${selected}"}`;
             let editedStudent = JSON.parse(convertStudentToString); //convert String to JSON
             Student.edit(index, editedStudent);  
             Student.save();
