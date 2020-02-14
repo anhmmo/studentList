@@ -1,6 +1,7 @@
 'use strict';
 const storeKey = "STUDENT_DATA";
 const storeColor = "COLOR";
+const storeScrollKey = "SCROLL";
 
 window.onload = checkExitsLocalStorage();
 let thisSaveScrollNumber = 0; //this variables save number where position of item is.
@@ -587,12 +588,12 @@ function getInputValue(selector){
 function saveScrollNumber (luku) {
     thisSaveScrollNumber = luku;
     const scrollNumber = JSON.stringify(thisSaveScrollNumber);
-    localStorage.setItem("SCROLL", scrollNumber);
+    localStorage.setItem(storeScrollKey, scrollNumber);
 }
 
 //get position number of item then call scrollToView function
 
-let getScroll = parseInt(localStorage.getItem("SCROLL")); 
+let getScroll = parseInt(localStorage.getItem(storeScrollKey)); 
 // or +(localStorage.getItem("SCROLL")) to convert string to int
 
 --getScroll;
