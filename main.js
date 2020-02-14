@@ -164,8 +164,8 @@ function renderStudents() {
 
         let studentCopyInfo = `${opiskelija.name}, ${opiskelija.address}, ${opiskelija.phone}, ${opiskelija.email}, ${opiskelija.age}, ${opiskelija.job}`;
 
-        divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
-        divCopiedStudent.innerHTML = '<input class="myInput" type="text" value="'+studentCopyInfo+'" id="myInput'+ i +'"><div id="copiedStudent'+ i +'" class="copyStudent">Copy Student Info</div>';
+        divItem.innerHTML = `<p>Name: ${opiskelija.name} </p><p>Address : ${opiskelija.address} </p><p>Phone : ${opiskelija.phone} </p><p>Email: ${opiskelija.email} </p><p>Age: ${opiskelija.age} </p><p>Job : ${opiskelija.job}</p>`;
+        divCopiedStudent.innerHTML = `<input class="myInput" type="text" value="'+studentCopyInfo+'" id="myInput'+ i +'"><div id="copiedStudent'+ i +'" class="copyStudent">Copy Student Info</div>`;
         divIcon.innerHTML = '<i id="delete'+i+'" class="deleteInfo fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit'+i+'" class="editInfo fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="copy'+i+'" class="copyIcon fab fa-creative-commons-share" onclick="onCopyStudentInfo(' + i + ')"></i><i id="info'+i+'" class="infoIcon fas fa-info-circle" onclick="onGetInfoStudent(' + i + ')"></i>';
         
         letItemIcon.className = "iconcircle fas fa-circle";
