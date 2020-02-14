@@ -111,7 +111,7 @@ function submitClickHandle(e) {
         return;
     }
 
-    if(email == "example@gmail.com") {
+    if(!email) {
         selectNotice4.className = "notice-display-block";
         getAllIcon3[0].className = "falseIconEmpty fas fa-times";
         getAllIcon3[2].className = "requiredIconEmpty fas fa-star-of-life";
@@ -486,17 +486,22 @@ function scrollToMyView(elementti) {
       if(this.name=="Email"){
         if(selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value)) {
             requiredIcon.style.color = "white";
+            selectInputElement2.style.borderColor = "green";
+            
           }
           else {
             requiredIcon.style.color = "red";
+            selectInputElement2.style.borderColor = "red";
           }
       }
       else {
         if(selectInputElement2.value.length==0) {
             requiredIcon.style.color = "red";
+            selectInputElement2.style.borderColor = "red";
           }
           else {
             requiredIcon.style.color = "white";
+            selectInputElement2.style.borderColor = "green";
           }
       }
   }
@@ -510,11 +515,13 @@ function scrollToMyView(elementti) {
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
             requiredIcon.style.color = "white";
+            selectInputElement2.style.borderColor = "green";
         }
         else {
             falseIcon.className = "falseIcon fas fa-times";
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
+            selectInputElement2.style.borderColor = "red";
         }
     
     }
@@ -522,7 +529,7 @@ function scrollToMyView(elementti) {
     else {
     
          if (selectInputElement2.value.length>0) {
-           
+            selectInputElement2.style.borderColor = "green";
             selectNotice.className = "notice-display-none";
             selectNotice2.className = "notice-display-none";
             selectNotice3.className = "notice-display-none";
@@ -533,6 +540,7 @@ function scrollToMyView(elementti) {
             requiredIcon.style.color = "white";
         }
         else {
+            selectInputElement2.style.borderColor = "red";
             falseIcon.className = "falseIcon fas fa-times";
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
@@ -579,7 +587,7 @@ function getInputValue(selector){
         if(results){
             return inputValue.value;
         }
-        return "example@gmail.com";
+        return false;
     }
     return inputValue.value;
 }
