@@ -36,7 +36,7 @@ const Student = {
         try {
                 this.data = JSON.parse(jsonData);
         } catch (e) {
-            alert("chua co thong tin");
+            alert("some thing wrong !");
         }
     },
     add: function(student){
@@ -142,7 +142,7 @@ function submitClickHandle(e) {
         });
 
     Student.save();
-    window.location.reload();
+    listItem.location.reload();
 }
 
 //render student item to html items list
