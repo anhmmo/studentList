@@ -90,7 +90,7 @@ function submitClickHandle(e) {
    let getAllIcon4 = selectDivInMain[4].querySelectorAll("i");
    let getAllIcon5 = selectDivInMain[5].querySelectorAll("i");
 
-    if(name.length == 0) {
+    if(!name) {
         selectNotice.className = "notice-display-block";
         getAllIcon[0].className = "falseIconEmpty fas fa-times";
         getAllIcon[2].className = "requiredIconEmpty fas fa-star-of-life";
@@ -483,8 +483,8 @@ function scrollToMyView(elementti) {
 
   function checkIfNotType () {
       selectInputElement2.placeholder = this.name + " is required";
-      if(this.name=="Email"){
-        if(selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value)) {
+      if(this.name=="Email" || this.name =="Name"){
+        if(selectInputElement2.value.length > 0 && validateEmail(selectInputElement2.value) || selectInputElement2.value.length > 0 && validateName(selectInputElement2.value)) {
             requiredIcon.style.color = "white";
             selectInputElement2.style.borderColor = "green";
             
@@ -507,9 +507,9 @@ function scrollToMyView(elementti) {
   }
 
   function checkInputForm () {
-    if(this.name=="Email"){
+    if(this.name=="Email" || this.name == "Name"){
         
-        if (selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value)) {
+        if (selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value) || selectInputElement2.value.length>0 && validateName(selectInputElement2.value)) {
             
             selectNotice4.className = "notice-display-none";
             trueIcon.className = "trueIcon fas fa-check";
@@ -518,7 +518,7 @@ function scrollToMyView(elementti) {
             selectInputElement2.style.borderColor = "green";
         }
         else {
-            falseIcon.className = "falseIcon fas fa-times";
+            
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
             selectInputElement2.style.borderColor = "red";
@@ -541,7 +541,7 @@ function scrollToMyView(elementti) {
         }
         else {
             selectInputElement2.style.borderColor = "red";
-            falseIcon.className = "falseIcon fas fa-times";
+          
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
         }
@@ -589,6 +589,13 @@ function getInputValue(selector){
         }
         return false;
     }
+    else if(selector == "#name") {
+        let validName = validateName(inputValue.value);
+        if(validName) {
+            return inputValue.value;
+        }
+        return false;
+    }
     return inputValue.value;
 }
 
@@ -611,6 +618,9 @@ scrollToMyView("copy" + getScroll) ? (scrollToMyView("copy" + 0)) : (scrollToMyV
 
 
 let validateEmail = email => (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) ? true : false;
+
+let validateName = (name) => (/^[a-zA-Z ]{2,30}$/.test(name)) ? true: false;
+
 
 // color menu box
 
