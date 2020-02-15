@@ -142,7 +142,7 @@ function submitClickHandle(e) {
         });
 
     Student.save();
-    listItem.location.reload();
+    window.location.reload();
 }
 
 //render student item to html items list
@@ -682,3 +682,5 @@ iconToTheTop.style.display = "none";
 //call onscroll event when user scroll down more than 500px, icon show if scroll less than 500x icon display none.
 listItem.onscroll = () => listItem.scrollTop > 500 ? iconToTheTop.style.display = "block" : iconToTheTop.style.display = "none";
 saveScrollNumber(1);
+
+
