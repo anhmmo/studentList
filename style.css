@@ -320,7 +320,7 @@ body {
     font-size: 1.8rem;
 }
 
-.main-form__input > input:focus, .popup__form--input >input:focus{
+.main-form__input > input:focus, .popup__form--input > input:focus{
     border-color: red;
     outline: 0;
     box-shadow: 0 0 0 0.135rem white;

@@ -1,6 +1,7 @@
 'use strict';
 const storeKey = "STUDENT_DATA";
 const storeColor = "COLOR";
+const storeScrollKey = "SCROLL";
 
 window.onload = checkExitsLocalStorage();
 let thisSaveScrollNumber = 0; //this variables save number where position of item is.
@@ -35,7 +36,7 @@ const Student = {
         try {
                 this.data = JSON.parse(jsonData);
         } catch (e) {
-            alert("chua co thong tin");
+            alert("some thing wrong !");
         }
     },
     add: function(student){
@@ -89,7 +90,7 @@ function submitClickHandle(e) {
    let getAllIcon4 = selectDivInMain[4].querySelectorAll("i");
    let getAllIcon5 = selectDivInMain[5].querySelectorAll("i");
 
-    if(name.length == 0) {
+    if(!name) {
         selectNotice.className = "notice-display-block";
         getAllIcon[0].className = "falseIconEmpty fas fa-times";
         getAllIcon[2].className = "requiredIconEmpty fas fa-star-of-life";
@@ -110,7 +111,7 @@ function submitClickHandle(e) {
         return;
     }
 
-    if(email == "example@gmail.com") {
+    if(!email) {
         selectNotice4.className = "notice-display-block";
         getAllIcon3[0].className = "falseIconEmpty fas fa-times";
         getAllIcon3[2].className = "requiredIconEmpty fas fa-star-of-life";
@@ -141,7 +142,7 @@ function submitClickHandle(e) {
         });
 
     Student.save();
-    window.location.reload();
+    listItem.location.reload();
 }
 
 //render student item to html items list
@@ -162,11 +163,11 @@ function renderStudents() {
         divItem.className = "item__box--info";
         divIcon.className = "item__box--icon";
 
-        let studentCopyInfo = opiskelija.name + ", " + opiskelija.address + ", " + opiskelija.phone + ", " + opiskelija.email + ", " + opiskelija.age + ", " + opiskelija.job;
+        let studentCopyInfo = `${opiskelija.name}, ${opiskelija.address}, ${opiskelija.phone}, ${opiskelija.email}, ${opiskelija.age}, ${opiskelija.job}`;
 
-        divItem.innerHTML = '<p>Name: '+ opiskelija.name +'</p><p>Address : '+ opiskelija.address +'</p><p>Phone : '+ opiskelija.phone +'</p><p>Email: '+ opiskelija.email +'</p><p>Age: '+ opiskelija.age +'</p><p>Job : '+ opiskelija.job +'</p>';
-        divCopiedStudent.innerHTML = '<input class="myInput" type="text" value="'+studentCopyInfo+'" id="myInput'+ i +'"><div id="copiedStudent'+ i +'" class="copyStudent">Copy Student Info</div>';
-        divIcon.innerHTML = '<i id="delete'+i+'" class="deleteInfo fas fa-trash-alt" onclick="onDeleteStudent(' + i + ')"></i><i id="edit'+i+'" class="editInfo fas fa-edit" onclick="onEditStudent(' + i + ')"></i><i id="copy'+i+'" class="copyIcon fab fa-creative-commons-share" onclick="onCopyStudentInfo(' + i + ')"></i><i id="info'+i+'" class="infoIcon fas fa-info-circle" onclick="onGetInfoStudent(' + i + ')"></i>';
+        divItem.innerHTML = `<p>Name: ${opiskelija.name} </p><p>Address : ${opiskelija.address} </p><p>Phone : ${opiskelija.phone} </p><p>Email: ${opiskelija.email} </p><p>Age: ${opiskelija.age} </p><p>Job : ${opiskelija.job}</p>`;
+        divCopiedStudent.innerHTML = `<input class="myInput" type="text" value="${studentCopyInfo}" id="myInput${i}"><div id="copiedStudent${i}" class="copyStudent">Copy Student Info</div>`;
+        divIcon.innerHTML = `<i id="delete${i}" class="deleteInfo fas fa-trash-alt" onclick="onDeleteStudent(${i})"></i><i id="edit${i}" class="editInfo fas fa-edit" onclick="onEditStudent(${i})"></i><i id="copy${i}" class="copyIcon fab fa-creative-commons-share" onclick="onCopyStudentInfo(${i})"></i><i id="info${i}" class="infoIcon fas fa-info-circle" onclick="onGetInfoStudent(${i})"></i>`;
         
         letItemIcon.className = "iconcircle fas fa-circle";
         letItemIcon2.className = "iconcircle2 fas fa-circle";
@@ -252,14 +253,14 @@ function onEditStudent(index) {
         preventOtherFunctionByDefault ();
         
         function submitForm() {
-            let name2 = getInputValue("#name2");
-            let address2 = getInputValue("#address2");
-            let phone2 = getInputValue("#phone2");
-            let email2 = getInputValue("#email2");
-            let age2 = getInputValue("#age2");
-            let selected2 = changeSelectedValue(getInputValue("#selectOption2"));
+            let name = getInputValue("#name2");
+            let address = getInputValue("#address2");
+            let phone = getInputValue("#phone2");
+            let email = getInputValue("#email2");
+            let age = getInputValue("#age2");
+            let selected = changeSelectedValue(getInputValue("#selectOption2"));
         
-            let convertStudentToString = '{"name":"'+name2+'","address":"'+address2+'","phone":"'+phone2+'","email":"'+email2+'","age":"'+age2+'","job":"'+selected2+'"}';
+            let convertStudentToString = `{"name":"${name}","address":"${address}","phone":"${phone}","email":"${email}","age":"${age}","job":"${selected}"}`;
             let editedStudent = JSON.parse(convertStudentToString); //convert String to JSON
             Student.edit(index, editedStudent);  
             Student.save();
@@ -482,38 +483,45 @@ function scrollToMyView(elementti) {
 
   function checkIfNotType () {
       selectInputElement2.placeholder = this.name + " is required";
-      if(this.name=="Email"){
-        if(selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value)) {
+      if(this.name=="Email" || this.name =="Name"){
+        if(selectInputElement2.value.length > 0 && validateEmail(selectInputElement2.value) || selectInputElement2.value.length > 0 && validateName(selectInputElement2.value)) {
             requiredIcon.style.color = "white";
+            selectInputElement2.style.borderColor = "green";
+            
           }
           else {
             requiredIcon.style.color = "red";
+            selectInputElement2.style.borderColor = "red";
           }
       }
       else {
         if(selectInputElement2.value.length==0) {
             requiredIcon.style.color = "red";
+            selectInputElement2.style.borderColor = "red";
           }
           else {
             requiredIcon.style.color = "white";
+            selectInputElement2.style.borderColor = "green";
           }
       }
   }
 
   function checkInputForm () {
-    if(this.name=="Email"){
+    if(this.name=="Email" || this.name == "Name"){
         
-        if (selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value)) {
+        if (selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value) || selectInputElement2.value.length>0 && validateName(selectInputElement2.value)) {
             
             selectNotice4.className = "notice-display-none";
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
             requiredIcon.style.color = "white";
+            selectInputElement2.style.borderColor = "green";
         }
         else {
-            falseIcon.className = "falseIcon fas fa-times";
+            
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
+            selectInputElement2.style.borderColor = "red";
         }
     
     }
@@ -521,7 +529,7 @@ function scrollToMyView(elementti) {
     else {
     
          if (selectInputElement2.value.length>0) {
-           
+            selectInputElement2.style.borderColor = "green";
             selectNotice.className = "notice-display-none";
             selectNotice2.className = "notice-display-none";
             selectNotice3.className = "notice-display-none";
@@ -532,7 +540,8 @@ function scrollToMyView(elementti) {
             requiredIcon.style.color = "white";
         }
         else {
-            falseIcon.className = "falseIcon fas fa-times";
+            selectInputElement2.style.borderColor = "red";
+          
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
         }
@@ -578,7 +587,14 @@ function getInputValue(selector){
         if(results){
             return inputValue.value;
         }
-        return "example@gmail.com";
+        return false;
+    }
+    else if(selector == "#name") {
+        let validName = validateName(inputValue.value);
+        if(validName) {
+            return inputValue.value;
+        }
+        return false;
     }
     return inputValue.value;
 }
@@ -587,12 +603,12 @@ function getInputValue(selector){
 function saveScrollNumber (luku) {
     thisSaveScrollNumber = luku;
     const scrollNumber = JSON.stringify(thisSaveScrollNumber);
-    localStorage.setItem("SCROLL", scrollNumber);
+    localStorage.setItem(storeScrollKey, scrollNumber);
 }
 
 //get position number of item then call scrollToView function
 
-let getScroll = parseInt(localStorage.getItem("SCROLL")); 
+let getScroll = parseInt(localStorage.getItem(storeScrollKey)); 
 // or +(localStorage.getItem("SCROLL")) to convert string to int
 
 --getScroll;
@@ -602,6 +618,9 @@ scrollToMyView("copy" + getScroll) ? (scrollToMyView("copy" + 0)) : (scrollToMyV
 
 
 let validateEmail = email => (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) ? true : false;
+
+let validateName = (name) => (/^[a-zA-Z ]{2,30}$/.test(name)) ? true: false;
+
 
 // color menu box
 
