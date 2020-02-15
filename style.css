@@ -195,6 +195,24 @@ body {
     overflow-y: scroll;  
 }
 
+#delete-person-box{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+}
+
+#delete-all-person {
+    color: red;
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+#delete-person-box p{
+    color: rgb(252, 182, 90);
+    font-size: 4rem;
+    margin-left: 12%;
+}
+
 .iconcircle {
     font-size: 2.8rem;
     position: absolute;
