@@ -688,23 +688,6 @@ saveScrollNumber(1);
 //delete all person icon
 let deleteArray = [];
 
-let selectedAllPersons = document.getElementById("delete-person-box");
-let selectedAllStudents = document.getElementById("delete-all-person");
-selectedAllStudents.addEventListener("click", function() {
-    deteteSelectedStudents(deleteArray);
-   
-});
-
-function deteteSelectedStudents (deleteArray) {
-    
-    for (let index = 0; index < deleteArray.length; index++) {
-        Student.delete(index);
-    }
-            
-            Student.save();
-            window.location.reload();
-}
-
 
 let upMore = 2;
 let cong = 2;
@@ -729,3 +712,21 @@ function selectItemBox (index) {
         }
         console.log(deleteArray.length);
 }
+
+let selectedAllPersons = document.getElementById("delete-person-box");
+let selectedAllStudents = document.getElementById("delete-all-person");
+selectedAllStudents.addEventListener("click", function() {
+    deteteSelectedStudents(deleteArray);
+   
+});
+
+function deteteSelectedStudents (deleteArray) {
+    
+    for (let index = 0; index < deleteArray.length; index++) {
+        Student.delete(index);
+    }
+            
+            Student.save();
+            window.location.reload();
+}
+
