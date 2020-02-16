@@ -684,3 +684,36 @@ listItem.onscroll = () => listItem.scrollTop > 500 ? iconToTheTop.style.display 
 saveScrollNumber(1);
 
 
+//delete all person icon
+let deleteArray = [];
+let listItem3 = document.getElementById("list-item");
+let allItemBox = listItem3.querySelectorAll("div .item__box");
+console.log(allItemBox.length);
+let itemBox = allItemBox[0];
+itemBox.addEventListener("click", function() {
+    selectItemBox(0);
+});
+let selectedAllPersons = document.getElementById("delete-person-box");
+let selectedAllStudents = document.getElementById("delete-all-person");
+selectedAllStudents.addEventListener("click", deteteSelectedStudents);
+
+function deteteSelectedStudents () {
+   
+}
+let upMore = 2;
+function selectItemBox (index) {
+    
+        deleteArray.push(index);
+
+        if(upMore%2 > 0){
+            itemBox.style.color = "white";
+            selectedAllPersons.style.display = "none";
+            upMore++;
+        }
+        else {
+            itemBox.style.color = "black";
+            selectedAllPersons.style.display = "block";
+            upMore++;
+        }
+        
+}

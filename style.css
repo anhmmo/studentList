@@ -196,6 +196,7 @@ body {
 }
 
 #delete-person-box{
+    display: none;
     position: absolute;
     top: 20%;
     left: 10%;
