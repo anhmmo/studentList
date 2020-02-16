@@ -692,6 +692,7 @@ let selectedAllPersons = document.getElementById("delete-person-box");
 let selectedAllStudents = document.getElementById("delete-all-person");
 selectedAllStudents.addEventListener("click", function() {
     deteteSelectedStudents(deleteArray);
+   
 });
 
 function deteteSelectedStudents (deleteArray) {
@@ -708,11 +709,11 @@ function deteteSelectedStudents (deleteArray) {
 let upMore = 2;
 let cong = 2;
 function selectItemBox (index) {
-        
+    
         let divvv = document.getElementById("list-item").querySelectorAll("div .item__box");
         let boxItem = divvv[index];
-
-        deleteArray.indexOf(index) === -1 ? deleteArray.push(index) : deleteArray.splice(deleteArray.indexOf(index), 1);
+        
+        deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray.splice(deleteArray.indexOf(index), 1);
 
         if(upMore%2 > 0){
             boxItem.style.color = "white";
@@ -726,5 +727,5 @@ function selectItemBox (index) {
         if(deleteArray.length>0) {
             selectedAllPersons.style.display = "block";
         }
-
+        console.log(deleteArray.length);
 }
