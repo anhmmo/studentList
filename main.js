@@ -721,12 +721,17 @@ selectedAllStudents.addEventListener("click", function() {
 });
 
 function deteteSelectedStudents (deleteArray) {
-    
-    for (let index = 0; index < deleteArray.length; index++) {
-        Student.delete(index);
-    }
+        let rrrra = Student.list;
+        deleteArray.sort();
+    for (let i = deleteArray.length -1; i >= 0; i--) {
+        if(typeof deleteArray[i] !== "undefined"){
+            rrrra.splice(deleteArray[i], 1); 
+        }
+                
+    }   
             
             Student.save();
             window.location.reload();
+          
 }
 
