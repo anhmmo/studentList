@@ -154,6 +154,7 @@ function renderStudents() {
         let opiskelija = Students[i];
         let itembox = document.createElement("div");
         itembox.className = "item__box";
+        itembox.onclick = function() { selectItemBox(i); };
         let divItem = document.createElement("div");
         let divIcon = document.createElement("div");
         let letItemIcon = document.createElement("i");
@@ -686,34 +687,44 @@ saveScrollNumber(1);
 
 //delete all person icon
 let deleteArray = [];
-let listItem3 = document.getElementById("list-item");
-let allItemBox = listItem3.querySelectorAll("div .item__box");
-console.log(allItemBox.length);
-let itemBox = allItemBox[0];
-itemBox.addEventListener("click", function() {
-    selectItemBox(0);
-});
+
 let selectedAllPersons = document.getElementById("delete-person-box");
 let selectedAllStudents = document.getElementById("delete-all-person");
-selectedAllStudents.addEventListener("click", deteteSelectedStudents);
+selectedAllStudents.addEventListener("click", function() {
+    deteteSelectedStudents(deleteArray);
+});
 
-function deteteSelectedStudents () {
-   
-}
-let upMore = 2;
-function selectItemBox (index) {
+function deteteSelectedStudents (deleteArray) {
     
-        deleteArray.push(index);
+    for (let index = 0; index < deleteArray.length; index++) {
+        Student.delete(index);
+    }
+            
+            Student.save();
+            window.location.reload();
+}
+
+
+let upMore = 2;
+let cong = 2;
+function selectItemBox (index) {
+        
+        let divvv = document.getElementById("list-item").querySelectorAll("div .item__box");
+        let boxItem = divvv[index];
+
+        deleteArray.indexOf(index) === -1 ? deleteArray.push(index) : deleteArray.splice(deleteArray.indexOf(index), 1);
 
         if(upMore%2 > 0){
-            itemBox.style.color = "white";
-            selectedAllPersons.style.display = "none";
-            upMore++;
+            boxItem.style.color = "white";
+            upMore=2;
         }
         else {
-            itemBox.style.color = "black";
-            selectedAllPersons.style.display = "block";
-            upMore++;
+            boxItem.style.color = "black";
+            upMore=3;
         }
-        
+        console.log(deleteArray);
+        if(deleteArray.length>0) {
+            selectedAllPersons.style.display = "block";
+        }
+
 }
