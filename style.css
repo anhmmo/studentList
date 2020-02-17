@@ -252,6 +252,7 @@ body {
     border-radius: .2rem;
     position: relative;
     font-size: 1.8rem;
+    cursor: pointer;
 }
 
 .item__box:hover {

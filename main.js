@@ -209,18 +209,19 @@ function renderStudents() {
 
 //delete item
 function onDeleteStudent(index) {
+    preventItemBoxEventInvoked (index);
     saveScrollNumber(index);
     let CheckAnswer = confirm("Delete this student ?");
     if(CheckAnswer){
         Student.delete(index);
         Student.save();
-        window.location.reload();
     }
+    window.location.reload();
 }
     
 //edit item
 function onEditStudent(index) {
-
+        preventItemBoxEventInvoked (index);
         document.getElementById("popup-section").className = "edit__popup--open";
         document.getElementById("submit2").addEventListener("click", submitForm);
        
@@ -272,6 +273,7 @@ function onEditStudent(index) {
 // copy student info
 
 function onCopyStudentInfo(info){
+    preventItemBoxEventInvoked (info);
     let copyText = document.getElementById("myInput" + info);
     copyText.className = "myInput2";
     copyText.select();
@@ -283,7 +285,10 @@ function onCopyStudentInfo(info){
     setTimeout(function(){
         studentInfo.className = "copyStudent";
         copyText.className = "myInput";
+        saveScrollNumber(info);
+        window.location.reload();
     }, 600);
+    
 }
 
 //popup close click
@@ -297,6 +302,7 @@ function closeBtn(){
 
 let timeOutF;
 function onGetInfoStudent(index){
+    preventItemBoxEventInvoked (index);
     let popup = document.getElementById("student__popup");
     let createH2 = document.createElement("h2");
     if(Student.list[index].name=="")
@@ -731,17 +737,15 @@ function deteteSelectedStudents (filtedArrayCopy) {
 
 //this function prevent item__box event working when an icon event clicked
 
-function preventOtherFunctionByDefault () {
+function preventItemBoxEventInvoked (index) {
+    let getContainer = document.getElementById("list-item").querySelectorAll("div .item__box");
     
-    for (let index = 0; index < Student.list.length; index++) {
-        document.getElementById("delete"+index).onclick = "";
-        document.getElementById("edit"+index).onclick = "";
-        document.getElementById("copy"+index).onclick = "";
-        document.getElementById("info"+index).onclick = "";
-    }
-    document.getElementById("submit").removeEventListener("click",submitClickHandle);
-    document.getElementById("submit").addEventListener("click", function(event){
-    event.preventDefault()
-    });
+    getContainer[index].onclick = ""; 
+}
+
+function unlockItemBoxEventInvoked (index) {
+    let getContainer = document.getElementById("list-item").querySelectorAll("div .item__box");
+    
+    getContainer[index].onclick = "selectItemBox" + index; 
 }
 
