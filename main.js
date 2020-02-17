@@ -157,6 +157,7 @@ function renderStudents() {
         itembox.onclick = function() { selectItemBox(i); };
         let divItem = document.createElement("div");
         let divIcon = document.createElement("div");
+        let divItemNumber = document.createElement("div");
         let letItemIcon = document.createElement("i");
         let letItemIcon2 = document.createElement("i");
         let divCopiedStudent = document.createElement("div");
@@ -172,12 +173,16 @@ function renderStudents() {
         
         letItemIcon.className = "iconcircle fas fa-circle";
         letItemIcon2.className = "iconcircle2 fas fa-circle";
+        divItemNumber.className = "itemNumberBox";
+
+        divItemNumber.innerHTML = i+1;
 
         itembox.appendChild(divItem);
         itembox.appendChild(divCopiedStudent);
         itembox.appendChild(divIcon);
         itembox.appendChild(letItemIcon);
         itembox.appendChild(letItemIcon2);
+        itembox.appendChild(divItemNumber);
 
         listItem.appendChild(itembox);
     }

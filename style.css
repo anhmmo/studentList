@@ -179,7 +179,7 @@ body {
 /*Main left container*/
 
 .container {
-    max-width: 1080px;
+    max-width: 1150px;
     width: 100%;
     margin: 0 auto;
     background-color: white;
@@ -230,9 +230,9 @@ body {
 
 .item__box{
     color: white;
-    width: 90%;
+    width: 80%;
     background-image: linear-gradient(to left, #589e7b,#21bf73) ;
-    margin: 1rem 5% 0 5%;
+    margin: 1rem 5% 0 15%;
     display: flex;
     transition: all .5s;
     outline: 0;
@@ -243,9 +243,9 @@ body {
 
 .item__box2{
     color: white;
-    width: 90%;
+    width: 80%;
     background-image: linear-gradient(to left, #9e9958,#bf9a21) ;
-    margin: 1rem 5% 0 5%;
+    margin: 1rem 5% 0 15%;
     display: flex;
     transition: all .5s;
     outline: 0;
@@ -293,6 +293,14 @@ body {
 .infoIcon, .copyIcon {
     font-size: 3.3rem !important;
     transform: translateX(-0.4rem) !important;
+}
+
+
+.itemNumberBox {
+    position: absolute;
+    left: -30px;
+    color: rgb(252, 171, 65);
+    top: 100px;
 }
 
 /*Main right container*/
