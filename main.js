@@ -432,6 +432,8 @@ function preventOtherFunctionByDefault () {
     });
 }
 
+
+
 // scroll to position where it is current view
 function scrollToMyView(elementti) {
     let elmnt = document.getElementById(elementti);
@@ -707,6 +709,7 @@ function selectItemBox (index) {
         filtedArrayCopy = filtedArray;
     
         filtedArray.length < 1 ? selectedAllPersons.style.display = "none" : selectedAllPersons.style.display = "block";
+        console.log(filtedArray);
 
         deleteArray.indexOf(index) === -1 ? getContainer[index].className = "item__box" : getContainer[index].className = "item__box2";
         
@@ -724,5 +727,21 @@ function deteteSelectedStudents (filtedArrayCopy) {
 
     Student.save();
     window.location.reload();
+}
+
+//this function prevent item__box event working when an icon event clicked
+
+function preventOtherFunctionByDefault () {
+    
+    for (let index = 0; index < Student.list.length; index++) {
+        document.getElementById("delete"+index).onclick = "";
+        document.getElementById("edit"+index).onclick = "";
+        document.getElementById("copy"+index).onclick = "";
+        document.getElementById("info"+index).onclick = "";
+    }
+    document.getElementById("submit").removeEventListener("click",submitClickHandle);
+    document.getElementById("submit").addEventListener("click", function(event){
+    event.preventDefault()
+    });
 }
 
