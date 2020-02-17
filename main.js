@@ -711,8 +711,7 @@ function selectItemBox (index) {
         if(deleteArray.length>0) {
             selectedAllPersons.style.display = "block";
         }
-        console.log(deleteArray.length);
-
+        
         let counterDelete = document.getElementById("delete-counter");
         let ryamosi = [];
         for (let index = 0; index < deleteArray.length; index++) {
@@ -722,7 +721,6 @@ function selectItemBox (index) {
         }
         counterDelete.innerText = ryamosi.length;
         ryamosi2 = ryamosi;
-        console.log(ryamosi2);
         if(ryamosi.length < 1) {
             selectedAllPersons.style.display = "none";
         }
@@ -741,13 +739,11 @@ function deteteSelectedStudents (ryamosi2) {
     for (let i = ryamosi2.length - 1; i >= 0; i--) {
         if(typeof ryamosi2[i] !== "undefined"){
             rrrra.splice(ryamosi2[i], 1); 
-        }
-                
-    }   
-            
-            Student.save();
-            window.location.reload();
-          
+        }      
+    }  
+
+    Student.save();
+    window.location.reload();
 }
 
 
