@@ -214,6 +214,24 @@ body {
     margin-left: 18%;
 }
 
+
+#undo-deleted-item {
+    position: absolute;
+    top: 52%;
+    left: 5%;
+}
+
+#restore-deleted{
+    cursor: pointer;
+    font-size: 4rem;
+    color: rgb(3, 194, 83);
+    transition: color 500ms;
+}
+
+#restore-deleted:hover{
+    color: rgba(252, 17, 0, 0.8);
+}
+
 .iconcircle {
     font-size: 2.8rem;
     position: absolute;

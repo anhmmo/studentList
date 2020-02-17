@@ -54,6 +54,10 @@ const Student = {
     },
     get list(){
         return this.data;
+    },
+
+    set changeData(newContent) {
+        return this.data = newContent;
     }
 }
 
@@ -699,6 +703,7 @@ saveScrollNumber(1);
 
 
 //delete all person icon
+let nerS;
 let deleteArray = [];
 let filtedArrayCopy = [];
 let selectedAllPersons = document.getElementById("delete-person-box");
@@ -728,6 +733,11 @@ function selectItemBox (index) {
 }
 
 function deteteSelectedStudents (filtedArrayCopy) {
+
+    nerS = Student.list;
+    const jsonData = JSON.stringify(nerS);
+    localStorage.setItem("backup", jsonData);
+    
         let studentListArr = Student.list;
 
     for (let i = filtedArrayCopy.length - 1; i >= 0; i--) {
@@ -754,3 +764,19 @@ function unlockItemBoxEventInvoked (index) {
     getContainer[index].onclick = "selectItemBox" + index; 
 }
 
+
+
+let restoreD = document.getElementById("restore-deleted");
+restoreD.addEventListener("click", restoreAllDeleteditems);
+
+function restoreAllDeleteditems() {
+    const jsonData = localStorage.getItem("backup");
+        try {
+            Student.changeData = JSON.parse(jsonData);
+            Student.save();
+            Student.load();
+        } catch (e) {
+            alert("some thing wrong !");
+    }
+    window.location.reload();
+}
