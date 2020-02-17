@@ -691,12 +691,13 @@ let deleteArray = [];
 
 let upMore = 2;
 let cong = 2;
+let ryamosi2 = [];
 function selectItemBox (index) {
-    
+        selectedAllPersons.style.display = "none";
         let divvv = document.getElementById("list-item").querySelectorAll("div .item__box");
         let boxItem = divvv[index];
         
-        deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray.splice(deleteArray.indexOf(index), 1);
+        deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray[index] = undefined;
 
         if(upMore%2 > 0){
             boxItem.style.color = "white";
@@ -711,6 +712,20 @@ function selectItemBox (index) {
             selectedAllPersons.style.display = "block";
         }
         console.log(deleteArray.length);
+
+        let counterDelete = document.getElementById("delete-counter");
+        let ryamosi = [];
+        for (let index = 0; index < deleteArray.length; index++) {
+            if(typeof deleteArray[index] === "number"){
+                ryamosi.push(index);
+            }
+        }
+        counterDelete.innerText = ryamosi.length;
+        ryamosi2 = ryamosi;
+        console.log(ryamosi2);
+        if(ryamosi.length < 1) {
+            selectedAllPersons.style.display = "none";
+        }
 }
 
 let selectedAllPersons = document.getElementById("delete-person-box");
@@ -720,12 +735,12 @@ selectedAllStudents.addEventListener("click", function() {
    
 });
 
-function deteteSelectedStudents (deleteArray) {
+function deteteSelectedStudents (ryamosi2) {
         let rrrra = Student.list;
-        deleteArray.sort();
-    for (let i = deleteArray.length -1; i >= 0; i--) {
-        if(typeof deleteArray[i] !== "undefined"){
-            rrrra.splice(deleteArray[i], 1); 
+
+    for (let i = ryamosi2.length - 1; i >= 0; i--) {
+        if(typeof ryamosi2[i] !== "undefined"){
+            rrrra.splice(ryamosi2[i], 1); 
         }
                 
     }   
@@ -734,4 +749,6 @@ function deteteSelectedStudents (deleteArray) {
             window.location.reload();
           
 }
+
+
 
