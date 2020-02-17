@@ -687,47 +687,36 @@ saveScrollNumber(1);
 
 //delete all person icon
 let deleteArray = [];
-let ryamosi2 = [];
-
-function selectItemBox (index) {
-        
-        let divvv = document.getElementById("list-item").querySelectorAll("div .item__box");
-        let boxItem = divvv[index];
-        
-        deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray[index] = undefined;
-
-        console.log(deleteArray);
-        if(deleteArray.length>0) {
-            selectedAllPersons.style.display = "block";
-        }
-        
-        let counterDelete = document.getElementById("delete-counter");
-        let ryamosi = [];
-        for (let index = 0; index < deleteArray.length; index++) {
-            if(typeof deleteArray[index] === "number"){
-                ryamosi.push(index);
-            }
-        }
-        counterDelete.innerText = ryamosi.length;
-        ryamosi2 = ryamosi;
-        if(ryamosi.length < 1) {
-            selectedAllPersons.style.display = "none";
-        }
-}
-
+let filtedArrayCopy = [];
 let selectedAllPersons = document.getElementById("delete-person-box");
 let selectedAllStudents = document.getElementById("delete-all-person");
 selectedAllStudents.addEventListener("click", function() {
-    deteteSelectedStudents(deleteArray);
-   
+    deteteSelectedStudents(filtedArrayCopy);
 });
 
-function deteteSelectedStudents (ryamosi2) {
-        let rrrra = Student.list;
 
-    for (let i = ryamosi2.length - 1; i >= 0; i--) {
-        if(typeof ryamosi2[i] !== "undefined"){
-            rrrra.splice(ryamosi2[i], 1); 
+function selectItemBox (index) {
+    
+        deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray[index] = undefined;
+
+        console.log(deleteArray);
+    
+        let counterDelete = document.getElementById("delete-counter");
+       
+        let filtedArray = deleteArray.filter(valueA => typeof valueA === "number");
+        
+        counterDelete.innerText = filtedArray.length;
+        filtedArrayCopy = filtedArray;
+        console.log(filtedArray);
+        filtedArray.length < 1 ? selectedAllPersons.style.display = "none" : selectedAllPersons.style.display = "block";
+}
+
+function deteteSelectedStudents (filtedArrayCopy) {
+        let studentListArr = Student.list;
+
+    for (let i = filtedArrayCopy.length - 1; i >= 0; i--) {
+        if(typeof filtedArrayCopy[i] !== "undefined"){
+            studentListArr.splice(filtedArrayCopy[i], 1); 
         }      
     }  
 
