@@ -693,13 +693,11 @@ let selectedAllStudents = document.getElementById("delete-all-person");
 selectedAllStudents.addEventListener("click", function() {
     deteteSelectedStudents(filtedArrayCopy);
 });
-
+let getContainer = document.getElementById("list-item").querySelectorAll("div .item__box");
 
 function selectItemBox (index) {
-    
+       
         deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray[index] = undefined;
-
-        console.log(deleteArray);
     
         let counterDelete = document.getElementById("delete-counter");
        
@@ -707,8 +705,12 @@ function selectItemBox (index) {
         
         counterDelete.innerText = filtedArray.length;
         filtedArrayCopy = filtedArray;
-        console.log(filtedArray);
+    
         filtedArray.length < 1 ? selectedAllPersons.style.display = "none" : selectedAllPersons.style.display = "block";
+
+        deleteArray.indexOf(index) === -1 ? getContainer[index].className = "item__box" : getContainer[index].className = "item__box2";
+        
+        console.log(getContainer[index]);
 }
 
 function deteteSelectedStudents (filtedArrayCopy) {
@@ -723,6 +725,4 @@ function deteteSelectedStudents (filtedArrayCopy) {
     Student.save();
     window.location.reload();
 }
-
-
 
