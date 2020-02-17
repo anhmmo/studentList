@@ -687,10 +687,10 @@ saveScrollNumber(1);
 
 //delete all person icon
 let deleteArray = [];
-
 let ryamosi2 = [];
+
 function selectItemBox (index) {
-        selectedAllPersons.style.display = "none";
+        
         let divvv = document.getElementById("list-item").querySelectorAll("div .item__box");
         let boxItem = divvv[index];
         
