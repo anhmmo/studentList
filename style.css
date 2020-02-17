@@ -244,7 +244,7 @@ body {
 .item__box2{
     color: white;
     width: 80%;
-    background-image: linear-gradient(to left, #9e9958,#bf9a21) ;
+    background-image: linear-gradient(to left, #ffab2d,#e9bc2a);
     margin: 1rem 5% 0 15%;
     display: flex;
     transition: all .5s;
