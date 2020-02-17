@@ -199,7 +199,7 @@ body {
     display: none;
     position: absolute;
     top: 20%;
-    left: 10%;
+    left: 5%;
 }
 
 #delete-all-person {
@@ -298,9 +298,16 @@ body {
 
 .itemNumberBox {
     position: absolute;
-    left: -30px;
-    color: rgb(252, 171, 65);
-    top: 100px;
+    left: -16%;
+    color: rgb(255, 255, 255);
+    top: 38.2%;
+    font-size: 4rem;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(252, 171, 65);
+    text-align: center;
+    border-radius: 50%;
+   
 }
 
 /*Main right container*/
@@ -821,8 +828,8 @@ body {
     font-size: 4rem;
     color: tomato;
     position: fixed;
-    bottom: 3rem;
-    left: 18rem;
+    bottom: 2rem;
+    left: 21.9rem;
     cursor: pointer;
 }
 
