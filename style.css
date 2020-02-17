@@ -241,6 +241,19 @@ body {
     font-size: 1.8rem;
 }
 
+.item__box2{
+    color: white;
+    width: 90%;
+    background-image: linear-gradient(to left, #9e9958,#bf9a21) ;
+    margin: 1rem 5% 0 5%;
+    display: flex;
+    transition: all .5s;
+    outline: 0;
+    border-radius: .2rem;
+    position: relative;
+    font-size: 1.8rem;
+}
+
 .item__box:hover {
     transform: translateY(-4px)!important;
     box-shadow: 0 10px 15px rgba(255, 255, 255, 0.74)!important;

@@ -688,9 +688,6 @@ saveScrollNumber(1);
 //delete all person icon
 let deleteArray = [];
 
-
-let upMore = 2;
-let cong = 2;
 let ryamosi2 = [];
 function selectItemBox (index) {
         selectedAllPersons.style.display = "none";
@@ -699,14 +696,6 @@ function selectItemBox (index) {
         
         deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray[index] = undefined;
 
-        if(upMore%2 > 0){
-            boxItem.style.color = "white";
-            upMore=2;
-        }
-        else {
-            boxItem.style.color = "black";
-            upMore=3;
-        }
         console.log(deleteArray);
         if(deleteArray.length>0) {
             selectedAllPersons.style.display = "block";
