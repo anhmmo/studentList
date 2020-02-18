@@ -25,16 +25,18 @@ function checkExitsLocalStorage() {
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
 
-   
-    let arr1 = localStorage.getItem("backup");
-    let arr2 = JSON.parse(arr1);
-    let arr3 = localStorage.getItem("STUDENT_DATA");
-    let arr4 = JSON.parse(arr3);
-    let restoreIcon = document.getElementById("undo-deleted-item");
+    if(localStorage.backup) {
+        let arr1 = localStorage.getItem("backup");
+        let arr2 = JSON.parse(arr1);
+        let arr3 = localStorage.getItem("STUDENT_DATA");
+        let arr4 = JSON.parse(arr3);
+        let restoreIcon = document.getElementById("undo-deleted-item");
     
-    if(localStorageLength>=3 && (arr2.length !== arr4.length)){
+        if(localStorageLength>=3 && (arr2.length > arr4.length)){
         restoreIcon.style.display = "block";
-    } 
+        } 
+    }
+    
 }
   
 
@@ -105,7 +107,7 @@ function submitClickHandle(e) {
    let getAllIcon4 = selectDivInMain[4].querySelectorAll("i");
    let getAllIcon5 = selectDivInMain[5].querySelectorAll("i");
 
-    if(!name) {
+    if(typeof name === "boolean") {
         selectNotice.className = "notice-display-block";
         getAllIcon[0].className = "falseIconEmpty fas fa-times";
         getAllIcon[2].className = "requiredIconEmpty fas fa-star-of-life";
@@ -536,21 +538,39 @@ function scrollToMyView(elementti) {
   }
 
   function checkInputForm () {
-    if(this.name=="Email" || this.name == "Name"){
+    if(this.name == "Name"){
         
-        if (selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value) || selectInputElement2.value.length>0 && validateName(selectInputElement2.value)) {
+        if (selectInputElement.value.length>0 && validateName(selectInputElement.value)) {
+            
+            selectNotice.className = "notice-display-none";
+            trueIcon.className = "trueIcon fas fa-check";
+            falseIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "white";
+            selectInputElement.style.borderColor = "green";
+        }
+        else {
+            trueIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "red";
+            selectInputElement.style.borderColor = "red";
+        }
+    
+    }
+
+    else if(this.name=="Email"){
+        
+        if (selectInputElement3.value.length>0 && validateEmail(selectInputElement3.value)) {
             
             selectNotice4.className = "notice-display-none";
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
             requiredIcon.style.color = "white";
-            selectInputElement2.style.borderColor = "green";
+            selectInputElement3.style.borderColor = "green";
         }
         else {
             
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
-            selectInputElement2.style.borderColor = "red";
+            selectInputElement3.style.borderColor = "red";
         }
     
     }
