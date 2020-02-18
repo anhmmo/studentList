@@ -176,6 +176,21 @@ body {
     background-color: white;
 }
 
+.open-add-form {
+    position: fixed;
+    background-color: tomato;
+    z-index: 40000;
+    bottom: 5%;
+    right: 2%;
+    border-radius: 50%;
+}
+
+.open-add-form i{
+    font-size: 4rem;
+    color: white;
+    padding: 25px 27px;
+}
+
 /*Main left container*/
 
 .container {

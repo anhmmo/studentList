@@ -162,6 +162,11 @@ function submitClickHandle(e) {
     window.location.reload();
 }
 
+
+// exit button clicked
+document.getElementById("exit-form").addEventListener("click", function() {
+    document.getElementById("right-containers").style.display = "none";
+});
 //render student item to html items list
 
 function renderStudents() {
