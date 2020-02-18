@@ -14,24 +14,18 @@ function checkExitsLocalStorage() {
     }
     getBackgroundColor(); // COLOR key was created, get current Backgroundcolor
     let studentDataIndex = false;
-    for (let key in localStorage){
-        if(key === "STUDENT_DATA"){
+
+    if(localStorage.STUDENT_DATA){
             studentDataIndex = true;
-        }
-     }
-    for(let i = 0; i < localStorage.length; i++){
-      if(typeof JSON.parse(localStorage.getItem(localStorage.key(i))) === "object"){ //check if STUDENT_DATA EXISTS
-        studentDataIndex = true; 
-      }
     }
+    
     if(!studentDataIndex){
         //set an sample data, this data can remove like this: const jsonData = JSON.stringify([]);
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
 
-    //check array length
-    /*
+   
     let arr1 = localStorage.getItem("backup");
     let arr2 = JSON.parse(arr1);
     let arr3 = localStorage.getItem("STUDENT_DATA");
@@ -40,10 +34,7 @@ function checkExitsLocalStorage() {
     
     if(localStorageLength>=3 && (arr2.length !== arr4.length)){
         restoreIcon.style.display = "block";
-    }
-*/
-    
-    
+    } 
 }
   
 
