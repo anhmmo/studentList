@@ -14,6 +14,11 @@ function checkExitsLocalStorage() {
     }
     getBackgroundColor(); // COLOR key was created, get current Backgroundcolor
     let studentDataIndex = false;
+    for (let key in localStorage){
+        if(key === "STUDENT_DATA"){
+            studentDataIndex = true;
+        }
+     }
     for(let i = 0; i < localStorage.length; i++){
       if(typeof JSON.parse(localStorage.getItem(localStorage.key(i))) === "object"){ //check if STUDENT_DATA EXISTS
         studentDataIndex = true; 
@@ -24,6 +29,21 @@ function checkExitsLocalStorage() {
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
+
+    //check array length
+    /*
+    let arr1 = localStorage.getItem("backup");
+    let arr2 = JSON.parse(arr1);
+    let arr3 = localStorage.getItem("STUDENT_DATA");
+    let arr4 = JSON.parse(arr3);
+    let restoreIcon = document.getElementById("undo-deleted-item");
+    
+    if(localStorageLength>=3 && (arr2.length !== arr4.length)){
+        restoreIcon.style.display = "block";
+    }
+*/
+    
+    
 }
   
 
@@ -54,6 +74,10 @@ const Student = {
     },
     get list(){
         return this.data;
+    },
+
+    set changeData(newContent) {
+        return this.data = newContent;
     }
 }
 
@@ -154,8 +178,10 @@ function renderStudents() {
         let opiskelija = Students[i];
         let itembox = document.createElement("div");
         itembox.className = "item__box";
+        itembox.onclick = function() { selectItemBox(i); };
         let divItem = document.createElement("div");
         let divIcon = document.createElement("div");
+        let divItemNumber = document.createElement("div");
         let letItemIcon = document.createElement("i");
         let letItemIcon2 = document.createElement("i");
         let divCopiedStudent = document.createElement("div");
@@ -171,12 +197,16 @@ function renderStudents() {
         
         letItemIcon.className = "iconcircle fas fa-circle";
         letItemIcon2.className = "iconcircle2 fas fa-circle";
+        divItemNumber.className = "itemNumberBox";
+
+        divItemNumber.innerHTML = i+1;
 
         itembox.appendChild(divItem);
         itembox.appendChild(divCopiedStudent);
         itembox.appendChild(divIcon);
         itembox.appendChild(letItemIcon);
         itembox.appendChild(letItemIcon2);
+        itembox.appendChild(divItemNumber);
 
         listItem.appendChild(itembox);
     }
@@ -208,18 +238,19 @@ function renderStudents() {
 
 //delete item
 function onDeleteStudent(index) {
+    preventItemBoxEventInvoked (index);
     saveScrollNumber(index);
     let CheckAnswer = confirm("Delete this student ?");
     if(CheckAnswer){
         Student.delete(index);
         Student.save();
-        window.location.reload();
     }
+    window.location.reload();
 }
     
 //edit item
 function onEditStudent(index) {
-
+        preventItemBoxEventInvoked (index);
         document.getElementById("popup-section").className = "edit__popup--open";
         document.getElementById("submit2").addEventListener("click", submitForm);
        
@@ -271,6 +302,7 @@ function onEditStudent(index) {
 // copy student info
 
 function onCopyStudentInfo(info){
+    preventItemBoxEventInvoked (info);
     let copyText = document.getElementById("myInput" + info);
     copyText.className = "myInput2";
     copyText.select();
@@ -282,7 +314,10 @@ function onCopyStudentInfo(info){
     setTimeout(function(){
         studentInfo.className = "copyStudent";
         copyText.className = "myInput";
+        saveScrollNumber(info);
+        window.location.reload();
     }, 600);
+    
 }
 
 //popup close click
@@ -296,6 +331,7 @@ function closeBtn(){
 
 let timeOutF;
 function onGetInfoStudent(index){
+    preventItemBoxEventInvoked (index);
     let popup = document.getElementById("student__popup");
     let createH2 = document.createElement("h2");
     if(Student.list[index].name=="")
@@ -430,6 +466,8 @@ function preventOtherFunctionByDefault () {
     event.preventDefault()
     });
 }
+
+
 
 // scroll to position where it is current view
 function scrollToMyView(elementti) {
@@ -684,3 +722,83 @@ listItem.onscroll = () => listItem.scrollTop > 500 ? iconToTheTop.style.display 
 saveScrollNumber(1);
 
 
+//delete all person icon
+let nerS;
+let deleteArray = [];
+let filtedArrayCopy = [];
+let selectedAllPersons = document.getElementById("delete-person-box");
+let selectedAllStudents = document.getElementById("delete-all-person");
+selectedAllStudents.addEventListener("click", function() {
+    deteteSelectedStudents(filtedArrayCopy);
+});
+let getContainer = document.getElementById("list-item").querySelectorAll("div .item__box");
+
+function selectItemBox (index) {
+       
+        deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray[index] = undefined;
+    
+        let counterDelete = document.getElementById("delete-counter");
+       
+        let filtedArray = deleteArray.filter(valueA => typeof valueA === "number");
+        
+        counterDelete.innerText = filtedArray.length;
+        filtedArrayCopy = filtedArray;
+    
+        filtedArray.length < 1 ? selectedAllPersons.style.display = "none" : selectedAllPersons.style.display = "block";
+        console.log(filtedArray);
+
+        deleteArray.indexOf(index) === -1 ? getContainer[index].className = "item__box" : getContainer[index].className = "item__box2";
+        
+        console.log(getContainer[index]);
+}
+
+
+let ffff = document.getElementById("undo-deleted-item");
+function deteteSelectedStudents (filtedArrayCopy) {
+
+    nerS = Student.list;
+    const jsonData = JSON.stringify(nerS);
+    localStorage.setItem("backup", jsonData);
+    
+        let studentListArr = Student.list;
+
+    for (let i = filtedArrayCopy.length - 1; i >= 0; i--) {
+        if(typeof filtedArrayCopy[i] !== "undefined"){
+            studentListArr.splice(filtedArrayCopy[i], 1); 
+        }      
+    }  
+    
+    Student.save();
+    window.location.reload();
+}
+
+//this function prevent item__box event working when an icon event clicked
+
+function preventItemBoxEventInvoked (index) {
+    let getContainer = document.getElementById("list-item").querySelectorAll("div .item__box");
+    
+    getContainer[index].onclick = ""; 
+}
+
+function unlockItemBoxEventInvoked (index) {
+    let getContainer = document.getElementById("list-item").querySelectorAll("div .item__box");
+    
+    getContainer[index].onclick = "selectItemBox" + index; 
+}
+
+
+
+let restoreD = document.getElementById("restore-deleted");
+restoreD.addEventListener("click", restoreAllDeleteditems);
+
+function restoreAllDeleteditems() {
+    const jsonData = localStorage.getItem("backup");
+        try {
+            Student.changeData = JSON.parse(jsonData);
+            Student.save();
+            Student.load();
+        } catch (e) {
+            alert("some thing wrong !");
+    }
+    window.location.reload();
+}

@@ -179,7 +179,7 @@ body {
 /*Main left container*/
 
 .container {
-    max-width: 1080px;
+    max-width: 1150px;
     width: 100%;
     margin: 0 auto;
     background-color: white;
@@ -193,6 +193,44 @@ body {
 .list-item {
     width: 50%;
     overflow-y: scroll;  
+}
+
+#delete-person-box{
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+
+#delete-all-person {
+    color: red;
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+#delete-person-box p{
+    color: rgb(252, 182, 90);
+    font-size: 4rem;
+    margin-left: 18%;
+}
+
+
+#undo-deleted-item {
+    display: none;
+    position: absolute;
+    top: 52%;
+    left: 5%;
+}
+
+#restore-deleted{
+    cursor: pointer;
+    font-size: 4rem;
+    color: rgb(3, 194, 83);
+    transition: color 500ms;
+}
+
+#restore-deleted:hover{
+    color: rgba(252, 17, 0, 0.8);
 }
 
 .iconcircle {
@@ -211,15 +249,29 @@ body {
 
 .item__box{
     color: white;
-    width: 90%;
+    width: 80%;
     background-image: linear-gradient(to left, #589e7b,#21bf73) ;
-    margin: 1rem 5% 0 5%;
+    margin: 1rem 5% 0 15%;
     display: flex;
     transition: all .5s;
     outline: 0;
     border-radius: .2rem;
     position: relative;
     font-size: 1.8rem;
+}
+
+.item__box2{
+    color: white;
+    width: 80%;
+    background-image: linear-gradient(to left, #ffab2d,#e9bc2a);
+    margin: 1rem 5% 0 15%;
+    display: flex;
+    transition: all .5s;
+    outline: 0;
+    border-radius: .2rem;
+    position: relative;
+    font-size: 1.8rem;
+    cursor: pointer;
 }
 
 .item__box:hover {
@@ -260,6 +312,21 @@ body {
 .infoIcon, .copyIcon {
     font-size: 3.3rem !important;
     transform: translateX(-0.4rem) !important;
+}
+
+
+.itemNumberBox {
+    position: absolute;
+    left: -16%;
+    color: rgb(255, 255, 255);
+    top: 38.2%;
+    font-size: 4rem;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(252, 171, 65);
+    text-align: center;
+    border-radius: 50%;
+   
 }
 
 /*Main right container*/
@@ -780,8 +847,8 @@ body {
     font-size: 4rem;
     color: tomato;
     position: fixed;
-    bottom: 3rem;
-    left: 18rem;
+    bottom: 2rem;
+    left: 21.9rem;
     cursor: pointer;
 }
 
