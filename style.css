@@ -280,7 +280,7 @@ body {
     color: white;
     width: 80%;
     background-image: linear-gradient(to left, #589e7b,#21bf73) ;
-    margin: 1rem 5% 0 15%;
+    margin: 1rem 5% 1rem 15%;
     display: flex;
     transition: all .5s;
     outline: 0;
@@ -293,7 +293,7 @@ body {
     color: white;
     width: 80%;
     background-image: linear-gradient(to left, #ffab2d,#e9bc2a);
-    margin: 1rem 5% 0 15%;
+    margin: 1rem 5% 1rem 15%;
     display: flex;
     transition: all .5s;
     outline: 0;
@@ -302,6 +302,7 @@ body {
     font-size: 1.8rem;
     cursor: pointer;
 }
+
 
 .item__box:hover {
     transform: translateY(-4px)!important;
@@ -881,6 +882,8 @@ body {
     cursor: pointer;
 }
 
+
+
 /* ----------- scroll right tab ---------------*/
 
 ::-webkit-scrollbar {
@@ -921,4 +924,6 @@ body {
     0%  {left:160%; opacity: 0.9;}
     100%   {left:120%; opacity: 1;}
   }
+ 
+
  
