@@ -243,7 +243,7 @@ body {
 #undo-deleted-item {
     display: none;
     position: absolute;
-    top: 52%;
+    top: 50%;
     left: 5%;
 }
 
@@ -898,6 +898,90 @@ body {
     background-image: linear-gradient(to right bottom, #37ffab,rgb(200, 231, 112));
   }
 
+
+
+  @media (max-width: 1250px) {
+    .container {
+        width: 1250px; 
+    }
+
+
+    .container {
+        flex-wrap: wrap;
+    }
+
+    .list-item {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 0;
+    }
+
+    .item__box,.item__box2 {
+        width: 50%;
+        margin: 0;
+    }
+
+
+    #colorMenu, .github-link {
+        display: none;
+    }
+
+    .iconcircle, .iconcircle2{
+        visibility: hidden;
+    }
+
+    .itemNumberBox {
+        left: 70%;
+        top: 70%;
+    }
+
+    #delete-person-box, #undo-deleted-item {
+        z-index: 10000;
+        position: fixed;
+        top: 5%;
+        left: 37%;
+        animation: toBottom 1.2s;
+    }
+
+    #undo-deleted-item {
+        top: 10%;
+        animation: toBottom2 1.2s;
+    }
+
+    #delete-all-person{
+        color: rgb(255, 255, 255);
+    }
+
+    #delete-person-box p {
+        font-weight: 600;
+        color: rgb(250, 77, 77);
+    }
+
+
+    .right-container {
+        width: 100%;
+    }
+
+  }
+
+  @media (max-width: 600px) {
+    
+
+  }
+
+  @media (max-width: 300px) {
+    #main-form {
+        width: 90%;
+        margin-left: 5%;
+    }
+  }
+
+  
+ 
+
+ 
+
   /*animation section*/
 
   @keyframes toTop {
@@ -924,6 +1008,15 @@ body {
     0%  {left:160%; opacity: 0.9;}
     100%   {left:120%; opacity: 1;}
   }
- 
 
- 
+  @keyframes toBottom {
+    0%  {top:-20%; opacity: 0.9;}
+    100%   {top:5%; opacity: 1;}
+  }
+
+  @keyframes toBottom2 {
+    0%  {top:-20%; opacity: 0.9;}
+    100%   {top:10%; opacity: 1;}
+  }
+
+  
