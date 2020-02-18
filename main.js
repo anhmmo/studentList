@@ -763,7 +763,8 @@ selectedAllStudents.addEventListener("click", function() {
 let getContainer = document.getElementById("list-item").querySelectorAll("div .item__box");
 
 function selectItemBox (index) {
-       
+        let restoreIcon = document.getElementById("undo-deleted-item");
+        restoreIcon.style.display = "none";
         deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray[index] = undefined;
     
         let counterDelete = document.getElementById("delete-counter");
