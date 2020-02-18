@@ -166,6 +166,7 @@ function submitClickHandle(e) {
 // exit button clicked
 document.getElementById("exit-form").addEventListener("click", function() {
     document.getElementById("right-containers").style.display = "none";
+    document.getElementById("add-form-open").className = "open-add-form";
 });
 //render student item to html items list
 
@@ -836,4 +837,13 @@ function restoreAllDeleteditems() {
             alert("some thing wrong !");
     }
     window.location.reload();
+}
+
+
+// add button when clicked
+document.getElementById("add-form-open").addEventListener("click", openAddForm);
+
+function openAddForm () {
+    document.getElementById("right-containers").style.display = "block";
+    document.getElementById("add-form-open").className = "add-form-open";
 }

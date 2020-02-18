@@ -177,6 +177,7 @@ body {
 }
 
 .open-add-form {
+    display: none;
     position: fixed;
     background-color: tomato;
     z-index: 40000;
@@ -186,6 +187,7 @@ body {
 }
 
 .open-add-form i{
+    display: none;
     font-size: 4rem;
     color: white;
     padding: 25px 27px;
@@ -980,6 +982,7 @@ body {
 
 
     .right-container {
+        display: none;
         z-index: 20000;
         position: fixed;
         top: 50%;
@@ -1024,7 +1027,32 @@ body {
         text-shadow: 1px 1px 2px #427388; 
     }
     
+    .open-add-form, .open-add-form i {
+        display: block;
+        animation: toTop2 1s;
+    }
     
+    .add-form-open{
+        display: block;
+        position: fixed;
+        background-color: tomato;
+        z-index: 40000;
+        bottom: -15%;
+        right: 2%;
+        border-radius: 50%;
+        animation: downIcon 1.2s;
+    }
+
+    .add-form-open i{
+        display: block;
+        font-size: 4rem;
+        color: white;
+        padding: 25px 27px;
+        animation: downIcon 1.2s;
+    }
+    
+   
+  
 
   }
 
@@ -1082,9 +1110,14 @@ body {
     100%   {top:5%; opacity: 1;}
   }
 
-  @keyframes toBottom2 {
-    0%  {top:-20%; opacity: 0.9;}
-    100%   {top:10%; opacity: 1;}
+  @keyframes toTop2 {
+    0%  {bottom:-20%; opacity: 0.9;}
+    100%   {bottom:5%; opacity: 1;}
+  }
+
+  @keyframes downIcon {
+    0%  {bottom:5%; opacity: 0.9;}
+    100%   {bottom:-15%; opacity: 1;}
   }
 
   
