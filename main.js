@@ -513,7 +513,7 @@ function scrollToMyView(elementti) {
     selectedElementName.addEventListener("blur", checkIfNotType);
 
   function checkIfNotType () {
-      selectedElementName.placeholder = '* ' + this.name + " field cannot be empty";
+      selectedElementName.placeholder = this.name + " field cannot be empty";
       if(this.name=="Email" || this.name =="Name" || this.name =="Age"){
         if(selectedElementName.value.length > 0 && validateEmail(selectedElementName.value) || selectedElementName.value.length > 0 && validateName(selectedElementName.value) || validateAge(selectedElementName.value)) {
             requiredIcon.style.color = "white";

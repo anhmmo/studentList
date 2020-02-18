@@ -203,15 +203,40 @@ body {
 }
 
 #delete-all-person {
-    color: red;
+    color: rgb(80, 173, 137);
     font-size: 4rem;
     cursor: pointer;
+}
+
+#delete-all-person:hover {
+    color: red;
+    
 }
 
 #delete-person-box p{
     color: rgb(252, 182, 90);
     font-size: 4rem;
     margin-left: 18%;
+}
+
+.delete-tooltip, .restore-tooltip {
+    display: none;
+    position: absolute;
+    font-size: 1.3rem;
+    background-color: rgb(2, 185, 78);
+    width: 170px;
+    text-align: center;
+    color: white;
+    z-index: 3000;
+    cursor: pointer;
+    border-radius: 5px;
+    left: 120%;
+    animation: deleteTooltip 800ms;
+}
+
+#delete-person-box:hover .delete-tooltip{
+    background-color: rgb(221, 60, 31);
+    display: inline;
 }
 
 
@@ -225,12 +250,16 @@ body {
 #restore-deleted{
     cursor: pointer;
     font-size: 4rem;
-    color: rgb(3, 194, 83);
+    color: red;
     transition: color 500ms;
 }
 
 #restore-deleted:hover{
-    color: rgba(252, 17, 0, 0.8);
+    color: rgb(3, 194, 83);
+}
+
+#undo-deleted-item:hover .restore-tooltip{
+    display: inline;
 }
 
 .iconcircle {
@@ -886,5 +915,10 @@ body {
   @keyframes colorMenuBoxHide{
       0%  {left:0px; top:250px; opacity: 0.8;}
       100%   {left:-180px; top:250px; opacity: 1;}
+  }
+
+  @keyframes deleteTooltip {
+    0%  {left:160%; opacity: 0.9;}
+    100%   {left:120%; opacity: 1;}
   }
  
