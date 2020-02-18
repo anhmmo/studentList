@@ -14,35 +14,28 @@ function checkExitsLocalStorage() {
     }
     getBackgroundColor(); // COLOR key was created, get current Backgroundcolor
     let studentDataIndex = false;
-    for (let key in localStorage){
-        if(key === "STUDENT_DATA"){
+
+    if(localStorage.STUDENT_DATA){
             studentDataIndex = true;
-        }
-     }
-    for(let i = 0; i < localStorage.length; i++){
-      if(typeof JSON.parse(localStorage.getItem(localStorage.key(i))) === "object"){ //check if STUDENT_DATA EXISTS
-        studentDataIndex = true; 
-      }
     }
+    
     if(!studentDataIndex){
         //set an sample data, this data can remove like this: const jsonData = JSON.stringify([]);
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
 
-    //check array length
-    /*
-    let arr1 = localStorage.getItem("backup");
-    let arr2 = JSON.parse(arr1);
-    let arr3 = localStorage.getItem("STUDENT_DATA");
-    let arr4 = JSON.parse(arr3);
-    let restoreIcon = document.getElementById("undo-deleted-item");
+    if(localStorage.backup) {
+        let arr1 = localStorage.getItem("backup");
+        let arr2 = JSON.parse(arr1);
+        let arr3 = localStorage.getItem("STUDENT_DATA");
+        let arr4 = JSON.parse(arr3);
+        let restoreIcon = document.getElementById("undo-deleted-item");
     
-    if(localStorageLength>=3 && (arr2.length !== arr4.length)){
+        if(localStorageLength>=3 && (arr2.length > arr4.length)){
         restoreIcon.style.display = "block";
+        } 
     }
-*/
-    
     
 }
   
@@ -114,7 +107,7 @@ function submitClickHandle(e) {
    let getAllIcon4 = selectDivInMain[4].querySelectorAll("i");
    let getAllIcon5 = selectDivInMain[5].querySelectorAll("i");
 
-    if(!name) {
+    if(typeof name === "boolean") {
         selectNotice.className = "notice-display-block";
         getAllIcon[0].className = "falseIconEmpty fas fa-times";
         getAllIcon[2].className = "requiredIconEmpty fas fa-star-of-life";
@@ -142,7 +135,7 @@ function submitClickHandle(e) {
         return false;
     }
 
-    if(age.length == 0) {
+    if(!(age > 17 && age.length < 3)) {
         selectNotice5.className = "notice-display-block";
         getAllIcon4[0].className = "falseIconEmpty fas fa-times";
         getAllIcon4[2].className = "requiredIconEmpty fas fa-star-of-life";
@@ -509,65 +502,101 @@ function scrollToMyView(elementti) {
 
     let selectMainForm2 = document.getElementById("main-form").querySelectorAll("div");
     let selectIElement2 = selectMainForm2[index].querySelectorAll("i");
-    let selectInputElement2 = selectMainForm2[index].querySelector(name);
+    let selectedElementName = selectMainForm2[index].querySelector(name);
    
     let falseIcon = selectIElement2[0];
     let trueIcon = selectIElement2[1];
     let requiredIcon = selectIElement2[2];
     
-    selectInputElement2.addEventListener("focus", checkTyping);
-    selectInputElement2.addEventListener("input", checkInputForm);
-    selectInputElement2.addEventListener("blur", checkIfNotType);
+    selectedElementName.addEventListener("focus", checkTyping);
+    selectedElementName.addEventListener("input", checkInputForm);
+    selectedElementName.addEventListener("blur", checkIfNotType);
 
   function checkIfNotType () {
-      selectInputElement2.placeholder = this.name + " is required";
-      if(this.name=="Email" || this.name =="Name"){
-        if(selectInputElement2.value.length > 0 && validateEmail(selectInputElement2.value) || selectInputElement2.value.length > 0 && validateName(selectInputElement2.value)) {
+      selectedElementName.placeholder = this.name + " field cannot be empty";
+      if(this.name=="Email" || this.name =="Name" || this.name =="Age"){
+        if(selectedElementName.value.length > 0 && validateEmail(selectedElementName.value) || selectedElementName.value.length > 0 && validateName(selectedElementName.value) || validateAge(selectedElementName.value)) {
             requiredIcon.style.color = "white";
-            selectInputElement2.style.borderColor = "green";
-            
+            selectedElementName.style.borderColor = "green";
           }
           else {
             requiredIcon.style.color = "red";
-            selectInputElement2.style.borderColor = "red";
+            selectedElementName.style.borderColor = "red";
           }
       }
       else {
-        if(selectInputElement2.value.length==0) {
+        if(selectedElementName.value.length==0) {
             requiredIcon.style.color = "red";
-            selectInputElement2.style.borderColor = "red";
+            selectedElementName.style.borderColor = "red";
           }
           else {
             requiredIcon.style.color = "white";
-            selectInputElement2.style.borderColor = "green";
+            selectedElementName.style.borderColor = "green";
           }
       }
   }
 
   function checkInputForm () {
-    if(this.name=="Email" || this.name == "Name"){
+    if(this.name == "Name"){
         
-        if (selectInputElement2.value.length>0 && validateEmail(selectInputElement2.value) || selectInputElement2.value.length>0 && validateName(selectInputElement2.value)) {
+        if (selectInputElement.value.length>0 && validateName(selectInputElement.value)) {
+            
+            selectNotice.className = "notice-display-none";
+            trueIcon.className = "trueIcon fas fa-check";
+            falseIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "white";
+            selectInputElement.style.borderColor = "green";
+        }
+        else {
+            trueIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "red";
+            selectInputElement.style.borderColor = "red";
+        }
+    
+    }
+
+    else if(this.name=="Email"){
+        
+        if (selectInputElement3.value.length>0 && validateEmail(selectInputElement3.value)) {
             
             selectNotice4.className = "notice-display-none";
             trueIcon.className = "trueIcon fas fa-check";
             falseIcon.className = "hideFormIcon";
             requiredIcon.style.color = "white";
-            selectInputElement2.style.borderColor = "green";
+            selectInputElement3.style.borderColor = "green";
         }
         else {
             
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
-            selectInputElement2.style.borderColor = "red";
+            selectInputElement3.style.borderColor = "red";
+        }
+    
+    }
+
+    else if(this.name=="Age"){
+        
+        if (validateAge(selectInputElement4.value)) {
+            
+            selectNotice5.className = "notice-display-none";
+            trueIcon.className = "trueIcon fas fa-check";
+            falseIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "white";
+            selectInputElement4.style.borderColor = "green";
+        }
+        else {
+            
+            trueIcon.className = "hideFormIcon";
+            requiredIcon.style.color = "red";
+            selectInputElement4.style.borderColor = "red";
         }
     
     }
 
     else {
     
-         if (selectInputElement2.value.length>0) {
-            selectInputElement2.style.borderColor = "green";
+         if (selectedElementName.value.length>0) {
+            selectedElementName.style.borderColor = "green";
             selectNotice.className = "notice-display-none";
             selectNotice2.className = "notice-display-none";
             selectNotice3.className = "notice-display-none";
@@ -578,7 +607,7 @@ function scrollToMyView(elementti) {
             requiredIcon.style.color = "white";
         }
         else {
-            selectInputElement2.style.borderColor = "red";
+            selectedElementName.style.borderColor = "red";
           
             trueIcon.className = "hideFormIcon";
             requiredIcon.style.color = "red";
@@ -588,7 +617,7 @@ function scrollToMyView(elementti) {
   }
 
     function checkTyping() {
-        selectInputElement2.placeholder ="";
+        selectedElementName.placeholder ="";
     }
 }
 
@@ -657,9 +686,9 @@ scrollToMyView("copy" + getScroll) ? (scrollToMyView("copy" + 0)) : (scrollToMyV
 
 let validateEmail = email => (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) ? true : false;
 
-let validateName = (name) => (/^[a-zA-Z ]{2,30}$/.test(name)) ? true: false;
+let validateName = name => (/^[a-zA-Z ]{2,30}$/.test(name)) ? true: false;
 
-
+let validateAge = age => age > 17 && age.length < 3 ? true: false;
 // color menu box
 
 let colorMenuBox = document.getElementById("colorMenu");

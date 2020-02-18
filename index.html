@@ -43,10 +43,12 @@
         <div id="delete-person-box">
             <p id="delete-counter"></p>
             <i id="delete-all-person" class="fas fa-user-times"></i>
+            <span class="delete-tooltip">delete selected students</span>
         </div>
 
         <div id="undo-deleted-item">
             <i id="restore-deleted" class="fas fa-undo-alt"></i>
+            <span class="restore-tooltip">restore deleted students</span>
         </div>
         
         
@@ -66,7 +68,7 @@
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
-                <p id="notice-text" class="notice-display-none">* NAME field cannot be empty</p>
+                <p id="notice-text" class="notice-display-none">* At least 2 characters and no number</p>
             </div>
 
             <div class="main-form__input">
@@ -75,7 +77,7 @@
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
-                <p id="notice-text" class="notice-display-none">* ADDRESS field cannot be empty</p>
+                <p id="notice-text" class="notice-display-none">* Please fill out this field</p>
             </div>
 
             
@@ -85,7 +87,7 @@
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
-                <p id="notice-text" class="notice-display-none">* PHONE field cannot be empty</p>
+                <p id="notice-text" class="notice-display-none">* Please enter you phone number</p>
             </div>
 
             <div class="main-form__input">
@@ -96,16 +98,16 @@
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
-                <p id="notice-text" class="notice-display-none">* EMAIL field cannot be empty</p>
+                <p id="notice-text" class="notice-display-none">* Incorrect email address format</p>
             </div>
 
             <div class="main-form__input">
                 <label for="">Age</label>
-                <input id="age" type="number" name="Age" min="18" max="90" placeholder="Enter your age">
+                <input id="age" type="number" name="Age" placeholder="Enter your age">
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
-                <p id="notice-text" class="notice-display-none">* AGE field cannot be empty</p>
+                <p id="notice-text" class="notice-display-none">* AGE must be over 17 and less than 99</p>
             </div>
 
             <div class="main-form__input">
@@ -120,7 +122,7 @@
                 <i></i>
                 <i></i>
                 <i class="requiredIcon fas fa-star-of-life"></i>
-                <p id="notice-text" class="notice-display-none">* OPTION field cannot be empty</p>
+                <p id="notice-text" class="notice-display-none">* Please select your current job</p>
             </div>
 
             
