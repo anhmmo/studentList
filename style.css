@@ -216,6 +216,7 @@ body {
 
 
 #undo-deleted-item {
+    display: none;
     position: absolute;
     top: 52%;
     left: 5%;

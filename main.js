@@ -14,6 +14,11 @@ function checkExitsLocalStorage() {
     }
     getBackgroundColor(); // COLOR key was created, get current Backgroundcolor
     let studentDataIndex = false;
+    for (let key in localStorage){
+        if(key === "STUDENT_DATA"){
+            studentDataIndex = true;
+        }
+     }
     for(let i = 0; i < localStorage.length; i++){
       if(typeof JSON.parse(localStorage.getItem(localStorage.key(i))) === "object"){ //check if STUDENT_DATA EXISTS
         studentDataIndex = true; 
@@ -24,6 +29,21 @@ function checkExitsLocalStorage() {
         const jsonData = JSON.stringify([{"name":"example","address":"none","phone":"00056844","email":"example@gmail.com","age":"12","job":"none"}]);
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
+
+    //check array length
+    /*
+    let arr1 = localStorage.getItem("backup");
+    let arr2 = JSON.parse(arr1);
+    let arr3 = localStorage.getItem("STUDENT_DATA");
+    let arr4 = JSON.parse(arr3);
+    let restoreIcon = document.getElementById("undo-deleted-item");
+    
+    if(localStorageLength>=3 && (arr2.length !== arr4.length)){
+        restoreIcon.style.display = "block";
+    }
+*/
+    
+    
 }
   
 
@@ -732,6 +752,8 @@ function selectItemBox (index) {
         console.log(getContainer[index]);
 }
 
+
+let ffff = document.getElementById("undo-deleted-item");
 function deteteSelectedStudents (filtedArrayCopy) {
 
     nerS = Student.list;
@@ -745,7 +767,7 @@ function deteteSelectedStudents (filtedArrayCopy) {
             studentListArr.splice(filtedArrayCopy[i], 1); 
         }      
     }  
-
+    
     Student.save();
     window.location.reload();
 }
