@@ -1111,12 +1111,12 @@ body {
   }
 
   @keyframes toTop2 {
-    0%  {bottom:-20%; opacity: 0.9;}
+    0%  {bottom:-20%; opacity: 0.95;}
     100%   {bottom:5%; opacity: 1;}
   }
 
   @keyframes downIcon {
-    0%  {bottom:5%; opacity: 0.9;}
+    0%  {bottom:5%; opacity: 0.95;}
     100%   {bottom:-15%; opacity: 1;}
   }
 
