@@ -987,7 +987,7 @@ body {
         max-width: 400px;
         width: 100%;
         transform: translate(-50%,-50%);
-        overflow-y: hidden;
+        overflow-y: auto;
         background-image: url(img/bg.png);
     }
 
