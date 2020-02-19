@@ -1057,7 +1057,16 @@ body {
   }
 
   @media (max-width: 900px) {
+
+    .item__box:nth-child(even), .item__box2:nth-child(even) {
+        margin: 0 auto;
+    }
     
+    .item__box,.item__box2 {
+        min-width: 450px;
+        width: 50%;
+        margin: 1rem auto;
+    }
 
 }
 
