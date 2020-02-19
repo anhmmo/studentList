@@ -927,7 +927,7 @@ body {
         display: flex;
         flex-wrap: wrap;
         margin: 0;
-        overflow-y: hidden;
+        overflow-y: auto;
     }
 
     .item__box,.item__box2 {
