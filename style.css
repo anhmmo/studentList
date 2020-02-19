@@ -18,6 +18,7 @@ body {
     font-size: 1.6rem;
     max-height: 100vh;
     scroll-behavior: smooth;
+    overflow-x: hidden;
     position: relative;
 }
 
@@ -30,7 +31,7 @@ body {
     color: white;
     top: 250px;
     animation: colorMenuBoxShow 1s;
-    z-index: 1000;
+    z-index: 1;
 }
 
 .colorSetting {
@@ -52,7 +53,7 @@ body {
     top: 250px;
     left: -180px;
     animation: colorMenuBoxHide 1s;
-    z-index: 1000;
+    z-index: 1;
 }
 
 .hideMenu{
@@ -62,7 +63,6 @@ body {
     color: white;
     top: 250px;
     left: -180px;
-    z-index: 1000;
 }
 
 .colorBox p {
@@ -180,7 +180,7 @@ body {
     display: none;
     position: fixed;
     background-color: tomato;
-    z-index: 40000;
+    z-index: 2;
     bottom: 10%;
     right: 2%;
     border-radius: 50%;
@@ -212,9 +212,10 @@ body {
 
 #delete-person-box{
     display: none;
-    position: absolute;
+    position: fixed;
     top: 20%;
     left: 5%;
+    z-index: 3;
 }
 
 #delete-all-person {
@@ -235,31 +236,34 @@ body {
 }
 
 .delete-tooltip, .restore-tooltip {
-    display: none;
     position: absolute;
     font-size: 1.3rem;
-    background-color: rgb(2, 185, 78);
     width: 170px;
     text-align: center;
     color: white;
-    z-index: 3000;
     cursor: pointer;
     border-radius: 5px;
     left: 120%;
     animation: deleteTooltip 800ms;
 }
 
-#delete-person-box:hover .delete-tooltip{
-    background-color: rgb(221, 60, 31);
-    display: inline;
+.restore-tooltip {
+    background-color: rgb(2, 185, 78);
 }
+
+.delete-tooltip {
+    background-color: tomato;
+}
+
+
 
 
 #undo-deleted-item {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 5%;
+    z-index: 3;
 }
 
 #restore-deleted{
@@ -378,7 +382,6 @@ body {
 
 .right-container {
     width: 50%;
-    overflow: hidden;
     background-image: linear-gradient(to bottom right, #0ba360 0%, #3cba92 100%);
     /*background: linear-gradient(to right, #ff512f, #f09819);*/
     overflow-y: scroll;
@@ -958,8 +961,6 @@ body {
     }
 
     #delete-person-box, #undo-deleted-item {
-        z-index: 10000;
-        position: fixed;
         top: 5%;
         left: 37%;
         animation: toBottom 1.2s;
@@ -980,14 +981,12 @@ body {
 
     .right-container {
         display: none;
-        z-index: 20000;
         position: fixed;
         top: 50%;
         left: 50%;
         max-width: 400px;
         width: 100%;
         transform: translate(-50%,-50%);
-        overflow-y: auto;
         background-image: url(img/bg.png);
     }
 
@@ -1048,7 +1047,7 @@ body {
         display: block;
         position: fixed;
         background-color: tomato;
-        z-index: 40000;
+        z-index: 4;
         bottom: -15%;
         right: 2%;
         border-radius: 50%;
@@ -1162,6 +1161,11 @@ body {
 
   @media (max-width: 520px) {
 
+    #popup-section, #popup__form, .right-container {
+        max-height: 75vh;
+        height: 100%;
+    }
+
     .item__box, .item__box2 {
         min-width: 300px;
         width: 100%;
@@ -1201,7 +1205,7 @@ body {
 
     .item__box--icon{
         bottom: 0;
-        background-color: chocolate;
+        background-color: #8ba644;
     }
 
     .item__box--icon i{
