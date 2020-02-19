@@ -898,7 +898,7 @@ body {
     color: tomato;
     position: fixed;
     bottom: 2rem;
-    left: 21.9rem;
+    left: 6%;
     cursor: pointer;
 }
 
@@ -1061,8 +1061,26 @@ body {
         padding: 20px 22px;
         animation: downIcon 1.2s;
     }
+
+    #toTheTop {
+        display: none;
+    }
+
+    #popup-section {
+        overflow-y: scroll;
+    }
   
 
+  }
+
+  @media (max-width : 1050px) {
+    .small-gallery {
+        flex-wrap: wrap;
+    }
+
+    .img-box {
+        width: 24%;
+    }
   }
 
   @media (max-width: 900px) {
