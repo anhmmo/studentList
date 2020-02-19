@@ -938,6 +938,7 @@ body {
         width: 49%;
         margin: 0;
         margin-bottom: 1rem;
+        max-height: 270px;
     }
 
     .item__box:nth-child(even), .item__box2:nth-child(even) {
@@ -989,11 +990,13 @@ body {
         left: 50%;
         width: 60%;
         transform: translate(-50%,-50%);
+        overflow-y: hidden;
     }
 
     #main-form {
         width: 80%;
-        margin : 5% 10%;
+        margin : 1% 10%;
+        overflow-y: scroll;
     }
 
     #exit-form, .submit-button {
@@ -1063,10 +1066,67 @@ body {
     }
     
     .item__box,.item__box2 {
-        min-width: 450px;
+        min-width: 520px;
         width: 50%;
         margin: 1rem auto;
+        min-height: 310px;
     }
+
+    
+
+    .item__box--icon{
+        width: 100%;
+        position: absolute;
+        display: flex;
+        bottom: 7%;
+        
+    }
+
+    
+    .item__box--icon i{
+        margin-left: 3.5%;
+    }
+
+    .item__box--icon i:not(:first-child){
+        margin-left: 5%;
+    }
+
+    
+
+    .infoIcon, .copyIcon {
+        transform: translateY(-6%) !important;
+    }
+
+    .itemNumberBox {
+        left: 85%;
+        top: 73%;
+    }
+
+    #delete-person-box, #undo-deleted-item {
+        top: 5%;
+        left: 90%;
+    }
+
+    #delete-all-person {
+        color: tomato;
+    }
+
+    .delete-tooltip{
+        animation: none;
+        left: -350%;
+    }
+
+    .restore-tooltip {
+        animation: none;
+        left: -450%;
+    }
+
+    .add-form-open i, .open-add-form i{
+        font-size: 3rem;
+        padding: 19px 20px;
+    }
+
+
 
 }
 
