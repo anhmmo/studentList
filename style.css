@@ -181,7 +181,7 @@ body {
     position: fixed;
     background-color: tomato;
     z-index: 40000;
-    bottom: 5%;
+    bottom: 15%;
     right: 2%;
     border-radius: 50%;
 }
@@ -200,8 +200,6 @@ body {
     width: 100%;
     margin: 0 auto;
     background-color: white;
-    /*background-image: url(img/bg.png);*/
-    /*background: linear-gradient(to right bottom, #ff512f, #cf2170);*/
     height: 100vh;
     display: flex;
     font-size: 1.8rem;
@@ -991,17 +989,26 @@ body {
         width: 60%;
         transform: translate(-50%,-50%);
         overflow-y: hidden;
+        background-image: url(img/bg.png);
+        
     }
 
     #main-form {
         width: 80%;
         margin : 1% 10%;
-        overflow-y: scroll;
+    }
+
+    .main-form__input {
+        margin-top: .8rem;
+    }
+
+    .main-form__input label{
+        color: black;
     }
 
     #exit-form, .submit-button {
         display: inline-block;
-        margin: 5rem 0% 2rem 13.3%;
+        margin: 2rem 0% 1rem 13.3%;
         background-color: rgb(0, 255, 200);
         width: 30%;
     }
@@ -1126,8 +1133,23 @@ body {
         padding: 19px 20px;
     }
 
+    .main-form__input {
+        margin-top: 3rem;
+    }
 
+    .main-form__input label {
+        display: none;
+    }
 
+    .falseIconEmpty{
+        bottom: 55%;
+    }
+
+    .trueIcon {
+        bottom: 30%;
+    }
+    
+   
 }
 
   @media (max-width: 600px) {
@@ -1181,11 +1203,11 @@ body {
 
   @keyframes toTop2 {
     0%  {bottom:-20%; opacity: 0.95;}
-    100%   {bottom:5%; opacity: 1;}
+    100%   {bottom:15%; opacity: 1;}
   }
 
   @keyframes downIcon {
-    0%  {bottom:5%; opacity: 0.95;}
+    0%  {bottom:15%; opacity: 0.95;}
     100%   {bottom:-15%; opacity: 1;}
   }
 
