@@ -1079,6 +1079,10 @@ body {
         min-height: 310px;
     }
 
+    .item__box:first-child, .item__box2:first-child {
+        margin: 0 auto 1rem auto;
+    }
+
     
 
     .item__box--icon{
@@ -1148,6 +1152,10 @@ body {
     .trueIcon {
         bottom: 30%;
     }
+
+    .student__popup {
+        height: 100vh;
+    }
     
    
 }
@@ -1158,7 +1166,7 @@ body {
         min-width: 300px;
         width: 100%;
         font-size: 1.6rem;
-        min-height: 270px;
+        min-height: 330px;
     }
     
     .add-form-open i, .open-add-form i{
@@ -1192,7 +1200,6 @@ body {
     
 
     .item__box--icon{
-        display: none;
         bottom: 0;
         background-color: chocolate;
     }
@@ -1209,7 +1216,7 @@ body {
     }
 
     .itemNumberBox {
-        top: 82%;
+        top: 83%;
     }
 
   }
@@ -1219,7 +1226,17 @@ body {
   
   @media (max-width: 350px) {
 
-   
+    .item__box, .item__box2 {
+        font-size: 1.5rem;
+    }
+
+    .item__box--info p {
+        margin-top: 0.8rem;
+    }
+
+    .itemNumberBox {
+        top: 84%;
+    }
 
   }
 
