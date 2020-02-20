@@ -346,6 +346,11 @@ function onGetInfoStudent(index){
     preventOtherFunctionByDefault ();
 }
 
+if(screen.height<605){
+    document.getElementById("hide-this-gallery").style.visibility = "hidden";
+}
+
+
 let credit = document.getElementById("student__infomation--credit");
 let info = document.getElementById("student__infomation--info");
 let portfolio = document.getElementById("student__infomation--portfolio");

@@ -831,6 +831,7 @@ body {
     font-family: 'Raleway', sans-serif;
     overflow-x: scroll;
     background-size: cover;
+    background-position: center;
 }
 
 .student1 {
@@ -1225,6 +1226,22 @@ body {
     .small-gallery {
         margin-bottom: .5rem;
     }
+
+    .popup-close, .popup-close-2 {
+        font-size: 3rem;
+        right: 1rem;
+        top: 1rem;
+    }
+
+    .student__gallery {
+        height: 90vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: #FFEE58;
+    }
+
+  
+     
 }
 
 @media (max-width: 630px) {
@@ -1236,18 +1253,14 @@ body {
         padding: 0.5rem 2rem;
     }
 
+    
+
     .popup-close {
         color: tomato;
-        font-size: 3rem;
-        right: 1rem;
-        top: 1rem;
     }
 
     .popup-close-2 {
         color: chartreuse;
-        font-size: 3rem;
-        right: 1rem;
-        top: 1rem;
     }
 }
 
@@ -1266,6 +1279,7 @@ body {
 
     .student__infomation {
         font-size: 1.5rem;
+
     }
 
     .student__text--default li {
