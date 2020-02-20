@@ -1102,12 +1102,12 @@ body {
     .item__box,.item__box2 {
         min-width: 520px;
         width: 50%;
-        margin: 1rem auto;
+        margin: 1.5rem auto;
         min-height: 310px;
     }
 
     .item__box:first-child, .item__box2:first-child {
-        margin: 0 auto 1rem auto;
+        margin: 0 auto 1.5rem auto;
     }
 
     
@@ -1259,8 +1259,7 @@ body {
 
     .item__box--icon{
         bottom: 0;
-        background: linear-gradient(to right, #ff512f, #f09819) no-repeat;
-        background-repeat: no-repeat;
+        background: linear-gradient(to right, #ff512f, #f09819)
     }
 
     .item__box--icon i{
