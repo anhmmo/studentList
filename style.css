@@ -207,6 +207,7 @@ body {
 
 .list-item {
     width: 50%; 
+    overflow-y: scroll;
 }
 
 #delete-person-box{
@@ -1258,7 +1259,8 @@ body {
 
     .item__box--icon{
         bottom: 0;
-        background: linear-gradient(to right, #ff512f, #f09819);
+        background: linear-gradient(to right, #ff512f, #f09819) no-repeat;
+        background-repeat: no-repeat;
     }
 
     .item__box--icon i{
