@@ -1070,6 +1070,7 @@ body {
     }
 
     #toTheTop {
+        font-size: 0;
         display: none;
     }
 
@@ -1093,7 +1094,7 @@ body {
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 905px) {
 
     .item__box:nth-child(even), .item__box2:nth-child(even) {
         margin: 0 auto;
