@@ -177,6 +177,7 @@ function renderStudents() {
         let opiskelija = Students[i];
         let itembox = document.createElement("div");
         itembox.className = "item__box";
+        itembox.id = "scroll"+i;
         itembox.onclick = function() { selectItemBox(i); };
         let divItem = document.createElement("div");
         let divIcon = document.createElement("div");
