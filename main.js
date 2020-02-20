@@ -767,8 +767,10 @@ selectedAllStudents.addEventListener("click", function() {
     deteteSelectedStudents(filtedArrayCopy);
 });
 let getContainer = document.getElementById("list-item").querySelectorAll("div .item__box");
+let itemNumberBox = document.getElementById("list-item").querySelectorAll(".itemNumberBox");
 
 function selectItemBox (index) {
+
         let restoreIcon = document.getElementById("undo-deleted-item");
         restoreIcon.style.display = "none";
         deleteArray.indexOf(index) === -1 ? deleteArray[index] = index : deleteArray[index] = undefined;
@@ -781,11 +783,20 @@ function selectItemBox (index) {
         filtedArrayCopy = filtedArray;
     
         filtedArray.length < 1 ? selectedAllPersons.style.display = "none" : selectedAllPersons.style.display = "block";
-        console.log(filtedArray);
+       // console.log(filtedArray);
 
         deleteArray.indexOf(index) === -1 ? getContainer[index].className = "item__box" : getContainer[index].className = "item__box2";
-        
-        console.log(getContainer[index]);
+        console.log(screen.width>520);
+        if(getContainer[index].getAttribute("class") === "item__box2" && screen.width <=1250 || screen.width <= 520){
+            itemNumberBox[index].style.backgroundColor = "white";
+            itemNumberBox[index].style.color = "tomato";
+        }
+        else {
+            itemNumberBox[index].style.backgroundColor = "rgb(252, 171, 65)";
+            itemNumberBox[index].style.color = "white";    
+        }
+
+      //  console.log(getContainer[index]);
 }
 
 
