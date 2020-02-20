@@ -206,8 +206,7 @@ body {
 }
 
 .list-item {
-    width: 50%;
-    overflow-y: scroll;  
+    width: 50%; 
 }
 
 #delete-person-box{
@@ -925,12 +924,15 @@ body {
         flex-wrap: wrap;
     }
 
+    .list-item::-webkit-scrollbar { 
+        width: 0 !important 
+    }
+
     .list-item {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         margin: 0;
-        overflow-y: auto;
     }
 
     .item__box,.item__box2 {
@@ -976,6 +978,10 @@ body {
     #delete-person-box p {
         font-weight: 600;
         color: rgb(250, 77, 77);
+    }
+
+    .right-container::-webkit-scrollbar {
+        width: 0 !important; 
     }
 
 
@@ -1066,9 +1072,7 @@ body {
         display: none;
     }
 
-    #popup-section {
-        overflow-y: scroll;
-    }
+    
 
     .student__popup{
         max-width: 90%;
@@ -1198,10 +1202,18 @@ body {
     }
 }
 
-  @media (max-width: 520px) {
+@media (max-width: 520px), (max-height: 520px){
+
+    #popup-section::-webkit-scrollbar { 
+        width: 0 !important 
+    }
+    #popup-section {
+        width: 100%;
+        overflow-x: hidden;
+    }
 
     #popup-section, #popup__form, .right-container {
-        max-height: 75vh;
+        max-height: 100vh;
         height: 100%;
     }
 
