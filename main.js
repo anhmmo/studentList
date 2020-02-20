@@ -688,7 +688,7 @@ let getScroll = parseInt(localStorage.getItem(storeScrollKey));
 --getScroll;
 
 getScroll==-1 ? getScroll = 0 : getScroll;
-scrollToMyView("copy" + getScroll) ? (scrollToMyView("copy" + 0)) : (scrollToMyView("delete" + getScroll)) ; 
+scrollToMyView("scroll" + getScroll) ? (scrollToMyView("scroll" + 0)) : (scrollToMyView("scroll" + getScroll)) ; 
 
 
 let validateEmail = email => (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) ? true : false;
