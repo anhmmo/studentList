@@ -866,7 +866,8 @@ function openAddForm () {
 }
 
 document.getElementById("create-btn").addEventListener("click", function() {
-    download('shgsfhshshsfh', 'StudentList.txt', 'text/plain');
+    let getData = localStorage.getItem(storeKey);
+    download(getData, 'StudentList.txt', 'text/plain');
 });
 
 //download all sudent info button 
