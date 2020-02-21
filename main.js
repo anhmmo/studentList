@@ -865,12 +865,14 @@ function openAddForm () {
     document.getElementById("add-form-open").className = "add-form-open";
 }
 
+//loading download
+
 document.getElementById("create-btn").addEventListener("click", function() {
     let getData = localStorage.getItem(storeKey);
     download(getData, 'StudentList.txt', 'text/plain');
 });
 
-//download all sudent info button 
+//download all students info button 
 function download(text, name, type) {
     var a = document.getElementById("download-btn");
     var b = document.getElementById("download-loading");

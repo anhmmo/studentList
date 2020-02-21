@@ -1476,9 +1476,10 @@ body {
   .save-button:hover {
     cursor: pointer;
     transform: scale(1.1);
+    background: rgb(252, 171, 65);
   }
 
-  .save-button:hover, .save-button:hover .circle-1, .save-button:hover .circle-2{
+  .save-button:hover .circle-1, .save-button:hover .circle-2{
     border: 1px solid rgb(252, 171, 65);
   }
 
