@@ -1446,4 +1446,6 @@ body {
     100%   {bottom:-15%; opacity: 1;}
   }
 
-  
+  #download-btn {
+      display: none;
+  }

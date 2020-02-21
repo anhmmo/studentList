@@ -864,3 +864,16 @@ function openAddForm () {
     document.getElementById("right-containers").style.display = "block";
     document.getElementById("add-form-open").className = "add-form-open";
 }
+
+document.getElementById("create-btn").addEventListener("click", function() {
+    download('shgsfhshshsfh', 'StudentList.txt', 'text/plain');
+});
+
+//download all sudent info button 
+function download(text, name, type) {
+    var a = document.getElementById("download-btn");
+    a.style.display = "block";
+    var file = new Blob([text], {type: type});
+    a.href = URL.createObjectURL(file);
+    a.download = name;
+}
