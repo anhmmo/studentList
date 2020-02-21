@@ -873,7 +873,13 @@ document.getElementById("create-btn").addEventListener("click", function() {
 //download all sudent info button 
 function download(text, name, type) {
     var a = document.getElementById("download-btn");
-    a.style.display = "block";
+    var b = document.getElementById("download-loading");
+    b.style.display = "inline-block";
+    document.getElementById("create-btn").style.display = "none";
+    setTimeout( function() {
+        a.style.display = "block";
+    }
+    , 2000);
     var file = new Blob([text], {type: type});
     a.href = URL.createObjectURL(file);
     a.download = name;
