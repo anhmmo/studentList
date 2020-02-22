@@ -892,4 +892,31 @@ function download(text, name, type) {
 document.getElementById("remove-all-students").addEventListener("click", removeAllStudent);
 function removeAllStudent () {
     localStorage.removeItem(storeKey);
+    window.location.reload();
+}
+
+let rightSetting = document.getElementById("right-setting");
+let openSetting = document.getElementById("open-setting");
+let saveFile = document.getElementById("save-file");
+let removeAll = document.getElementById("remove-all-students");
+let restoreDefault = document.getElementById("restore-default");
+
+openSetting.addEventListener("click", openRightSetting);
+function openRightSetting() {
+    if(rightSetting.getAttribute("class") === "right-setting" || rightSetting.getAttribute("class") === "right-setting--hide") {
+        rightSetting.className = "right-setting--open";
+        openSetting.className = "open-setting--open fas fa-users-cog";
+        saveFile.className = "save-button--open";
+        removeAll.className = "save-button2--open";
+        restoreDefault.className = "save-button3--open";
+    }
+    else {
+        rightSetting.className = "right-setting--hide";
+        openSetting.className = "open-setting--hide fas fa-users-cog";
+        saveFile.className = "save-button--hide";
+        removeAll.className = "save-button2--hide";
+        restoreDefault.className = "save-button3--hide";
+    }
+
+    
 }
