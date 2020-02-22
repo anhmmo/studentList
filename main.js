@@ -867,22 +867,29 @@ function openAddForm () {
 
 //loading download
 
-document.getElementById("create-btn").addEventListener("click", function() {
+document.getElementById("save-file").addEventListener("click", function() {
     let getData = localStorage.getItem(storeKey);
     download(getData, 'StudentList.txt', 'text/plain');
 });
 
 //download all students info button 
 function download(text, name, type) {
-    var a = document.getElementById("download-btn");
-    var b = document.getElementById("download-loading");
-    b.style.display = "inline-block";
+    let downloadBtn = document.getElementById("download-btn");
+    let downloadLoading = document.getElementById("download-loading");
+    downloadLoading.style.display = "inline-block";
     document.getElementById("create-btn").style.display = "none";
     setTimeout( function() {
-        a.style.display = "block";
+        downloadBtn.style.display = "block";
     }
     , 2000);
-    var file = new Blob([text], {type: type});
-    a.href = URL.createObjectURL(file);
-    a.download = name;
+    let file = new Blob([text], {type: type});
+    downloadBtn.href = URL.createObjectURL(file);
+    downloadBtn.download = name;
+}
+
+// remove all students
+
+document.getElementById("remove-all-students").addEventListener("click", removeAllStudent);
+function removeAllStudent () {
+    localStorage.removeItem(storeKey);
 }

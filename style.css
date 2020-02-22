@@ -236,7 +236,7 @@ body {
     margin-left: 18%;
 }
 
-.delete-tooltip, .restore-tooltip {
+.delete-tooltip, .restore-tooltip{
     position: absolute;
     font-size: 1.3rem;
     width: 170px;
@@ -247,6 +247,7 @@ body {
     left: 120%;
     animation: deleteTooltip 800ms;
 }
+
 
 .restore-tooltip {
     background-color: rgb(2, 185, 78);
@@ -260,11 +261,10 @@ body {
 
 
 
-
 #undo-deleted-item {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 30%;
     left: 5%;
     z-index: 3;
 }
@@ -902,7 +902,7 @@ body {
     color: tomato;
     position: fixed;
     bottom: 2rem;
-    left: 6%;
+    left: 5%;
     cursor: pointer;
 }
 
@@ -974,6 +974,9 @@ body {
     }
 
    
+    #right-setting {
+        display: none;
+    }
 
 
     #delete-all-person{
@@ -1451,18 +1454,64 @@ body {
       display: none;
   }
 
-  #right-setting {
+  .right-setting {
       position: fixed;
       left: 0;
-      top: 50%;
+      bottom: 23%;
+      background: linear-gradient(to right, #ff512f, #f09819);
+      z-index: 5;
+      width: 28%;
+      height: 12%;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      animation: right-setting 5s;
   }
 
-  .save-button {
+  .right-setting--hide {
+    position: fixed;
+    left: 0;
+    bottom: 23%;
+    width: 0;
+    background: linear-gradient(to right, #ff512f, #f09819);
+    z-index: 5;
+    height: 12%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    animation: hide-right-setting 5s;
+  }
+
+  .open-setting {
+      position: fixed;
+      color: white;
+      bottom: 25.5%;
+      left: 27.9%;
+      padding: 1.5rem;
+      background: #f09819;
+      cursor: pointer;
+      border-top-right-radius: 7px;
+      border-bottom-right-radius: 7px;
+      animation: open-setting 5s;
+  }
+
+  .open-setting--hide {
+    position: fixed;
+    color: white;
+    bottom: 25.5%;
+    left: 0;
+    padding: 1.5rem;
+    background: #f09819;
+    cursor: pointer;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    animation: open-setting--hide 5s;
+  }
+
+  .save-button, .save-button2, .save-button3 {
     color: #fff;
     background: linear-gradient(to right bottom, #e74929, #a71c5a);
     position: fixed;
-    left: 5%;
-    z-index: 0;
+    left: 2%;
+    bottom: 25%;
     width: 6rem;
     height: 6rem;
     display: inline-block;
@@ -1473,17 +1522,76 @@ body {
     transition: all 500ms;
   }
 
-  .save-button:hover {
+  .save-button {
+      animation: save-button--open 2s;
+  }
+
+  .save-button2 {
+    animation: save-button2--open 4s;
+    left: 12%;
+  }
+
+  .save-button3 {
+    animation: save-button3--open 6s;
+   left: 22%;
+  }
+
+  .save-button--hide {
+    color: #fff;
+    background: linear-gradient(to right bottom, #e74929, #a71c5a);
+    position: fixed;
+    left: -10%;
+    bottom: 25%;
+    width: 6rem;
+    height: 6rem;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 6.2rem;
+    font-size: 1.9rem;
+    transition: all 500ms;
+    animation: save-button--hide 2s;
+  }
+
+  .save-button2--hide {
+    color: #fff;
+    background: linear-gradient(to right bottom, #e74929, #a71c5a);
+    position: fixed;
+    left: -10%;
+    bottom: 25%;
+    width: 6rem;
+    height: 6rem;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 6.2rem;
+    font-size: 1.9rem;
+    transition: all 500ms;
+    animation: save-button2--hide 4s;
+  }
+
+  .save-button3--hide {
+    color: #fff;
+    background: linear-gradient(to right bottom, #e74929, #a71c5a);
+    position: fixed;
+    left: -10%;
+    bottom: 25%;
+    width: 6rem;
+    height: 6rem;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 6.2rem;
+    font-size: 1.9rem;
+    transition: all 500ms;
+    animation: save-button3--hide 5.5s;
+  }
+
+  .save-button:hover, .save-button2:hover, .save-button3:hover {
     cursor: pointer;
     transform: scale(1.1);
     background: rgb(252, 171, 65);
   }
-
-  .save-button:hover .circle-1, .save-button:hover .circle-2{
-    border: 1px solid rgb(252, 171, 65);
-  }
-
-  
 
   .circle-1, .circle-2 {
     content: "";
@@ -1494,7 +1602,7 @@ body {
     height: 100%;
     z-index: -1;
     border-radius: 50%;
-    border: 1px solid rgba(221, 44, 147, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
   }
 
   .circle-1 {
@@ -1553,6 +1661,106 @@ body {
     100% {
         transform: rotate(360deg);
         opacity: 1;
+    }
+}
+
+@keyframes hide-right-setting {
+    0% {
+        width: 28%;
+    }
+    
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes open-setting--hide {
+    0% {
+        left: 27.9%;
+    }
+    
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes right-setting {
+    0% {
+        width: 0;
+    }
+    
+    100% {
+        width: 28%;
+    }
+}
+
+@keyframes open-setting {
+    0% {
+        left: 0;
+    }
+    
+    100% {
+        left: 27.9%;
+    }
+}
+
+@keyframes save-button--hide {
+    0% {
+        left: 2%;
+    }
+    
+    100% {
+        left: -10%;
+    }
+}
+
+@keyframes save-button2--hide {
+    0% {
+        left: 12%;
+    }
+    
+    100% {
+        left: -10%;
+    }
+}
+
+@keyframes save-button3--hide {
+    0% {
+        left: 22%;
+    }
+    
+    100% {
+        left: -10%;
+    }
+}
+
+@keyframes save-button--open {
+    0% {
+        left: -10%;
+    }
+    
+    100% {
+        left: 2%;
+    }
+}
+
+@keyframes save-button2--open {
+    0% {
+        left: -10%;
+    }
+    
+    100% {
+        left: 12%;
+    }
+}
+
+@keyframes save-button3--open {
+    0% {
+        left: -10%;
+    }
+    
+    100% {
+        left: 22%;
     }
 }
 
