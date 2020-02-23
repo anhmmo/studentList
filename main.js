@@ -880,6 +880,7 @@ function download(text, name, type) {
     document.getElementById("create-btn").style.display = "none";
     setTimeout( function() {
         downloadBtn.style.display = "block";
+        
     }
     , 2000);
     let file = new Blob([text], {type: type});

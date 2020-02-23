@@ -1498,7 +1498,6 @@ body {
 
   .save-button, .save-button2, .save-button3 {
     color: #fff;
-    background: linear-gradient(to right bottom, #e74929, #a71c5a);
     position: fixed;
     left: -10%;
     bottom: 25%;
@@ -1512,13 +1511,25 @@ body {
     transition: all 500ms;
   }
 
+  .save-button{
+    background: linear-gradient(to right bottom, #ff5331, #a71c5a);
+  }
+
+  .save-button2{
+    background: linear-gradient(to right bottom, #fde55a, #fcde36);
+  }
+
+  .save-button3{
+    background: linear-gradient(to right bottom, #1adaaa, #039b42);
+  }
+
   .save-button--open{
     left: 2%;
     animation: save-button--open 0.5s;
   }
 
   .save-button2--open {
-    animation: save-button2--open 1s;
+    animation: save-button2--open 1.5s;
     left: 12%;
   }
 
@@ -1532,18 +1543,19 @@ body {
   }
 
   .save-button2--hide {
-    animation: save-button2--hide 2s;
+    animation: save-button2--hide 1.5s;
   }
 
   .save-button3--hide {
-    animation: save-button3--hide 2s;
+    animation: save-button3--hide 2.1s;
   }
 
   .save-button:hover, .save-button2:hover, .save-button3:hover {
     cursor: pointer;
     transform: scale(1.1);
-    background: rgb(252, 171, 65);
+    background: #00E676;
   }
+  
 
   .circle-1, .circle-2 {
     content: "";
