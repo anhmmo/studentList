@@ -903,19 +903,19 @@ let restoreDefault = document.getElementById("restore-default");
 
 openSetting.addEventListener("click", openRightSetting);
 function openRightSetting() {
-    if(rightSetting.getAttribute("class") === "right-setting" || rightSetting.getAttribute("class") === "right-setting--hide") {
-        rightSetting.className = "right-setting--open";
-        openSetting.className = "open-setting--open fas fa-users-cog";
-        saveFile.className = "save-button--open";
-        removeAll.className = "save-button2--open";
-        restoreDefault.className = "save-button3--open";
+    if(rightSetting.getAttribute("class") === "right-setting" || rightSetting.getAttribute("class") === "right-setting right-setting--hide") {
+        rightSetting.className = "right-setting right-setting--open";
+        openSetting.className = "open-setting open-setting--open fas fa-users-cog";
+        saveFile.className = "save-button save-button--open";
+        removeAll.className = "save-button2 save-button2--open";
+        restoreDefault.className = "save-button3 save-button3--open";
     }
     else {
-        rightSetting.className = "right-setting--hide";
-        openSetting.className = "open-setting--hide fas fa-users-cog";
-        saveFile.className = "save-button--hide";
-        removeAll.className = "save-button2--hide";
-        restoreDefault.className = "save-button3--hide";
+        rightSetting.className = "right-setting right-setting--hide";
+        openSetting.className = "open-setting open-setting--hide fas fa-users-cog";
+        saveFile.className = "save-button save-button--hide";
+        removeAll.className = "save-button2 save-button2--hide";
+        restoreDefault.className = "save-button3 save-button3--hide";
     }
 
     
