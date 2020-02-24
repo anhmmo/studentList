@@ -487,6 +487,7 @@ function scrollToMyView(elementti) {
   //first hide all icon
   let selectInputElement;
   let selectMainForm = document.getElementById("main-form").querySelectorAll("div");
+  
   for (let index = 0; index < selectMainForm.length; index++) {
     let selectIElement = selectMainForm[index].querySelectorAll("i");
     selectIElement[0].className = "hideFormIcon";
