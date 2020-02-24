@@ -261,7 +261,7 @@ function onEditStudent(index) {
         document.getElementById("age2").value = Student.data[index].age;
 
         let selectedValue = Student.data[index].job;
-        console.log(selectedValue);
+        
         switch(selectedValue){
             case "Student":
             document.getElementById("selectOption2").value = "1";
@@ -746,7 +746,16 @@ let whiteColor = document.getElementById("changeColorWhite");
 whiteColor.addEventListener("click", () => changeColor("#ffffff"));
 let violetColor = document.getElementById("changeColorViolet");
 violetColor.addEventListener("click", () => changeColor("#9C27B0"));
-
+let yellowColor = document.getElementById("changeColorYellow");
+yellowColor.addEventListener("click", () => changeColor("#FFEB3B"));
+let pinkColor = document.getElementById("changeColorPink");
+pinkColor.addEventListener("click", () => changeColor("#E91E63"));
+let grayColor = document.getElementById("changeColorGray");
+grayColor.addEventListener("click", () => changeColor("#9E9E9E"));
+let orangeColor = document.getElementById("changeColorOrange");
+orangeColor.addEventListener("click", () => changeColor("#FF9800"));
+let purpleColor = document.getElementById("changeColorPurple");
+purpleColor.addEventListener("click", () => changeColor("#673AB7"));
 
 
 function changeColor(color) {
@@ -792,7 +801,7 @@ function selectItemBox (index) {
        // console.log(filtedArray);
 
         deleteArray.indexOf(index) === -1 ? getContainer[index].className = "item__box" : getContainer[index].className = "item__box2";
-        console.log(screen.width>520);
+       
         if(getContainer[index].getAttribute("class") === "item__box2" && screen.width <=1250 || screen.width <= 520){
             itemNumberBox[index].style.backgroundColor = "white";
             itemNumberBox[index].style.color = "tomato";
