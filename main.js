@@ -264,13 +264,16 @@ function onEditStudent(index) {
     let nameInput = document.getElementById("name2");
     let allItem = document.getElementById("popup__form").querySelectorAll("div");
     let emailInput = document.getElementById("email2");
-    
+    let ageInput = document.getElementById("age2");
 
     let icon1 = allItem[0].querySelector(".falseIconEmpty2");
     let icon2 = allItem[3].querySelector(".falseIconEmpty2");
+    let icon3 = allItem[4].querySelector(".falseIconEmpty2");
 
     document.getElementById("name2").addEventListener("input",checkThisForm);
     document.getElementById("email2").addEventListener("input",checkemailCorrect);
+
+    document.getElementById("age2").addEventListener("input",checkageCorrect);
 
 
     function checkThisForm(event){
@@ -279,11 +282,12 @@ function onEditStudent(index) {
             document.getElementById("submit2").style.backgroundColor = "red";
             nameInput.style.borderColor = "green";
             icon1.style.visibility = "hidden";
+            document.getElementById("submit2").disabled = false;
         }
 
         else {
             document.getElementById("submit2").disabled = true;
-            document.getElementById("submit2").style.backgroundColor = "red";
+            document.getElementById("submit2").style.backgroundColor = "black";
             nameInput.style.borderColor = "red";
             icon1.style.visibility = "visible";
         }
@@ -292,19 +296,36 @@ function onEditStudent(index) {
 
     function checkemailCorrect() {
         if(validateEmail(emailInput.value)) {
-            document.getElementById("submit2").style.visibility = "visible";
+            document.getElementById("submit2").style.backgroundColor = "red";
             emailInput.style.borderColor = "green";
             icon2.style.visibility = "hidden";
+            document.getElementById("submit2").disabled = false;
         }
 
         else {
-            document.getElementById("submit2").style.visibility = "hidden";
+            document.getElementById("submit2").style.backgroundColor = "black";
             emailInput.style.borderColor = "red";
             icon2.style.visibility = "visible";
+            document.getElementById("submit2").disabled = true;
         }
     }
 
+   
+    function checkageCorrect() {
+        if(validateAge(ageInput.value)) {
+            document.getElementById("submit2").style.backgroundColor = "red";
+            ageInput.style.borderColor = "green";
+            icon3.style.visibility = "hidden";
+            document.getElementById("submit2").disabled = false;
+        }
 
+        else {
+            document.getElementById("submit2").style.backgroundColor = "black";
+            ageInput.style.borderColor = "red";
+            icon3.style.visibility = "visible";
+            document.getElementById("submit2").disabled = true;
+        }
+    }
     
 
     let selectedValue = Student.data[index].job;
