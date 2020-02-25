@@ -261,12 +261,34 @@ function onEditStudent(index) {
     document.getElementById("email2").value = Student.data[index].email;
     document.getElementById("age2").value = Student.data[index].age;
 
+    
+    let selectedValue = Student.data[index].job;
+    
+    switch(selectedValue){
+        case "Student":
+        document.getElementById("selectOption2").value = "1";
+        break;
+        case "Software Developer":
+        document.getElementById("selectOption2").value = "2";
+        break;
+        case "Web -fullstack developer":
+        document.getElementById("selectOption2").value = "3";
+        break;
+        case "Sofware engineer":
+        document.getElementById("selectOption2").value = "4";
+        break;
+        default:
+        document.getElementById("selectOption2").value = "";
+        break;
+    }
+
     let nameInput = document.getElementById("name2");
     let allItem = document.getElementById("popup__form").querySelectorAll("div");
     let emailInput = document.getElementById("email2");
     let ageInput = document.getElementById("age2");
     let addressInput = document.getElementById("address2");
     let phoneInput = document.getElementById("phone2");
+
     
 
     let icon1 = allItem[0].querySelector(".falseIconEmpty2");
@@ -274,7 +296,7 @@ function onEditStudent(index) {
     let icon3 = allItem[4].querySelector(".falseIconEmpty2");
     let icon4 = allItem[1].querySelector(".falseIconEmpty2");
     let icon5 = allItem[2].querySelector(".falseIconEmpty2");
-    let icon6 = allItem[5].querySelector(".falseIconEmpty2");
+ 
 
     document.getElementById("name2").addEventListener("input",checkThisForm);
     document.getElementById("email2").addEventListener("input",checkemailCorrect);
@@ -283,9 +305,8 @@ function onEditStudent(index) {
 
     document.getElementById("address2").addEventListener("input",checkAdressFieldCorrect);
 
-    document.getElementById("address2").addEventListener("input",checkPhoneFieldCorrect);
+    document.getElementById("phone2").addEventListener("input",checkPhoneFieldCorrect);
 
-    document.getElementById("selectOption2").addEventListener("input",checkSelectedFieldCorrect);
 
 
     function checkThisForm(){
@@ -356,29 +377,23 @@ function onEditStudent(index) {
     }
 
     function checkPhoneFieldCorrect() {
+        if(phoneInput.value.length > 5) {
+            document.getElementById("submit2").style.backgroundColor = "red";
+            phoneInput.style.borderColor = "green";
+            icon5.style.visibility = "hidden";
+            document.getElementById("submit2").disabled = false;
+        }
 
+        else {
+            document.getElementById("submit2").style.backgroundColor = "black";
+            phoneInput.style.borderColor = "red";
+            icon5.style.visibility = "visible";
+            document.getElementById("submit2").disabled = true;
+        }
     }
+
     
 
-    let selectedValue = Student.data[index].job;
-    
-    switch(selectedValue){
-        case "Student":
-        document.getElementById("selectOption2").value = "1";
-        break;
-        case "Software Developer":
-        document.getElementById("selectOption2").value = "2";
-        break;
-        case "Web -fullstack developer":
-        document.getElementById("selectOption2").value = "3";
-        break;
-        case "Sofware engineer":
-        document.getElementById("selectOption2").value = "4";
-        break;
-        default:
-        document.getElementById("selectOption2").value = "";
-        break;
-    }
 
     saveScrollNumber(index);
     preventOtherFunctionByDefault ();
