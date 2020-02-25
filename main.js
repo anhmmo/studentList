@@ -272,16 +272,18 @@ function onEditStudent(index) {
     document.getElementById("name2").addEventListener("input",checkThisForm);
     document.getElementById("email2").addEventListener("input",checkemailCorrect);
 
-    function checkThisForm(){
+
+    function checkThisForm(event){
 
         if(validateName(nameInput.value)) {
-            document.getElementById("submit2").style.visibility = "visible";
+            document.getElementById("submit2").style.backgroundColor = "red";
             nameInput.style.borderColor = "green";
             icon1.style.visibility = "hidden";
         }
 
         else {
-            document.getElementById("submit2").style.visibility = "hidden";
+            document.getElementById("submit2").disabled = true;
+            document.getElementById("submit2").style.backgroundColor = "red";
             nameInput.style.borderColor = "red";
             icon1.style.visibility = "visible";
         }
@@ -329,6 +331,7 @@ function onEditStudent(index) {
     preventOtherFunctionByDefault ();
     
     function submitForm() {
+
         let name = getInputValue("#name2");
         let address = getInputValue("#address2");
         let phone = getInputValue("#phone2");
@@ -341,6 +344,7 @@ function onEditStudent(index) {
         Student.edit(index, editedStudent);  
         Student.save();
         window.location.reload();
+        
     }      
 }
 
