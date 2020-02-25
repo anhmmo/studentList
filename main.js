@@ -272,16 +272,23 @@ function onEditStudent(index) {
     let icon1 = allItem[0].querySelector(".falseIconEmpty2");
     let icon2 = allItem[3].querySelector(".falseIconEmpty2");
     let icon3 = allItem[4].querySelector(".falseIconEmpty2");
+    let icon4 = allItem[1].querySelector(".falseIconEmpty2");
+    let icon5 = allItem[2].querySelector(".falseIconEmpty2");
+    let icon6 = allItem[5].querySelector(".falseIconEmpty2");
 
     document.getElementById("name2").addEventListener("input",checkThisForm);
     document.getElementById("email2").addEventListener("input",checkemailCorrect);
 
     document.getElementById("age2").addEventListener("input",checkageCorrect);
 
-    document.getElementById("address2").addEventListener("input",checkOtherFieldCorrect);
+    document.getElementById("address2").addEventListener("input",checkAdressFieldCorrect);
+
+    document.getElementById("address2").addEventListener("input",checkPhoneFieldCorrect);
+
+    document.getElementById("selectOption2").addEventListener("input",checkSelectedFieldCorrect);
 
 
-    function checkThisForm(event){
+    function checkThisForm(){
 
         if(validateName(nameInput.value)) {
             document.getElementById("submit2").style.backgroundColor = "red";
@@ -332,18 +339,18 @@ function onEditStudent(index) {
         }
     }
 
-    function checkOtherFieldCorrect () {
-        if(addressInput.value.length > 0 || phoneInput.value.length > 0) {
+    function checkAdressFieldCorrect () {
+        if(addressInput.value.length > 0) {
             document.getElementById("submit2").style.backgroundColor = "red";
-            ageInput.style.borderColor = "green";
-            icon3.style.visibility = "hidden";
+            addressInput.style.borderColor = "green";
+            icon4.style.visibility = "hidden";
             document.getElementById("submit2").disabled = false;
         }
 
         else {
             document.getElementById("submit2").style.backgroundColor = "black";
-            ageInput.style.borderColor = "red";
-            icon3.style.visibility = "visible";
+            addressInput.style.borderColor = "red";
+            icon4.style.visibility = "visible";
             document.getElementById("submit2").disabled = true;
         }
     }
