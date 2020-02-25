@@ -265,6 +265,9 @@ function onEditStudent(index) {
     let allItem = document.getElementById("popup__form").querySelectorAll("div");
     let emailInput = document.getElementById("email2");
     let ageInput = document.getElementById("age2");
+    let addressInput = document.getElementById("address2");
+    let phoneInput = document.getElementById("phone2");
+    
 
     let icon1 = allItem[0].querySelector(".falseIconEmpty2");
     let icon2 = allItem[3].querySelector(".falseIconEmpty2");
@@ -274,6 +277,8 @@ function onEditStudent(index) {
     document.getElementById("email2").addEventListener("input",checkemailCorrect);
 
     document.getElementById("age2").addEventListener("input",checkageCorrect);
+
+    document.getElementById("address2").addEventListener("input",checkOtherFieldCorrect);
 
 
     function checkThisForm(event){
@@ -313,6 +318,22 @@ function onEditStudent(index) {
    
     function checkageCorrect() {
         if(validateAge(ageInput.value)) {
+            document.getElementById("submit2").style.backgroundColor = "red";
+            ageInput.style.borderColor = "green";
+            icon3.style.visibility = "hidden";
+            document.getElementById("submit2").disabled = false;
+        }
+
+        else {
+            document.getElementById("submit2").style.backgroundColor = "black";
+            ageInput.style.borderColor = "red";
+            icon3.style.visibility = "visible";
+            document.getElementById("submit2").disabled = true;
+        }
+    }
+
+    function checkOtherFieldCorrect () {
+        if(addressInput.value.length > 0 || phoneInput.value.length > 0) {
             document.getElementById("submit2").style.backgroundColor = "red";
             ageInput.style.borderColor = "green";
             icon3.style.visibility = "hidden";
