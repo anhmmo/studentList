@@ -163,55 +163,45 @@
 <div id="popup-section" class="edit__popup">
     <i id="popup-close" class="popup-close fas fa-times-circle"></i>
     <form action="#" id="popup__form" >
-        <div class="main-form__input">
+        <div class="main-form__input popupform">
             <label for="">Name</label>
             <input id="name2" type="text" name="Name" placeholder="Enter your name"/>
-            <i></i>
-            <i></i>
+            <i class="falseIconEmpty2 fas fa-times"></i>
             <i class="requiredIcon fas fa-star-of-life"></i>
-            <p id="notice-text" class="notice-display-none">* At least 2 characters and no number</p>
         </div>
 
-        <div class="main-form__input">
+        <div class="main-form__input popupform">
             <label for="">Address</label>
             <input id="address2"  type="text" name="Address" placeholder="Enter your address"/>
-            <i></i>
-            <i></i>
+            <i class="falseIconEmpty2 fas fa-times"></i>
             <i class="requiredIcon fas fa-star-of-life"></i>
-            <p id="notice-text" class="notice-display-none">* Please fill out this field</p>
         </div>
 
         
-        <div class="main-form__input">
+        <div class="main-form__input popupform">
             <label for="">Phone</label>
             <input id="phone2" type="number" name="Phone" placeholder="Enter your phone" >
-            <i></i>
-            <i></i>
+            <i class="falseIconEmpty2 fas fa-times"></i>
             <i class="requiredIcon fas fa-star-of-life"></i>
-            <p id="notice-text" class="notice-display-none">* Please enter you phone number</p>
         </div>
 
-        <div class="main-form__input">
+        <div class="main-form__input popupform">
             <label for="">Email</label>
             <!--onpaste="return false"; prevent copy paste email-->
             <input id="email2" type="email" onpaste="return false;" 
              name="Email" placeholder="Enter your email">
-            <i></i>
-            <i></i>
+             <i class="falseIconEmpty2 fas fa-times"></i>
             <i class="requiredIcon fas fa-star-of-life"></i>
-            <p id="notice-text" class="notice-display-none">* Incorrect email address format</p>
         </div>
 
-        <div class="main-form__input">
+        <div class="main-form__input popupform">
             <label for="">Age</label>
             <input id="age2" type="number" name="Age" placeholder="Enter your age">
-            <i></i>
-            <i></i>
+            <i class="falseIconEmpty2 fas fa-times"></i>
             <i class="requiredIcon fas fa-star-of-life"></i>
-            <p id="notice-text" class="notice-display-none">* AGE must be over 17 and less than 99</p>
         </div>
 
-        <div class="main-form__input">
+        <div class="main-form__input popupform">
             <label for="">Which option is your current job?</label>
             <select id="selectOption2">
                 <option value="" disabled selected>Select current job</option>
@@ -220,10 +210,8 @@
                 <option value="3">Web-fullstack developer</option>
                 <option value="4">Software engineer</option>
             </select>
-            <i></i>
-            <i></i>
+            <i class="falseIconEmpty2 fas fa-times"></i>
             <i class="requiredIcon fas fa-star-of-life"></i>
-            <p id="notice-text" class="notice-display-none">* Please select your current job</p>
         </div>
 
         <button type="submit" id="submit2" class="submit-button2">

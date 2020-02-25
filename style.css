@@ -414,7 +414,7 @@ body {
     margin: 2rem 0 2rem 20%;
 }
 
-.main-form__input, .popup__form--input {
+.main-form__input{
     position: relative;
     width: 100%;
     display: flex;
@@ -422,14 +422,14 @@ body {
     margin-top: 1.5rem;
 }
 
-.main-form__input > label, .popup__form--input > label{
+.main-form__input > label{
     display: flex;
     align-items: center;
     margin-bottom: 0.8rem;
     color: white;
 }
 
-.main-form__input > input,.main-form__input > select, .popup__form--input > input, .popup__form--input > select {
+.main-form__input > input,.main-form__input > select{
     display: block;
     width: 100%;
     height: 5rem;
@@ -441,10 +441,14 @@ body {
     font-size: 1.8rem;
 }
 
-.main-form__input > input:focus, .popup__form--input > input:focus{
+.main-form__input > input:focus{
     border-color: red;
     outline: 0;
     box-shadow: 0 0 0 0.135rem white;
+}
+
+.popupform > input:focus{
+    border-color: green;
 }
 
 
@@ -497,6 +501,14 @@ body {
     position: absolute;
     right: 4%;
     bottom: 38%;
+    color: tomato;
+}
+
+.falseIconEmpty2 {
+    visibility: hidden;
+    position: absolute;
+    right: 4%;
+    bottom: 20%;
     color: tomato;
 }
 
@@ -1197,6 +1209,10 @@ body {
     }
 
     .falseIconEmpty{
+        bottom: 55%;
+    }
+
+    .falseIconEmpty2{
         bottom: 55%;
     }
 

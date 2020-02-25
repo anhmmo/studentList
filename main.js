@@ -250,53 +250,98 @@ function onDeleteStudent(index) {
     
 //edit item
 function onEditStudent(index) {
-        preventItemBoxEventInvoked (index);
-        document.getElementById("popup-section").className = "edit__popup--open";
-        document.getElementById("submit2").addEventListener("click", submitForm);
-       
-        document.getElementById("name2").value = Student.data[index].name;
-        document.getElementById("address2").value = Student.data[index].address;
-        document.getElementById("phone2").value = Student.data[index].phone;
-        document.getElementById("email2").value = Student.data[index].email;
-        document.getElementById("age2").value = Student.data[index].age;
+    preventItemBoxEventInvoked (index);
+    document.getElementById("popup-section").className = "edit__popup--open";
 
-        let selectedValue = Student.data[index].job;
-        
-        switch(selectedValue){
-            case "Student":
-            document.getElementById("selectOption2").value = "1";
-            break;
-            case "Software Developer":
-            document.getElementById("selectOption2").value = "2";
-            break;
-            case "Web -fullstack developer":
-            document.getElementById("selectOption2").value = "3";
-            break;
-            case "Sofware engineer":
-            document.getElementById("selectOption2").value = "4";
-            break;
-            default:
-            document.getElementById("selectOption2").value = "";
-            break;
+    document.getElementById("submit2").addEventListener("click", submitForm);
+   
+    document.getElementById("name2").value = Student.data[index].name;
+    document.getElementById("address2").value = Student.data[index].address;
+    document.getElementById("phone2").value = Student.data[index].phone;
+    document.getElementById("email2").value = Student.data[index].email;
+    document.getElementById("age2").value = Student.data[index].age;
+
+    let nameInput = document.getElementById("name2");
+    let allItem = document.getElementById("popup__form").querySelectorAll("div");
+    let emailInput = document.getElementById("email2");
+    
+
+    let icon1 = allItem[0].querySelector(".falseIconEmpty2");
+    let icon2 = allItem[3].querySelector(".falseIconEmpty2");
+
+    document.getElementById("name2").addEventListener("input",checkThisForm);
+    document.getElementById("email2").addEventListener("input",checkemailCorrect);
+
+    function checkThisForm(){
+
+        if(validateName(nameInput.value)) {
+            document.getElementById("submit2").style.visibility = "visible";
+            nameInput.style.borderColor = "green";
+            icon1.style.visibility = "hidden";
         }
 
-        saveScrollNumber(index);
-        preventOtherFunctionByDefault ();
-        
-        function submitForm() {
-            let name = getInputValue("#name2");
-            let address = getInputValue("#address2");
-            let phone = getInputValue("#phone2");
-            let email = getInputValue("#email2");
-            let age = getInputValue("#age2");
-            let selected = changeSelectedValue(getInputValue("#selectOption2"));
-        
-            let convertStudentToString = `{"name":"${name}","address":"${address}","phone":"${phone}","email":"${email}","age":"${age}","job":"${selected}"}`;
-            let editedStudent = JSON.parse(convertStudentToString); //convert String to JSON
-            Student.edit(index, editedStudent);  
-            Student.save();
-            window.location.reload();
-        }      
+        else {
+            document.getElementById("submit2").style.visibility = "hidden";
+            nameInput.style.borderColor = "red";
+            icon1.style.visibility = "visible";
+        }
+
+    }
+
+    function checkemailCorrect() {
+        if(validateEmail(emailInput.value)) {
+            document.getElementById("submit2").style.visibility = "visible";
+            emailInput.style.borderColor = "green";
+            icon2.style.visibility = "hidden";
+        }
+
+        else {
+            document.getElementById("submit2").style.visibility = "hidden";
+            emailInput.style.borderColor = "red";
+            icon2.style.visibility = "visible";
+        }
+    }
+
+
+    
+
+    let selectedValue = Student.data[index].job;
+    
+    switch(selectedValue){
+        case "Student":
+        document.getElementById("selectOption2").value = "1";
+        break;
+        case "Software Developer":
+        document.getElementById("selectOption2").value = "2";
+        break;
+        case "Web -fullstack developer":
+        document.getElementById("selectOption2").value = "3";
+        break;
+        case "Sofware engineer":
+        document.getElementById("selectOption2").value = "4";
+        break;
+        default:
+        document.getElementById("selectOption2").value = "";
+        break;
+    }
+
+    saveScrollNumber(index);
+    preventOtherFunctionByDefault ();
+    
+    function submitForm() {
+        let name = getInputValue("#name2");
+        let address = getInputValue("#address2");
+        let phone = getInputValue("#phone2");
+        let email = getInputValue("#email2");
+        let age = getInputValue("#age2");
+        let selected = changeSelectedValue(getInputValue("#selectOption2"));
+    
+        let convertStudentToString = `{"name":"${name}","address":"${address}","phone":"${phone}","email":"${email}","age":"${age}","job":"${selected}"}`;
+        let editedStudent = JSON.parse(convertStudentToString); //convert String to JSON
+        Student.edit(index, editedStudent);  
+        Student.save();
+        window.location.reload();
+    }      
 }
 
 // copy student info
@@ -815,8 +860,6 @@ function selectItemBox (index) {
       //  console.log(getContainer[index]);
 }
 
-
-let ffff = document.getElementById("undo-deleted-item");
 function deteteSelectedStudents (filtedArrayCopy) {
 
     nerS = Student.list;
@@ -902,9 +945,15 @@ function download(text, name, type) {
 
 document.getElementById("remove-all-students").addEventListener("click", removeAllStudent);
 function removeAllStudent () {
-    localStorage.removeItem(storeKey);
+    let ner = Student.list;
+    const jsonData = JSON.stringify(ner);
+    localStorage.setItem("backup", jsonData);
+    Student.changeData = [];
+    Student.save();
     window.location.reload();
 }
+
+document.getElementById("restore-default").addEventListener("click", restoreAllDeleteditems);
 
 let rightSetting = document.getElementById("right-setting");
 let openSetting = document.getElementById("open-setting");
@@ -931,3 +980,4 @@ function openRightSetting() {
 
     
 }
+
