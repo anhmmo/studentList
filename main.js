@@ -340,7 +340,7 @@ function onEditStudent(index) {
     }
 
     function checkAdressFieldCorrect () {
-        if(addressInput.value.length > 0) {
+        if(addressInput.value.length > 5) {
             document.getElementById("submit2").style.backgroundColor = "red";
             addressInput.style.borderColor = "green";
             icon4.style.visibility = "hidden";
@@ -353,6 +353,10 @@ function onEditStudent(index) {
             icon4.style.visibility = "visible";
             document.getElementById("submit2").disabled = true;
         }
+    }
+
+    function checkPhoneFieldCorrect() {
+
     }
     
 
