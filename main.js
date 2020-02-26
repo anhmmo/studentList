@@ -211,30 +211,6 @@ function renderStudents() {
         listItem.appendChild(itembox);
     }
 }
-/*
-<div class="item__box">
-    <div class="item__box--info">
-        <p>Name: Anhmmo</p>
-        <p>Address : kirstin 2 h 6</p>
-        <p>Phone : 0025254252</p>
-        <p>Email: anhmmo@gmail.com</p>
-        <p>Age: 99</p>
-        <p>Job : Software Developer</p>
-    </div>
-    <div>
-        <input class="myInput" type="text" value="Anhmmo, kirstin 2 h 6, 0025254252, anhmmo@gmail.com, 99, Software Developer" id="myInput0">
-        <div id="copiedStudent0" class="copyStudent">Copy Student</div>
-    </div>
-    <div class="item__box--icon">
-        <i id="delete0" class="deleteInfo fas fa-trash-alt" onclick="onDeleteStudent(0)" aria-hidden="true"></i>
-        <i id="edit0" class="editInfo fas fa-edit" onclick="onEditStudent(0)" aria-hidden="true"></i>
-        <i id="copy0" class="copyIcon fab fa-creative-commons-share" onclick="onCopyStudentInfo(0)" aria-hidden="true"></i>
-        <i id="info0" class="infoIcon fas fa-info-circle" onclick="onGetInfoStudent(0)" aria-hidden="true"></i>
-    </div>
-    <i class="iconcircle fas fa-circle" aria-hidden="true"></i>
-    <i class="iconcircle2 fas fa-circle" aria-hidden="true"></i>
-</div>
-*/
 
 //delete item
 function onDeleteStudent(index) {
