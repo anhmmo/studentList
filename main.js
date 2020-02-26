@@ -1001,6 +1001,7 @@ function removeAllStudent () {
     window.location.reload();
 }
 
+// restore all students from differences versions
 document.getElementById("restore-default").addEventListener("click", restoreAllDeleteditems);
 
 let rightSetting = document.getElementById("right-setting");
