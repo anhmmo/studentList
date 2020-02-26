@@ -1009,6 +1009,8 @@ let saveFile = document.getElementById("save-file");
 let removeAll = document.getElementById("remove-all-students");
 let restoreDefault = document.getElementById("restore-default");
 
+// open right setting section
+
 openSetting.addEventListener("click", openRightSetting);
 function openRightSetting() {
     if(rightSetting.getAttribute("class") === "right-setting" || rightSetting.getAttribute("class") === "right-setting right-setting--hide") {
