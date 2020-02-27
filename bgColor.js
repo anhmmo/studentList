@@ -14,14 +14,6 @@ function openColorMenuBox() {
     } 
 }
 
-//change background color function 
-function setFirstTimeBackgroundColor () {
-    const colorNumber = JSON.stringify("white");
-    localStorage.setItem(storeColor, colorNumber);
-    let colorParse = JSON.parse(colorNumber);
-    document.body.style.backgroundColor = colorParse;
-    return colorParse;
-}
 
 
 

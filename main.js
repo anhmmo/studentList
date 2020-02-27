@@ -220,24 +220,7 @@ function renderStudents() {
 
 // copy student info
 
-function onCopyStudentInfo(info){
-    preventItemBoxEventInvoked (info);
-    let copyText = document.getElementById("myInput" + info);
-    copyText.className = "myInput2";
-    copyText.select();
-    copyText.setSelectionRange(0, 99999)
-    document.execCommand("copy");
-    /* Copy the text inside the text field */
-    let studentInfo = document.getElementById("copiedStudent" + info);
-    studentInfo.className = "copiedStudent";
-    setTimeout(function(){
-        studentInfo.className = "copyStudent";
-        copyText.className = "myInput";
-        saveScrollNumber(info);
-        window.location.reload();
-    }, 600);
-    
-}
+
 
 //popup close click
 document.getElementById("popup-close").addEventListener("click", closeBtn);
@@ -249,21 +232,7 @@ function closeBtn(){
 //info--popup--student
 
 let timeOutF;
-function onGetInfoStudent(index){
-    preventItemBoxEventInvoked (index);
-    let popup = document.getElementById("student__popup");
-    let createH2 = document.createElement("h2");
-    if(Student.list[index].name=="")
-    {
-        Student.list[index].name = "student name";
-    }
-    createH2.innerHTML = Student.list[index].name;
-    popup.insertBefore(createH2, popup.childNodes[0]);
-    
-    popup.className = "student__popup";
-    saveScrollNumber(index);
-    preventOtherFunctionByDefault ();
-}
+
 
 if(screen.height<605){
     document.getElementById("hide-this-gallery").style.visibility = "hidden";
@@ -375,21 +344,9 @@ function openImage(luku) {
         }, 3000);
 }
 
-//this function prevent other event working when an popup open
 
-function preventOtherFunctionByDefault () {
-    
-    for (let index = 0; index < Student.list.length; index++) {
-        document.getElementById("delete"+index).onclick = "";
-        document.getElementById("edit"+index).onclick = "";
-        document.getElementById("copy"+index).onclick = "";
-        document.getElementById("info"+index).onclick = "";
-    }
-    document.getElementById("submit").removeEventListener("click",submitClickHandle);
-    document.getElementById("submit").addEventListener("click", function(event){
-    event.preventDefault()
-    });
-}
+
+
 
 
 
@@ -628,6 +585,15 @@ function getBackgroundColor () {
     document.body.style.backgroundColor = colorParse;
     return colorParse;
 }
+//change background color function 
+function setFirstTimeBackgroundColor () {
+    const colorNumber = JSON.stringify("white");
+    localStorage.setItem(storeColor, colorNumber);
+    let colorParse = JSON.parse(colorNumber);
+    document.body.style.backgroundColor = colorParse;
+    return colorParse;
+}
+
 //scroll to top icon view
 let iconToTheTop = document.getElementById("toTheTop");
 iconToTheTop.style.display = "none";
