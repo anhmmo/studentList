@@ -1,3 +1,4 @@
+//edit item
 function onEditStudent(index) {
     preventItemBoxEventInvoked (index);
     document.getElementById("popup-section").className = "edit__popup--open";

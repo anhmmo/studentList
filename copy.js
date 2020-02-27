@@ -1,3 +1,4 @@
+// copy student info
 function onCopyStudentInfo(info){
     preventItemBoxEventInvoked (info);
     let copyText = document.getElementById("myInput" + info);

@@ -1,3 +1,4 @@
+//delete item
 function onDeleteStudent(index) {
     preventItemBoxEventInvoked (index);
     saveScrollNumber(index);
