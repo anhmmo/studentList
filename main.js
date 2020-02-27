@@ -221,14 +221,7 @@ function renderStudents() {
     }
 }
 
-
-
-
-
-
-
-
-//other need function
+//other dependencies function
 
 function changeSelectedValue(getValue) {
     switch(getValue){
@@ -273,14 +266,10 @@ function getInputValue(selector){
     return inputValue.value;
 }
 
-
-
-
 let validateEmail = email => (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) ? true : false;
-
 let validateName = name => (/^[a-zA-Z ]{2,30}$/.test(name)) ? true: false;
-
 let validateAge = age => age > 17 && age.length < 3 ? true: false;
+
 // color menu box
 function getBackgroundColor () {
     let currentBackgroundColor = localStorage.getItem(storeColor);
@@ -288,6 +277,7 @@ function getBackgroundColor () {
     document.body.style.backgroundColor = colorParse;
     return colorParse;
 }
+
 //set default background color
 function setFirstTimeBackgroundColor () {
     const colorNumber = JSON.stringify("white");
@@ -296,9 +286,6 @@ function setFirstTimeBackgroundColor () {
     document.body.style.backgroundColor = colorParse;
     return colorParse;
 }
-
-
-
 
 //delete all person icon
 let nerS;
@@ -374,8 +361,6 @@ function unlockItemBoxEventInvoked (index) {
     getContainer[index].onclick = "selectItemBox" + index; 
 }
 
-
-
 let restoreD = document.getElementById("restore-deleted");
 restoreD.addEventListener("click", restoreAllDeleteditems);
 
@@ -390,9 +375,7 @@ function restoreAllDeleteditems() {
     }
     window.location.reload();
 }
-
-
-// add button when clicked
+// add form form mobile version
 document.getElementById("add-form-open").addEventListener("click", openAddForm);
 
 function openAddForm () {
