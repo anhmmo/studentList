@@ -4,17 +4,24 @@ const storeColor = "COLOR";
 const storeScrollKey = "SCROLL";
 
 window.onload = checkExitsLocalStorage();
-let thisSaveScrollNumber = 0; //this variables save number where position of item is.
+//this variables save number where position of item is.
+let thisSaveScrollNumber = 0; 
 
-//check if localStorage not exits, then create new localStorage
+//If localStorage not exists, then create new localStorage.
 function checkExitsLocalStorage() {
-    let localStorageLength = localStorage.length; //return 0 if not exits, if exists localStorageLength = 1.
-    if(localStorageLength < 2){ // if COLOR not exists.
-        setFirstTimeBackgroundColor(); //create new default color: white
+    //return 0 if not exists, if exists localStorageLength > 1 or = 1.
+    let localStorageLength = localStorage.length; 
+    // if COLOR not exists.
+    if(localStorageLength < 2) { 
+        //create new default color: white.
+        setFirstTimeBackgroundColor(); 
     }
-    getBackgroundColor(); // COLOR key was created, get current Backgroundcolor
+    // COLOR key was created and has own color so we can get current Backgroundcolor.
+    getBackgroundColor(); 
+
     let studentDataIndex = false;
 
+    //If STUDENT_DATA not exists set studentDataIndex = false, else studentDataIndex = true.
     if(localStorage.STUDENT_DATA){
             studentDataIndex = true;
     }
@@ -25,15 +32,17 @@ function checkExitsLocalStorage() {
         localStorage.setItem("STUDENT_DATA", jsonData);
     }
 
+    //If storekey "backup" found
     if(localStorage.backup) {
-        let arr1 = localStorage.getItem("backup");
-        let arr2 = JSON.parse(arr1);
-        let arr3 = localStorage.getItem("STUDENT_DATA");
-        let arr4 = JSON.parse(arr3);
+        let backupStudent = localStorage.getItem("backup");
+        let convertBackup = JSON.parse(backupStudent);
+        let studentData = localStorage.getItem("STUDENT_DATA");
+        let convertData = JSON.parse(studentData);
         let restoreIcon = document.getElementById("undo-deleted-item");
     
-        if(localStorageLength>=3 && (arr2.length > arr4.length)){
-        restoreIcon.style.display = "block";
+        //restore icon will show when some icons deleted
+        if(localStorageLength >= 3 && (convertBackup.length > convertData.length)){
+            restoreIcon.style.display = "block";
         } 
     }
     
@@ -279,7 +288,7 @@ function getBackgroundColor () {
     document.body.style.backgroundColor = colorParse;
     return colorParse;
 }
-//change background color function 
+//set default background color
 function setFirstTimeBackgroundColor () {
     const colorNumber = JSON.stringify("white");
     localStorage.setItem(storeColor, colorNumber);
