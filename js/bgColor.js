@@ -14,9 +14,6 @@ function openColorMenuBox() {
     } 
 }
 
-
-
-
 let redColor = document.getElementById("changeColorRed");
 //it look same redColor.addEventListener("click", function(){ changeColor("#F44336"); });
 redColor.addEventListener("click", () => changeColor("#F44336"));
